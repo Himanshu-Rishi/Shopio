@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500;700&display=swap');
+
+
+.website__logo
+{
+    font-family: 'Josefin Sans', sans-serif;
+    color: black;
+    text-align: center;
+    font-weight: 700;
+}
+
+.header-alert-news
+{
+    text-align: center;
+}
