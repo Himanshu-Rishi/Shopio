@@ -1,5 +1,5 @@
 import React from "react";
-import Item from "./ProductItem/Item";
+import Item from "./MainProductCard";
 
 const Product = (props) => {
   return (
@@ -1571,8 +1571,10 @@ const Product = (props) => {
               <h2 className="title">New Products</h2>
 
               <div className="product-grid">
-                {/* {props.product &&
-                  props.product.map((product) => <Item product={product} />)} */}
+                {props.product &&
+                  props.product.map((product) => (
+                    <Item product={product} key={product._id} />
+                  ))}
               </div>
             </div>
           </div>

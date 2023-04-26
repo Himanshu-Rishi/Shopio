@@ -7,11 +7,11 @@ const Item = (props) => {
     color: "lightgray",
     activeColor: "rgb(246, 163, 85)",
     size: 17,
-    value: props.product.rating,
+    value: props.product.ratings,
     isHalf: true,
   };
   return (
-    <Link to={props.product._id}>
+    <Link to={`/product/${props.product._id}`} target="_blank">
       <div className="showcase">
         <div className="showcase-banner">
           <img

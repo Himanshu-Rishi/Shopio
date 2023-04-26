@@ -1,5 +1,13 @@
 import axios from 'axios'
-import { ALL_PRODUCT_FAIL, ALL_PRODUCT_REQUEST, ALL_PRODUCT_SUCCESS, CLEAR_ERRORS } from "../constants/productConstants"
+import {
+  ALL_PRODUCT_FAIL,
+  ALL_PRODUCT_REQUEST,
+  ALL_PRODUCT_SUCCESS,
+  CLEAR_ERRORS,
+  PRODUCT_DEATILS_FAIL,
+  PRODUCT_DEATILS_SUCCESS,
+  PRODUCT_DEATILS_REQUEST,
+} from "../constants/productConstants";
 export const getProduct = ()=>async(dispatch)=>
 {
     try {
@@ -18,6 +26,24 @@ export const getProduct = ()=>async(dispatch)=>
         })
     }
 }
+
+export const getProductDetails = (id) => async (dispatch) => {
+  try {
+    dispatch({
+      type: PRODUCT_DEATILS_REQUEST,
+    });
+    const { data } = await axios.get(`/api/v1/product/${id}`);
+    dispatch({
+      type: PRODUCT_DEATILS_SUCCESS,
+      payload: data,
+    });
+  } catch (error) {
+    dispatch({
+      type: PRODUCT_DEATILS_FAIL,
+      payload: error.response.data.message,
+    });
+  }
+};
 
 export const clearErrors = ()=>async(dispatch)=>
 {

@@ -10,3 +10,12 @@ https://github.com/lassiecoder/E-CommerceWebsite
 
 https://casmart.vercel.app
 https://github.com/codewithsadee/casmart
+
+
+Have to add category for each product
+and for each category we have to create count for that category
+and fetch only those category products.
+
+have to create recommended products for each product by using that category keyword.
+
+Have to create favourite button in category.
