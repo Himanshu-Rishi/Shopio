@@ -7,6 +7,9 @@ import { useSelector, useDispatch } from "react-redux";
 import Loader from "../layout/Loader/Loader";
 import { toast, Toaster } from "react-hot-toast";
 import Helmet from "react-helmet";
+import Header from "../layout/Header/Header";
+import Footer from "../layout/Footer/Footer";
+import Testinomial from "../layout/Footer/Testinomial";
 const Home = (props) => {
   const dispatch =  useDispatch();
   const { loading, error, products } = useSelector((state) => state.products);
@@ -27,12 +30,13 @@ const Home = (props) => {
         <title>{props.page}</title>
       </Helmet>
       <Toaster position="top-center" reverseOrder={false} />
+      <Header />
       <div className="banner">
         <div className="container">
           <div className="slider-container has-scrollbar">
             <div className="slider-item">
               <img
-                src="./assets/images/banner-1.jpg"
+                src="./assets/images/banner-2.jpg"
                 alt="women's latest fashion sale"
                 className="banner-img"
               />
@@ -40,7 +44,7 @@ const Home = (props) => {
               <div className="banner-content">
                 <p className="banner-subtitle">Trending item</p>
 
-                <h2 className="banner-title">Women's latest fashion sale</h2>
+                <h2 className="banner-title"> latest fashion sale</h2>
 
                 <p className="banner-text">
                   starting at ₹ <b>200</b>
@@ -54,7 +58,7 @@ const Home = (props) => {
 
             <div className="slider-item">
               <img
-                src="./assets/images/banner-2.jpg"
+                src="./assets/images/banner-1.jpg"
                 alt="modern sunglasses"
                 className="banner-img"
               />
@@ -98,6 +102,7 @@ const Home = (props) => {
           </div>
         </div>
       </div>
+
       {loading ? (
         <Loader />
       ) : (
@@ -106,6 +111,8 @@ const Home = (props) => {
           <Product product={products} />
         </main>
       )}
+      <Testinomial />
+      <Footer />
     </Fragment>
   );
 };

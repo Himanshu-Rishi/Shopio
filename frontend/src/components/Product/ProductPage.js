@@ -10,6 +10,9 @@ import ReactStars from "react-rating-stars-component"
 import "./ProductPage.css";
 import Carousel from "react-material-ui-carousel";
 import Review from "./Review/Review";
+import Header from "../layout/Header/Header";
+import Testinomial from "../layout/Footer/Testinomial";
+import Footer from "../layout/Footer/Footer";
 const SpecificProduct = (props) => {
   const dispatch = useDispatch();
 
@@ -36,6 +39,7 @@ const SpecificProduct = (props) => {
         <title>{props.page} Page</title>
       </Helmet>
       <Toaster position="top-center" reverseOrder={false} />
+      <Header />
       {loading ? (
         <Loader />
       ) : (
@@ -160,6 +164,8 @@ const SpecificProduct = (props) => {
           </div>
         </>
       )}
+      <Testinomial />
+      <Footer />
     </>
   );
 };

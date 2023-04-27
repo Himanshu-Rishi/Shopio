@@ -1,15 +1,13 @@
 import React from "react";
-import Header from "./components/layout/Header/Header";
-import Footer from "./components/layout/Footer/Footer";
 import Home from "./components/home/Home";
-import Testinomial from "./components/layout/Footer/Testinomial";
-import { BrowserRouter, Route, Routes} from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ProductPage from "./components/Product/ProductPage";
 import Products from "./components/AllProduct/Products";
+import Login from "./components/User/Login";
+import SignUp from "./components/User/SignUp";
 const App = () => {
   return (
     <BrowserRouter>
-      <Header />
       <Routes>
         <Route exact path="/" element={<Home page="Shopio" />} />
         <Route
@@ -26,9 +24,9 @@ const App = () => {
           path="/products/:keyword"
           element={<Products page="Search Products" />}
         />
+        <Route exact path="/login" element={<Login />} />
+        <Route exact path="/signup" element={<SignUp />} />
       </Routes>
-      <Testinomial />
-      <Footer />
     </BrowserRouter>
   );
 };

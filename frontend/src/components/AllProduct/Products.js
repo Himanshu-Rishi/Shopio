@@ -10,6 +10,9 @@ import Pagination from "react-js-pagination";
 import "./Products.css";
 import Item from "../home/HomeProduct/MainProductCard";
 import { Slider, Typography } from "@mui/material";
+import Header from "../layout/Header/Header";
+import Testinomial from "../layout/Footer/Testinomial";
+import Footer from "../layout/Footer/Footer";
 const Products = (props) => {
   const { keyword } = useParams();
   const dispatch = useDispatch();
@@ -122,6 +125,7 @@ const Products = (props) => {
         <title>{props.page}</title>
       </Helmet>
       <Toaster position="top-center" reverseOrder={false} />
+      <Header />
       {loading ? (
         <Loader />
       ) : (
@@ -830,6 +834,8 @@ const Products = (props) => {
           />
         </div>
       )}
+      <Testinomial />
+      <Footer />
     </Fragment>
   );
 };
