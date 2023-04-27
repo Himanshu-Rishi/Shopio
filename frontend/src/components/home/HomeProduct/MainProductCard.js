@@ -21,33 +21,40 @@ const Item = (props) => {
             className="product-img default"
           />
           <img
-            src="./assets/images/products/jacket-4.jpg"
+            src={props.product.images[1].url}
             alt="Mens Winter Leathers Jackets"
             width="300"
             className="product-img hover"
           />
-
-          <p className="showcase-badge angle green">15%</p>
-          {/* <p className="showcase-badge angle black">sale</p> */}
-          {/* <p className="showcase-badge angle pink">new</p> */}
+          {props.product.tag === "new" ? (
+            <p className="showcase-badge angle pink">new</p>
+          ) : null}
+          {props.product.tag === "sale" ? (
+            <p className="showcase-badge angle black">sale</p>
+          ) : null}
+          {props.product.tag === "15" ? (
+            <p className="showcase-badge angle green">
+              {props.product.tag}%
+            </p>
+          ) : null}
 
           <div className="showcase-actions">
-            <button className="btn-action">
+            {/* <button className="btn-action">
               <ion-icon name="heart-outline"></ion-icon>
-            </button>
+            </button> */}
 
             <button className="btn-action">
               <ion-icon name="eye-outline"></ion-icon>
             </button>
 
-            <button className="btn-action">
+            {/* <button className="btn-action">
               <ion-icon name="bag-add-outline"></ion-icon>
-            </button>
+            </button> */}
           </div>
         </div>
 
         <div className="showcase-content">
-          <p className="showcase-category">Jacket</p>
+          <p className="showcase-category">{props.product.category}</p>
 
           <h3 className="showcase-title">{props.product.name}</h3>
           <div
@@ -66,7 +73,7 @@ const Item = (props) => {
 
           <div className="price-box">
             <p className="price">₹{props.product.price}</p>
-            <del>$75.00</del>
+            <del>₹{props.product.orignalPrice}</del>
           </div>
         </div>
       </div>

@@ -38,10 +38,9 @@ const productschema = new mongoose.Schema({
     default: 1,
     maxLength: [3, "Stock cannot exceeded more than this!"],
   },
-  numOfReviews:
-  {
+  numOfReviews: {
     type: Number,
-    default: 0
+    default: 0,
   },
   reviews: [
     {
@@ -72,6 +71,13 @@ const productschema = new mongoose.Schema({
   created_at: {
     type: Date,
     default: Date.now,
+  },
+  tag: {
+    type: String,
+  },
+  orignalPrice: {
+    type: Number,
+    maxLength: [6, "Price cannot exceeded more!"],
   },
 });
 

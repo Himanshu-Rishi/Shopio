@@ -1,15 +1,14 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { Fragment, useEffect } from "react";
 import Product from "./HomeProduct/HomeProduct";
-import Category from "../layout/Header/Category";
+import Category from "../layout/Header/HeaderCategory";
 import { clearErrors, getProduct } from "../../action/productAction";
 import { useSelector, useDispatch } from "react-redux";
 import Loader from "../layout/Loader/Loader";
 import { toast, Toaster } from "react-hot-toast";
 import Helmet from "react-helmet";
 const Home = (props) => {
-  let dispatch;
-  dispatch = useDispatch();
+  const dispatch =  useDispatch();
   const { loading, error, products } = useSelector((state) => state.products);
   useEffect(() => {
     dispatch(getProduct());

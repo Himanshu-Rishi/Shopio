@@ -124,3 +124,13 @@ hr
     display: flex;
     justify-content: center;
 }
+
+.category
+{
+    margin-bottom: 3rem;
+}
+
+.category_box
+{
+    width: max-content;
+}

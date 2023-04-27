@@ -801,7 +801,7 @@ const Products = (props) => {
                       </div>
                     ) : (
                       <div className="no_product">
-                        <h1>No Products</h1>
+                        <h1>No such Products</h1>
                         <i className="uil uil-silent-squint"></i>
                       </div>
                     )}

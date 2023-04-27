@@ -1,4 +1,4 @@
-import axios from 'axios'
+import axios from "axios";
 import {
   ALL_PRODUCT_FAIL,
   ALL_PRODUCT_REQUEST,
@@ -55,9 +55,9 @@ export const getProductDetails = (id) => async (dispatch) => {
   }
 };
 
-export const clearErrors = ()=>async(dispatch)=>
-{
-    dispatch({
-        type: CLEAR_ERRORS
-    })
-}
+
+export const clearErrors = () => async (dispatch) => {
+  dispatch({
+    type: CLEAR_ERRORS,
+  });
+};
