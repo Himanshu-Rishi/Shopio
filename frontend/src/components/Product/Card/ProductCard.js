@@ -3,7 +3,7 @@ import ReactStars from "react-rating-stars-component";
 import "./ProductCard.css";
 import Review from "../Review/Review";
 const ProductPage = ({ product }) => {
-  console.log(product.ratings);
+  console.log(product.stock);
   return (
     <>
       <div className="ProductDetails container">
@@ -47,7 +47,7 @@ const ProductPage = ({ product }) => {
                 <button className="quantity__button">+</button>
               </div>
               <button
-                disabled={product.Stock < 1 ? true : false}
+                disabled={product.stock < 1 ? true : false}
                 className="add__button"
               >
                 Add to Cart
@@ -57,12 +57,12 @@ const ProductPage = ({ product }) => {
             <p>
               Status:
               <b
-                className={product.Stock < 1 ? "redColor" : "greenColor"}
+                className={product.stock < 1 ? "redColor" : "greenColor"}
                 style={{
-                  color: product.Stock < 1 ? "#c16469" : "#46c288",
+                  color: product.stock < 1 ? "#c16469" : "#46c288",
                 }}
               >
-                {product.Stock < 1 ? " OutOfStock" : " InStock"}
+                {product.stock < 1 ? " Out Of Stock" : " In Stock"}
               </b>
             </p>
           </div>

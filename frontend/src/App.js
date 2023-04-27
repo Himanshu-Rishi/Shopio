@@ -2,9 +2,10 @@ import React from "react";
 import Header from "./components/layout/Header/Header";
 import Footer from "./components/layout/Footer/Footer";
 import Home from "./components/home/Home";
-import Testinomial from "./components/Testinomial";
+import Testinomial from "./components/layout/Footer/Testinomial";
 import { BrowserRouter, Route, Routes} from "react-router-dom";
 import ProductPage from "./components/Product/ProductPage";
+import Products from "./components/AllProduct/Products";
 const App = () => {
   return (
     <BrowserRouter>
@@ -15,6 +16,15 @@ const App = () => {
           exact
           path="/product/:id"
           element={<ProductPage page="Product" />}
+        />
+        <Route
+          exact
+          path="/products"
+          element={<Products page="All Products" />}
+        />
+        <Route
+          path="/products/:keyword"
+          element={<Products page="Search Products" />}
         />
       </Routes>
       <Testinomial />

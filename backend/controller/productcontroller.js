@@ -4,14 +4,24 @@ const async_error = require("../middleware/catchasyncerror");
 const ApiFeatures = require("../utils/apifeatures");
 
 exports.getallproducts = async_error(async (req, res, next) => {
-  const item_per_page = 5;
+  const itemPerPage = 12;
   const productCount = await Product.countDocuments();
   const apifeature = new ApiFeatures(Product.find(), req.query)
     .search()
-    .filter()
-    .pagination(item_per_page)
-  const products = await apifeature.query;
-  res.status(200).json({ success: true, products, productCount });
+    .filter();
+    let products = await apifeature.query;
+    let filteredProductsCount = products.length
+    apifeature.pagination(itemPerPage);
+    products = await apifeature.query.clone();
+  res
+    .status(200)
+    .json({
+      success: true,
+      products,
+      productCount,
+      itemPerPage,
+      filteredProductsCount,
+    });
 });
 
 exports.getproducts = async_error(async (req, res, next) => {

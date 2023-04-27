@@ -552,7 +552,7 @@ const Product = (props) => {
 
             {/* have to add price filter here */}
 
-            {/* <div className="product-showcase">
+            <div className="product-showcase">
 
             <h3 className="showcase-heading">best sellers</h3>
 
@@ -681,7 +681,7 @@ const Product = (props) => {
 
             </div>
 
-          </div> */}
+          </div>
           </div>
 
           <div className="product-box">
@@ -1153,7 +1153,6 @@ const Product = (props) => {
                   </div>
                 </div>
               </div>
-
               <div className="product-showcase">
                 <h2 className="title">Top Rated</h2>
 

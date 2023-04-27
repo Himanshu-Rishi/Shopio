@@ -1,6 +1,21 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useNavigate } from "react-router-dom";
 import "./Header.css"
 const Header = () => {
+  const [keyword, setkeyword] = useState("")
+  const history = useNavigate();
+  const searchSubmitHandler = (e)=>
+  {
+    e.preventDefault();
+    if(keyword.trim())
+    {
+      history(`/products/${keyword}`)
+    }
+    else
+    {
+      history('/products')
+    }
+  }
   return (
     <header>
       <div className="header-top">
@@ -60,21 +75,23 @@ const Header = () => {
       <div className="header-main">
         <div className="container">
           <a href="/" className="header-logo">
-            {/* <img src="./assets/images/logo/logo.svg" alt="Anon's logo" width="120" height="36" /> */}
             <h1 className="website__logo">Shopio</h1>
           </a>
 
           <div className="header-search-container">
-            <input
-              type="search"
-              name="search"
-              className="search-field"
-              placeholder="Enter your product name..."
-            />
+            <form onSubmit={searchSubmitHandler}>
+              <input
+                type="search"
+                name="search"
+                className="search-field"
+                placeholder="Enter your product name..."
+                onChange={(e)=>setkeyword(e.target.value)}
+              />
 
-            <button className="search-btn">
-              <ion-icon name="search-outline"></ion-icon>
-            </button>
+              <button type='submit' value="Search" className="search-btn">
+                <ion-icon name="search-outline"></ion-icon>
+              </button>
+            </form>
           </div>
 
           <div className="header-user-actions">

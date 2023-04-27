@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { clearErrors, getProductDetails } from "../../action/productAction";
@@ -5,13 +6,12 @@ import { useParams } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import Loader from "../layout/Loader/Loader";
 import { toast, Toaster } from "react-hot-toast";
-import ProductCard from './Card/ProductCard'
+import ProductCard from "./Card/ProductCard";
 const SpecificProduct = (props) => {
   const dispatch = useDispatch();
   const { loading, error, product } = useSelector(
     (state) => state.productDetails
   );
-  const text = props.sync;
   let { id } = useParams();
   useEffect(() => {
     dispatch(getProductDetails(id));
