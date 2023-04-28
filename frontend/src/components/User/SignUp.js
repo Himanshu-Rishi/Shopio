@@ -32,7 +32,6 @@ const SignUp = () => {
     dispatch(register(myForm));
   };
 
-
   // error
   useEffect(() => {
     if (error) {
