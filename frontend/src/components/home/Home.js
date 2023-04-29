@@ -11,7 +11,7 @@ import Header from "../layout/Header/Header";
 import Footer from "../layout/Footer/Footer";
 import Testinomial from "../layout/Footer/Testinomial";
 const Home = (props) => {
-  const dispatch =  useDispatch();
+  const dispatch = useDispatch();
   const { loading, error, products } = useSelector((state) => state.products);
   useEffect(() => {
     dispatch(getProduct());
@@ -36,18 +36,18 @@ const Home = (props) => {
           <div className="slider-container has-scrollbar">
             <div className="slider-item">
               <img
-                src="./assets/images/banner-2.jpg"
-                alt="women's latest fashion sale"
+                src="https://res.cloudinary.com/dbymhpzhq/image/upload/v1682754523/Banner%20Images/banner-2_v5rlzk.jpg"
+                alt="new fashion summer sale"
                 className="banner-img"
               />
 
               <div className="banner-content">
-                <p className="banner-subtitle">Trending item</p>
+                <p className="banner-subtitle">Sale Offer</p>
 
-                <h2 className="banner-title"> latest fashion sale</h2>
+                <h2 className="banner-title">New fashion summer sale</h2>
 
                 <p className="banner-text">
-                  starting at ₹ <b>200</b>
+                  starting at ₹ <b>299</b>
                 </p>
 
                 <a href="/" className="banner-btn">
@@ -58,7 +58,35 @@ const Home = (props) => {
 
             <div className="slider-item">
               <img
-                src="./assets/images/banner-1.jpg"
+                src="https://res.cloudinary.com/dbymhpzhq/image/upload/v1682753601/Banner%20Images/banner-3_fzgrw7.png"
+                alt="women's latest fashion sale"
+                className="banner-img"
+              />
+
+              <div className="banner-content">
+                <p className="banner-subtitle" style={{ color: "gray" }}>
+                  Trending item
+                </p>
+
+                <h2 className="banner-title"> latest fashion sale</h2>
+
+                <p className="banner-text">
+                  starting at ₹ <b>200</b>
+                </p>
+
+                <a
+                  href="/"
+                  className="banner-btn"
+                  style={{ backgroundColor: "gray" }}
+                >
+                  Shop now
+                </a>
+              </div>
+            </div>
+
+            <div className="slider-item">
+              <img
+                src="https://res.cloudinary.com/dbymhpzhq/image/upload/v1682754523/Banner%20Images/banner-1_xpbaol.jpg"
                 alt="modern sunglasses"
                 className="banner-img"
               />
@@ -80,7 +108,7 @@ const Home = (props) => {
 
             <div className="slider-item">
               <img
-                src="./assets/images/banner-3.jpg"
+                src="https://res.cloudinary.com/dbymhpzhq/image/upload/v1682753600/Banner%20Images/banner-2_ubrb9c.png"
                 alt="new fashion summer sale"
                 className="banner-img"
               />
