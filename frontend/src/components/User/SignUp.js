@@ -14,7 +14,7 @@ const SignUp = () => {
   );
   const [avatar, setavatar] = useState("");
   const [avatarPreview, setavatarPreview] = useState(
-    "./assets/images/User/user.png"
+    "https://res.cloudinary.com/dbymhpzhq/image/upload/v1682878212/Logo/user-2_on3crp.png"
   );
   const [user, setuser] = useState({
     name: "",

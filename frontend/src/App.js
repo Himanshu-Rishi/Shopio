@@ -10,6 +10,7 @@ import { loadUser } from "./action/userAction";
 import { useSelector } from "react-redux";
 import Profile from "./components/User/Profile";
 import ProtectedRoute from './components/Middleware/ProtectedRoute'
+import UpdateProfile from "./components/User/UpdateProfile";
 const App = () => {
   const { user, isAuthenticated } = useSelector((state) => state.user);
   useEffect(() => {
@@ -66,6 +67,15 @@ const App = () => {
           element={
             <ProtectedRoute>
               <Profile/>
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          exact
+          path="/profile/update"
+          element={
+            <ProtectedRoute>
+              <UpdateProfile/>
             </ProtectedRoute>
           }
         />

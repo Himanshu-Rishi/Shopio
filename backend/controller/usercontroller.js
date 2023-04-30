@@ -179,13 +179,28 @@ exports.updateUserPassword = async_error(async(req, res, next)=>
 })
 
 exports.updateProfile = async_error(async (req, res, next) => {
-  const newUserDate = {
+  const newuserData = {
     name: req.body.name,
     email: req.body.email
   }
-    // pending task cloudinary
+    if(req.body.avatar !== "")
+    {
+      const user = await User.findById(req.user.id);
+      const imageId = user.avatar.public_id;
+      await cloudinary.v2.uploader.destroy(imageId);
 
-    const user = await User.findByIdAndUpdate(req.user.id, newUserDate, {
+      const mycloud = await cloudinary.v2.uploader.upload(req.body.avatar, {
+        folder: "avatars",
+        width: 150,
+        crop: "scale",
+      });
+      newuserData.avatar = {
+        public_id: mycloud.public_id,
+        url: mycloud.secure_url,
+      };
+    }
+
+    const user = await User.findByIdAndUpdate(req.user.id, newuserData, {
       new: true,
       runValidators: true,
       useFindAndModify: false,
