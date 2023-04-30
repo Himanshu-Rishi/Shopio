@@ -1,0 +1,18 @@
+.profile__btn
+{
+    background: var(--background, var(--eerie-black));
+  color: var(--color, var(--white));
+  font-weight: var(--rishi_font_weight-600);
+  height: var(--height, 50px);
+  padding-inline: 40px;
+  border: 1px solid var(--border-color, var(--eerie-black));
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.profile__btn:hover
+{
+    background-color: white;
+    color: black;
+}

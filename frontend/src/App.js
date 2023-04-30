@@ -9,7 +9,7 @@ import store from "./Store";
 import { loadUser } from "./action/userAction";
 import { useSelector } from "react-redux";
 import Profile from "./components/User/Profile";
-
+import ProtectedRoute from './components/Middleware/ProtectedRoute'
 const App = () => {
   const { user, isAuthenticated } = useSelector((state) => state.user);
   useEffect(() => {
@@ -60,7 +60,15 @@ const App = () => {
         />
         <Route exact path="/login" element={<Login />} />
         <Route exact path="/signup" element={<SignUp />} />
-        <Route exact path="/account" element={<Profile />} />
+        <Route
+          exact
+          path="/account"
+          element={
+            <ProtectedRoute>
+              <Profile/>
+            </ProtectedRoute>
+          }
+        />
       </Routes>
     </BrowserRouter>
   );

@@ -3,44 +3,56 @@ import "./Footer.css";
 const Footer = () => {
   return (
     <>
-     <section className="footer__section newsletter">
+      <section className="footer__section newsletter">
         <div className="footer__container">
-
-          <div className="newsletter-card" >
-
+          <div className="newsletter-card">
             <h2 className="card-title">Subscribe Newsletter</h2>
 
             <p className="card-text">
-              Enter your email below to be the first to know about new collections and product launches.
+              Enter your email below to be the first to know about new
+              collections and product launches.
             </p>
 
             <form action="" className="card-form">
-
               <div className="input-wrapper">
                 <ion-icon name="mail-outline"></ion-icon>
 
-                <input type="email" name="emal" placeholder="Enter your email" required className="footer__input-field"/>
+                <input
+                  type="email"
+                  name="emal"
+                  placeholder="Enter your email"
+                  required
+                  className="footer__input-field"
+                />
               </div>
 
-              <button type="submit" className="footer__btn footer__btn-primary w-100">
+              <button
+                type="submit"
+                className="footer__btn footer__btn-primary w-100"
+              >
                 <span>Subscribe</span>
 
                 <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon>
               </button>
-
             </form>
-
           </div>
-
         </div>
       </section>
       <footer className="footer">
         <div className="footer-top">
           <div className="footer__container">
             <div className="footer-brand">
-              <a href="/" className="logo footer-list-title" style={{display: "flex", alignItems: "center"}}>
-                <img src="./assets/images/Shopio_logo.png" style={{width: "55px"}} alt="Casmart logo" />
-                <p style={{marginLeft: "6px"}}>Shopio</p>
+              <a
+                href="/"
+                className="logo footer-list-title"
+                style={{ display: "flex", alignItems: "center" }}
+              >
+                <img
+                  src="https://res.cloudinary.com/dbymhpzhq/image/upload/v1682849027/Logo/Shopio_Logo_kk6db2.png"
+                  style={{ width: "55px" }}
+                  alt="Casmart logo"
+                />
+                <p style={{ marginLeft: "6px" }}>Shopio</p>
               </a>
 
               <p className="footer-text">
