@@ -1,20 +1,14 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Box from "@mui/material/Box";
-import Avatar from "@mui/material/Avatar";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import ListItemIcon from "@mui/material/ListItemIcon";
-import AdminPanelSettingsIcon from "@mui/icons-material/AdminPanelSettings";
 import IconButton from "@mui/material/IconButton";
 import Tooltip from "@mui/material/Tooltip";
-import ListAltIcon from "@mui/icons-material/ListAlt";
-import ExitToAppIcon from "@mui/icons-material/ExitToApp";
+import LoginIcon from "@mui/icons-material/Login";
 import "./Header.css";
-import { Toaster, toast } from "react-hot-toast";
-import { useDispatch } from "react-redux";
-import { logout } from '../../../action/userAction'
-const Header = (props) => {
+const SignInHeader = (props) => {
   const history = useNavigate();
   const [keyword, setkeyword] = useState("");
   const searchSubmitHandler = (e) => {
@@ -25,25 +19,11 @@ const Header = (props) => {
       history("/products");
     }
   };
-  const dispatch = useDispatch();
 
-
-// button links
-function dashboard() {
-  history("/admin/dashboard");
-}
-
-function orders() {
-  history("/orders");
-}
-function account() {
-  history("/account");
-}
-function logoutUser() {
-  dispatch(logout());
-  toast.success("Logout Successfully");
-} 
-
+  // button links
+  function signin() {
+    history("/login");
+  }
 
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
@@ -56,7 +36,6 @@ function logoutUser() {
 
   return (
     <header>
-      <Toaster position="top-center" reverseOrder={false} />
       <div className="header-top">
         <div className="container">
           <ul className="header-social-container">
@@ -191,29 +170,11 @@ function logoutUser() {
                 transformOrigin={{ horizontal: "right", vertical: "top" }}
                 anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
               >
-                <MenuItem onClick={(handleClose, account)}>
-                  <Avatar alt="user_profile" src={props.user.avatar.url} />
-                  Profile
-                </MenuItem>
-                <MenuItem onClick={(handleClose, orders)}>
+                <MenuItem onClick={(handleClose, signin)}>
                   <ListItemIcon>
-                    <ListAltIcon fontSize="small" />
+                    <LoginIcon fontSize="small" />
                   </ListItemIcon>
-                  Orders
-                </MenuItem>
-                {props.user.role === "admin" && (
-                  <MenuItem onClick={(handleClose, dashboard)}>
-                    <ListItemIcon>
-                      <AdminPanelSettingsIcon fontSize="small" />
-                    </ListItemIcon>
-                    Admin
-                  </MenuItem>
-                )}
-                <MenuItem onClick={(handleClose, logoutUser)}>
-                  <ListItemIcon>
-                    <ExitToAppIcon fontSize="small" />
-                  </ListItemIcon>
-                  Logout
+                  Login
                 </MenuItem>
               </Menu>
             </React.Fragment>
@@ -801,4 +762,4 @@ function logoutUser() {
   );
 };
 
-export default Header;
+export default SignInHeader;

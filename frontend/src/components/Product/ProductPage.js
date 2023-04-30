@@ -13,9 +13,9 @@ import Review from "./Review/Review";
 import Header from "../layout/Header/Header";
 import Testinomial from "../layout/Footer/Testinomial";
 import Footer from "../layout/Footer/Footer";
+import SignInHeader from "../layout/Header/SignInHeader";
 const SpecificProduct = (props) => {
   const dispatch = useDispatch();
-
   const { loading, error, product, categoryProduct} = useSelector(
     (state) => state.productDetails
     );
@@ -32,18 +32,22 @@ const SpecificProduct = (props) => {
       dispatch(clearErrors());
     }
   }, [error]);
-  console.log(categoryProduct)
+  console.log(props.user)
   return (
     <>
       <Helmet>
         <title>{props.page} Page</title>
       </Helmet>
       <Toaster position="top-center" reverseOrder={false} />
-      <Header />
       {loading ? (
         <Loader />
       ) : (
         <>
+          {props.isAuthenticated ? (
+            <Header user={props.user} isAuthenticated={props.isAuthenticated} />
+          ) : (
+            <SignInHeader />
+          )}
           <div className="ProductDetails container">
             <Carousel className="carousel">
               {product.images &&
@@ -133,7 +137,7 @@ const SpecificProduct = (props) => {
               <div className="category-item-container has-scrollbar">
                 {categoryProduct &&
                   categoryProduct.map((product) => (
-                    <Link to={`/product/${product._id}`} target="_blank" >
+                    <Link to={`/product/${product._id}`} target="_blank">
                       <div className="category-item category_box">
                         <img
                           src={product.images[0].url}

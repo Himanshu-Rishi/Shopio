@@ -51,7 +51,7 @@ const LoginSignUp = () => {
           <div className="forms-container">
             <div className="signin-signup">
               <form action="#" className="sign-in-form" onSubmit={loginSubmit}>
-                <h2 className="title">Sign in</h2>
+                <h2 className="user__title">Sign in</h2>
                 <div className="input-field">
                   <i className="fas fa-user"></i>
                   <input

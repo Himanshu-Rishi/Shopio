@@ -81,7 +81,7 @@ const SignUp = () => {
                 onSubmit={registerSubmit}
                 encType="multipart/form-data"
               >
-                <h2 className="title">Sign up</h2>
+                <h2 className="user__title">Sign up</h2>
                 <div className="input-field__image">
                   <label
                     htmlFor="profile"

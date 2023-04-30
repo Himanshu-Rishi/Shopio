@@ -1,11 +1,12 @@
 import { CLEAR_ERRORS } from "../constants/productConstants";
-import { LOGIN_SUCCESS, LOGIN_FAIL, LOGIN_REQUEST, REGISTER_REQUEST, REGISTER_SUCCESS, REGISTER_FAIL } from "../constants/userConstants";
+import { LOGIN_SUCCESS, LOGIN_FAIL, LOGIN_REQUEST, REGISTER_REQUEST, REGISTER_SUCCESS, REGISTER_FAIL, LOAD_USER_REQUEST, LOAD_USER_SUCCESS, LOAD_USER_FAIL, LOGOUT_USER_SUCCESS, LOGOUT_USER_FAIL } from "../constants/userConstants";
 
 
 export const userReducer = (state = { user: {} }, action) => {
   switch (action.type) {
     case LOGIN_REQUEST:
     case REGISTER_REQUEST:
+    case LOAD_USER_REQUEST:
       return {
         loading: true,
         isAuthenticated: false,
@@ -13,11 +14,12 @@ export const userReducer = (state = { user: {} }, action) => {
 
     case LOGIN_SUCCESS:
     case REGISTER_SUCCESS:
+    case LOAD_USER_SUCCESS:
       return {
         ...state,
         loading: false,
         isAuthenticated: true,
-        user: action.payload
+        user: action.payload,
       };
 
     case LOGIN_FAIL:
@@ -30,10 +32,32 @@ export const userReducer = (state = { user: {} }, action) => {
         error: action.payload,
       };
 
-      case CLEAR_ERRORS:
+    case LOGOUT_USER_SUCCESS:
+      return {
+        loading: false,
+        isAuthenticated: false,
+        user: null,
+      };
+
+    case LOAD_USER_FAIL:
+      return {
+        loading: false,
+        isAuthenticated: false,
+        user: null,
+        error: action.payload,
+      };
+
+    case CLEAR_ERRORS:
       return {
         ...state,
         error: null,
+      };
+
+    case LOGOUT_USER_FAIL:
+      return {
+        ...state,
+        loading: false,
+        error: action.payload,
       };
 
     default:

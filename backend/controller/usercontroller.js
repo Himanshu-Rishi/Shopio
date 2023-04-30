@@ -56,7 +56,6 @@ exports.loginUser = async_error(async(req, res, next)=>
         return next(new Errorhandler("Please enter correct credential...!", 401));
     }
     const ispasswordmatched = await user.comparePassword(password);
-    console.log(ispasswordmatched);
     if(!ispasswordmatched)
     {
         return next(

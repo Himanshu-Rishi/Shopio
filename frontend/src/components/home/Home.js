@@ -10,6 +10,7 @@ import Helmet from "react-helmet";
 import Header from "../layout/Header/Header";
 import Footer from "../layout/Footer/Footer";
 import Testinomial from "../layout/Footer/Testinomial";
+import SignInHeader from "../layout/Header/SignInHeader";
 const Home = (props) => {
   const dispatch = useDispatch();
   const { loading, error, products } = useSelector((state) => state.products);
@@ -30,7 +31,11 @@ const Home = (props) => {
         <title>{props.page}</title>
       </Helmet>
       <Toaster position="top-center" reverseOrder={false} />
-      <Header />
+      {props.isAuthenticated ? (
+        <Header user={props.user} isAuthenticated={props.isAuthenticated} />
+      ):(
+        <SignInHeader />
+      )}
       <div className="banner">
         <div className="container">
           <div className="slider-container has-scrollbar">

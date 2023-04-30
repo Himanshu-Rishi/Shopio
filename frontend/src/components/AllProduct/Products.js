@@ -13,6 +13,7 @@ import { Slider, Typography } from "@mui/material";
 import Header from "../layout/Header/Header";
 import Testinomial from "../layout/Footer/Testinomial";
 import Footer from "../layout/Footer/Footer";
+import SignInHeader from "../layout/Header/SignInHeader";
 const Products = (props) => {
   const { keyword } = useParams();
   const dispatch = useDispatch();
@@ -125,11 +126,15 @@ const Products = (props) => {
         <title>{props.page}</title>
       </Helmet>
       <Toaster position="top-center" reverseOrder={false} />
-      <Header />
       {loading ? (
         <Loader />
       ) : (
         <Fragment>
+          {props.isAuthenticated ? (
+            <Header user={props.user} isAuthenticated={props.isAuthenticated} />
+          ) : (
+            <SignInHeader />
+          )}
           <main>
             <div className="product-container">
               <div className="container">
@@ -769,25 +774,23 @@ const Products = (props) => {
                           ))}
                         </ul>
 
-                          <Typography
-                            sx={{ color: "Black", fontWeight: "550" }}
-                          >
-                            Ratings Above
-                          </Typography>
-                          <div className="price_box">
-                            <Slider
-                              value={Ratings}
-                              onChange={(e, newRating) => {
-                                setRatings(newRating);
-                              }}
-                              aria-labelledby="continuous-slider"
-                              valueLabelDisplay="auto"
-                              min={0}
-                              max={5}
-                              color="secondary"
-                              marks={ratingmarks}
-                            />
-                          </div>
+                        <Typography sx={{ color: "Black", fontWeight: "550" }}>
+                          Ratings Above
+                        </Typography>
+                        <div className="price_box">
+                          <Slider
+                            value={Ratings}
+                            onChange={(e, newRating) => {
+                              setRatings(newRating);
+                            }}
+                            aria-labelledby="continuous-slider"
+                            valueLabelDisplay="auto"
+                            min={0}
+                            max={5}
+                            color="secondary"
+                            marks={ratingmarks}
+                          />
+                        </div>
                       </div>
                     </div>
                   </div>
