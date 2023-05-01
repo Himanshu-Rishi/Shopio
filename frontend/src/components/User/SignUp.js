@@ -35,8 +35,11 @@ const SignUp = () => {
   // error
   useEffect(() => {
     if (error) {
-      toast.error(error);
-      dispatch(clearErrors());
+      if (error !== "Please login to Explore new stuff.") {
+        toast.error(error);
+        dispatch(clearErrors());
+        history("/login");
+      }
     }
     if (isAuthenticated) {
       history("/account");
@@ -136,7 +139,12 @@ const SignUp = () => {
                     onChange={registerDataChange}
                   />
                 </div>
-                <input type="submit" value="register" className="btn" value="Sign up" />
+                <input
+                  type="submit"
+                  value="register"
+                  className="btn"
+                  value="Sign up"
+                />
                 <div className="bottom__text">
                   <p className="social-text">Already member?</p>
                   <Link to={"/login"} className="sign__bottom__button">

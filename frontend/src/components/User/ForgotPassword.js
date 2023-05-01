@@ -62,7 +62,7 @@ const ForgotPassword = () => {
                 onSubmit={forgotPasswordSubmit}
                 encType="multipart/form-data"
               >
-                <h2 className="user__title">Forgot Password ?</h2>
+                <h2 className="user__title">Recover Password ?</h2>
                 <div className="input-field">
                   <i className="fas fa-envelope"></i>
                   <input

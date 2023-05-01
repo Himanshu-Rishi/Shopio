@@ -13,6 +13,7 @@ import ProtectedRoute from './components/Middleware/ProtectedRoute'
 import UpdateProfile from "./components/User/UpdateProfile";
 import UpdatePassword from "./components/User/UpdatePassword";
 import ForgotPassword from "./components/User/ForgotPassword";
+import ResetPassword from "./components/User/ResetPassword";
 const App = () => {
   const { user, isAuthenticated } = useSelector((state) => state.user);
   useEffect(() => {
@@ -95,6 +96,13 @@ const App = () => {
           path="/password/forgot"
           element={
               <ForgotPassword/>
+          }
+        />
+        <Route
+          exact
+          path="/password/reset/:token"
+          element={
+              <ResetPassword/>
           }
         />
       </Routes>
