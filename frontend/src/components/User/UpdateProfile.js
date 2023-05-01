@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import "./UpdateProfile.css";
 import { Helmet } from "react-helmet";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
@@ -97,6 +96,7 @@ const UpdateProfile = () => {
                       alt="avatar"
                       width="80"
                       className="input__image"
+                      style={{width: 150, height: 150}}
                     />
                   </label>
                   <input

@@ -1,5 +1,5 @@
 import { CLEAR_ERRORS } from "../constants/productConstants";
-import { LOGIN_SUCCESS, LOGIN_FAIL, LOGIN_REQUEST, REGISTER_REQUEST, REGISTER_SUCCESS, REGISTER_FAIL, LOAD_USER_REQUEST, LOAD_USER_SUCCESS, LOAD_USER_FAIL, LOGOUT_USER_SUCCESS, LOGOUT_USER_FAIL, UPDATE_PROFILE_REQUEST, UPDATE_PROFILE_SUCCESS, UPDATE_PROFILE_FAIL, UPDATE_PROFILE_RESET } from "../constants/userConstants";
+import { LOGIN_SUCCESS, LOGIN_FAIL, LOGIN_REQUEST, REGISTER_REQUEST, REGISTER_SUCCESS, REGISTER_FAIL, LOAD_USER_REQUEST, LOAD_USER_SUCCESS, LOAD_USER_FAIL, LOGOUT_USER_SUCCESS, LOGOUT_USER_FAIL, UPDATE_PROFILE_REQUEST, UPDATE_PROFILE_SUCCESS, UPDATE_PROFILE_FAIL, UPDATE_PROFILE_RESET, UPDATE_PASSWORD_REQUEST, UPDATE_PASSWORD_SUCCESS, UPDATE_PASSWORD_FAIL, UPDATE_PASSWORD_RESET } from "../constants/userConstants";
 
 
 export const userReducer = (state = { user: {} }, action) => {
@@ -69,12 +69,14 @@ export const userReducer = (state = { user: {} }, action) => {
 export const profileReducer = (state = {}, action) => {
   switch (action.type) {
     case UPDATE_PROFILE_REQUEST:
+      case UPDATE_PASSWORD_REQUEST:
       return {
         ...state,
         loading: true,
       };
 
     case UPDATE_PROFILE_SUCCESS:
+      case UPDATE_PASSWORD_SUCCESS:
       return {
         ...state,
         loading: false,
@@ -82,6 +84,7 @@ export const profileReducer = (state = {}, action) => {
       };
 
     case UPDATE_PROFILE_FAIL:
+      case UPDATE_PASSWORD_FAIL:
       return {
         ...state,
         loading: false,
@@ -89,6 +92,7 @@ export const profileReducer = (state = {}, action) => {
       };
 
       case UPDATE_PROFILE_RESET:
+        case UPDATE_PASSWORD_RESET:
         return {
           ...state,
           isUpdated: false

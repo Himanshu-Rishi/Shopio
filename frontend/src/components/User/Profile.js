@@ -18,6 +18,10 @@ const Profile = (props) => {
   {
     history("/profile/update")
   }
+  function handlePassword()
+  {
+    history("/password/update");
+  }
   return (
     <Fragment>
       <Helmet>
@@ -54,7 +58,7 @@ const Profile = (props) => {
                     </div>
                     <div className="button__section">
                       <button className="profile__btn">My Orders</button>
-                      <button className="profile__btn">Change Password</button>
+                      <button className="profile__btn" onClick={handlePassword}>Change Password</button>
                     </div>
                   </div>
                 </div>
