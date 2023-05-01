@@ -12,6 +12,7 @@ import Profile from "./components/User/Profile";
 import ProtectedRoute from './components/Middleware/ProtectedRoute'
 import UpdateProfile from "./components/User/UpdateProfile";
 import UpdatePassword from "./components/User/UpdatePassword";
+import ForgotPassword from "./components/User/ForgotPassword";
 const App = () => {
   const { user, isAuthenticated } = useSelector((state) => state.user);
   useEffect(() => {
@@ -87,6 +88,13 @@ const App = () => {
             <ProtectedRoute>
               <UpdatePassword/>
             </ProtectedRoute>
+          }
+        />
+        <Route
+          exact
+          path="/password/forgot"
+          element={
+              <ForgotPassword/>
           }
         />
       </Routes>

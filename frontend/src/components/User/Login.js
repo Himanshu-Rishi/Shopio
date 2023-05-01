@@ -13,7 +13,7 @@ const LoginSignUp = () => {
   const [LoginPassword, setLoginPassword] = useState("")
   const {loading, error, isAuthenticated} = useSelector(state=>state.user);
   const history = useNavigate();
-  const loginSubmit = (e)=>
+  const recoverPasswordSubmit = (e)=>
   {
     e.preventDefault();
     dispatch(login(LoginEmail, LoginPassword));
@@ -21,21 +21,18 @@ const LoginSignUp = () => {
   // error
  useEffect(() => {
    if (error) {
-     toast.error(error);
-     dispatch(clearErrors());
-     history('/login')
+    if(error !== "Please login to Explore new stuff.")
+    {
+      toast.error(error);
+      dispatch(clearErrors());
+      history('/login')
+    }
    }
    if (isAuthenticated) {
      history("/account");
    }
    // eslint-disable-next-line react-hooks/exhaustive-deps
  }, [dispatch, error, isAuthenticated, history]);
- function getCookie(key) {
-   var b = document.cookie.match("(^|;)\\s*" + key + "\\s*=\\s*([^;]+)");
-   return b ? b.pop() : "";
- }
- const token = getCookie('token');
-//  console.log(token)
 
   return (
     <>
@@ -50,7 +47,7 @@ const LoginSignUp = () => {
         <div className="user_container">
           <div className="forms-container">
             <div className="signin-signup">
-              <form action="#" className="sign-in-form" onSubmit={loginSubmit}>
+              <form action="#" className="sign-in-form" onSubmit={recoverPasswordSubmit}>
                 <h2 className="user__title">Sign in</h2>
                 <div className="input-field">
                   <i className="fas fa-user"></i>
@@ -73,7 +70,7 @@ const LoginSignUp = () => {
                   />
                 </div>
                 <input type="submit" value="Login" className="btn solid" />
-                <Link to={"/login"} className="forgetPasssword_bottom__button">
+                <Link to={"/password/forgot"} className="forgetPasssword_bottom__button" target='_blank'>
                   <p className="social-text">Forgot Password?</p>
                 </Link>
               </form>
