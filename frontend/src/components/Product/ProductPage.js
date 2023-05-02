@@ -1,12 +1,12 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { clearErrors,  getProductDetails } from "../../action/productAction";
+import { clearErrors, getProductDetails } from "../../action/productAction";
 import { Link, useParams } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import Loader from "../layout/Loader/Loader";
 import { toast, Toaster } from "react-hot-toast";
-import ReactStars from "react-rating-stars-component"
+import ReactStars from "react-rating-stars-component";
 import "./ProductPage.css";
 import Carousel from "react-material-ui-carousel";
 import Review from "./Review/Review";
@@ -14,14 +14,35 @@ import Header from "../layout/Header/Header";
 import Testinomial from "../layout/Footer/Testinomial";
 import Footer from "../layout/Footer/Footer";
 import SignInHeader from "../layout/Header/SignInHeader";
+import { addItemsToCart } from "../../action/cartAction";
+
 const SpecificProduct = (props) => {
   const dispatch = useDispatch();
-  const { loading, error, product, categoryProduct} = useSelector(
+  const [quantity, setquantity] = useState(1);
+  const decreaseQuantity = () => {
+    let qty = quantity - 1;
+    if (qty <= 1) {
+      qty = 1;
+    }
+    setquantity(qty);
+  };
+  const increaseQuantity = () => {
+    let qty = quantity + 1;
+    if (qty >= product.stock) {
+      qty = product.stock;
+    }
+    setquantity(qty);
+  };
+  const { loading, error, product, categoryProduct } = useSelector(
     (state) => state.productDetails
-    );
-    let { id } = useParams();
-    useEffect(() => {
+  );
+  let { id } = useParams();
 
+  const addToCartHandler = () => {
+    dispatch(addItemsToCart(id, quantity));
+    toast.success("Items added to cart.");
+  };
+  useEffect(() => {
     dispatch(getProductDetails(id));
   }, [dispatch]);
 
@@ -32,7 +53,6 @@ const SpecificProduct = (props) => {
       dispatch(clearErrors());
     }
   }, [error]);
-  console.log(props.user)
   return (
     <>
       <Helmet>
@@ -84,17 +104,29 @@ const SpecificProduct = (props) => {
 
                 <div className="detailsBlock-3-1">
                   <div className="detailsBlock-3-1-1">
-                    <button className="quantity__button">-</button>
+                    <button
+                      onClick={decreaseQuantity}
+                      className="quantity__button"
+                    >
+                      -
+                    </button>
                     <input
                       className="quantity__input"
-                      value="1"
+                      value={quantity}
                       type="number"
+                      readOnly={true}
                     />
-                    <button className="quantity__button">+</button>
+                    <button
+                      onClick={increaseQuantity}
+                      className="quantity__button"
+                    >
+                      +
+                    </button>
                   </div>
                   <button
                     disabled={product.stock < 1 ? true : false}
                     className="add__button"
+                    onClick={addToCartHandler}
                   >
                     Add to Cart
                   </button>

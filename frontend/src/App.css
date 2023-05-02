@@ -111,12 +111,12 @@ body { background: var(--white); }
  * scrollbar style
  */
 
-body::-webkit-scrollbar { width: 15px; }
 
 body::-webkit-scrollbar-track {
   background: var(--white);
   border-left: 1px solid var(--cultured);
 }
+body::-webkit-scrollbar {display:none;}
 
 body::-webkit-scrollbar-thumb {
   background: hsl(0, 0%, 80%);
@@ -1737,6 +1737,7 @@ footer {
 
 @media (min-width: 480px) {
 
+  body::-webkit-scrollbar {display:none;}
   /**
    * #CUSTOM PROPERTY
    */
@@ -1861,6 +1862,7 @@ footer {
 
 @media (min-width: 570px) {
 
+  body::-webkit-scrollbar {display:none;}
   /**
    * #HEADER
    */
@@ -1982,7 +1984,11 @@ footer {
    * #BASE 
    */
 
-  html { font-size: 17px; }
+  html {
+    font-size: 17px;
+}
+
+body::-webkit-scrollbar {display:none;}
 
 
 
@@ -2118,6 +2124,7 @@ footer {
 
 @media (min-width: 1024px) {
 
+  body::-webkit-scrollbar {display:none;}
   /**
    * #CUSTOM PROPERTY
    */
@@ -2487,6 +2494,7 @@ footer {
 
 @media (min-width: 1200px) {
 
+  body::-webkit-scrollbar {display:none;}
   /**
    * #REUSED STYLE 
    */
@@ -2601,6 +2609,7 @@ footer {
    */
 
   html { font-size: 18px; }
+  body::-webkit-scrollbar {display:none;}
 
 
 

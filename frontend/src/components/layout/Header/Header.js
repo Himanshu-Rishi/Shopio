@@ -12,9 +12,10 @@ import ListAltIcon from "@mui/icons-material/ListAlt";
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
 import "./Header.css";
 import { Toaster, toast } from "react-hot-toast";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { logout } from '../../../action/userAction'
 const Header = (props) => {
+  const {cartItems} = useSelector((state)=>state.cart)
   const history = useNavigate();
   const [keyword, setkeyword] = useState("");
   const searchSubmitHandler = (e) => {
@@ -38,6 +39,9 @@ function orders() {
 }
 function account() {
   history("/account");
+}
+function cart() {
+  history("/cart");
 }
 function logoutUser() {
   dispatch(logout());
@@ -129,9 +133,9 @@ function logoutUser() {
               <span className="count">0</span>
             </button>
 
-            <button className="action-btn">
+            <button className="action-btn" onClick={cart}>
               <ion-icon name="bag-handle-outline"></ion-icon>
-              <span className="count">0</span>
+              <span className="count">{cartItems.length}</span>
             </button>
 
             <button className="action-btn" onClick={handleClick}>

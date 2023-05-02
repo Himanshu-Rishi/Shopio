@@ -14,6 +14,7 @@ import UpdateProfile from "./components/User/UpdateProfile";
 import UpdatePassword from "./components/User/UpdatePassword";
 import ForgotPassword from "./components/User/ForgotPassword";
 import ResetPassword from "./components/User/ResetPassword";
+import Cart from "./components/cart/Cart";
 const App = () => {
   const { user, isAuthenticated } = useSelector((state) => state.user);
   useEffect(() => {
@@ -69,7 +70,7 @@ const App = () => {
           path="/account"
           element={
             <ProtectedRoute>
-              <Profile/>
+              <Profile />
             </ProtectedRoute>
           }
         />
@@ -78,7 +79,7 @@ const App = () => {
           path="/profile/update"
           element={
             <ProtectedRoute>
-              <UpdateProfile/>
+              <UpdateProfile />
             </ProtectedRoute>
           }
         />
@@ -87,22 +88,21 @@ const App = () => {
           path="/password/update"
           element={
             <ProtectedRoute>
-              <UpdatePassword/>
+              <UpdatePassword />
             </ProtectedRoute>
           }
         />
-        <Route
-          exact
-          path="/password/forgot"
-          element={
-              <ForgotPassword/>
-          }
-        />
+        <Route exact path="/password/forgot" element={<ForgotPassword />} />
         <Route
           exact
           path="/password/reset/:token"
+          element={<ResetPassword />}
+        />
+        <Route
+          exact
+          path="/cart"
           element={
-              <ResetPassword/>
+            <Cart user={user} isAuthenticated={isAuthenticated} />
           }
         />
       </Routes>

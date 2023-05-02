@@ -141,7 +141,6 @@ const SignUp = () => {
                 </div>
                 <input
                   type="submit"
-                  value="register"
                   className="btn"
                   value="Sign up"
                 />

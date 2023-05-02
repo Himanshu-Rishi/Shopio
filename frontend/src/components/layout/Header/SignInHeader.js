@@ -8,7 +8,9 @@ import IconButton from "@mui/material/IconButton";
 import Tooltip from "@mui/material/Tooltip";
 import LoginIcon from "@mui/icons-material/Login";
 import "./Header.css";
+import { useSelector } from "react-redux";
 const SignInHeader = (props) => {
+  const { cartItems } = useSelector((state) => state.cart);
   const history = useNavigate();
   const [keyword, setkeyword] = useState("");
   const searchSubmitHandler = (e) => {
@@ -110,7 +112,7 @@ const SignInHeader = (props) => {
 
             <button className="action-btn">
               <ion-icon name="bag-handle-outline"></ion-icon>
-              <span className="count">0</span>
+              <span className="count">{cartItems.length}</span>
             </button>
 
             <button className="action-btn" onClick={handleClick}>
