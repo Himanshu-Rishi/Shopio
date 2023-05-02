@@ -15,6 +15,8 @@ import UpdatePassword from "./components/User/UpdatePassword";
 import ForgotPassword from "./components/User/ForgotPassword";
 import ResetPassword from "./components/User/ResetPassword";
 import Cart from "./components/cart/Cart";
+import Shipping from "./components/cart/Shipping";
+import ConfirmOrder from "./components/cart/ConfirmOrder";
 const App = () => {
   const { user, isAuthenticated } = useSelector((state) => state.user);
   useEffect(() => {
@@ -101,8 +103,24 @@ const App = () => {
         <Route
           exact
           path="/cart"
+          element={<Cart user={user} isAuthenticated={isAuthenticated} />}
+        />
+        <Route
+          exact
+          path="/shipping"
           element={
-            <Cart user={user} isAuthenticated={isAuthenticated} />
+            <ProtectedRoute>
+              <Shipping user={user} isAuthenticated={isAuthenticated} />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          exact
+          path="/order/confirm"
+          element={
+            <ProtectedRoute>
+              <ConfirmOrder user={user} isAuthenticated={isAuthenticated} />
+            </ProtectedRoute>
           }
         />
       </Routes>

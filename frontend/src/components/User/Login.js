@@ -7,20 +7,24 @@ import { login } from '../../action/userAction';
 import Loader from '../layout/Loader/Loader';
 import { Toaster, toast } from 'react-hot-toast';
 import { clearErrors } from '../../action/productAction';
+import {  useLocation } from 'react-router-dom';
 const LoginSignUp = () => {
   const dispatch = useDispatch();
   const [LoginEmail, setLoginEmail] = useState("")
   const [LoginPassword, setLoginPassword] = useState("")
   const {loading, error, isAuthenticated} = useSelector(state=>state.user);
   const history = useNavigate();
+  const location = useLocation();
   const recoverPasswordSubmit = (e)=>
   {
     e.preventDefault();
     dispatch(login(LoginEmail, LoginPassword));
   }
+  const redirect = location.search ? (location.search.split("=")[1]):"account"
+
   // error
  useEffect(() => {
-   if (error) {
+   if (error ) {
     if(error !== "Please login to Explore new stuff.")
     {
       toast.error(error);
@@ -29,10 +33,10 @@ const LoginSignUp = () => {
     }
    }
    if (isAuthenticated) {
-     history("/account");
+     history(`/${redirect}`);
    }
    // eslint-disable-next-line react-hooks/exhaustive-deps
- }, [dispatch, error, isAuthenticated, history]);
+ }, [dispatch, error, isAuthenticated,history, redirect]);
 
   return (
     <>

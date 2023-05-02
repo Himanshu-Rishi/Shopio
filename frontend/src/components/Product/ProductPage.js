@@ -64,9 +64,13 @@ const SpecificProduct = (props) => {
       ) : (
         <>
           {props.isAuthenticated ? (
-            <Header user={props.user} isAuthenticated={props.isAuthenticated} />
+            <Header
+              user={props.user}
+              isAuthenticated={props.isAuthenticated}
+              flag={true}
+            />
           ) : (
-            <SignInHeader />
+            <SignInHeader flag={true} />
           )}
           <div className="ProductDetails container">
             <Carousel className="carousel">

@@ -9,11 +9,12 @@ import { useDispatch, useSelector } from 'react-redux'
 import CartItemCard from './CartItemCard'
 import { addItemsToCart, removeItemsFromCart } from '../../action/cartAction'
 import { Typography } from '@mui/material'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import RemoveShoppingCartIcon from "@mui/icons-material/RemoveShoppingCart";
 const Cart = (props) => {
     const dispatch = useDispatch();
-    const {cartItems} = useSelector((state)=>state.cart)
+    const history = useNavigate();
+    const {cartItems} = useSelector((state)=>state.cart);
     const increaseQuantity = (id, quantity, stock)=>{
         const qty = quantity+1;
         if(stock <= quantity)
@@ -33,6 +34,11 @@ const Cart = (props) => {
     const removeCartItems = (id)=>
     {
         dispatch(removeItemsFromCart(id));
+    }
+    const checkoutHandler = ()=>
+    {
+      history("/login?redirect=shipping");
+        
     }
   return (
     <Fragment>
@@ -105,7 +111,7 @@ const Cart = (props) => {
             </div>
             <div></div>
             <div className="checkOutBtn">
-              <button>Check Out</button>
+              <button onClick={checkoutHandler}>Check Out</button>
             </div>
           </div>
         </div>

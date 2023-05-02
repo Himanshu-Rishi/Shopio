@@ -9,9 +9,7 @@ import { loadUser, updateProfile } from "../../action/userAction";
 import { UPDATE_PROFILE_RESET } from "../../constants/userConstants";
 const UpdateProfile = () => {
     const dispatch = useDispatch();
-    const {user} = useSelector(
-      (state) => state.user
-    );
+    const { user, isAuthenticated } = useSelector((state) => state.user);
     const {error, loading, isUpdated} = useSelector(
       (state) => state.profile
     );
@@ -30,10 +28,15 @@ const UpdateProfile = () => {
       myForm.set("avatar", avatar);
       dispatch(updateProfile(myForm));
     };
+    useEffect(() => {
+      if (isAuthenticated === false) {
+        history("/login");
+      }
+    }, [history, isAuthenticated]);
 
     // error
     useEffect(() => {
-        if(user)
+        if(user && isAuthenticated)
         {
             setname(user.name)
             setemail(user.email)
@@ -76,82 +79,86 @@ const UpdateProfile = () => {
       {loading ? (
         <Loader />
       ) : (
-        <div className="user_container">
-          <div className="forms-container">
-            <div className="signin-signup">
-              <form
-                action="#"
-                className="sign-in-form"
-                onSubmit={updateHandle}
-                encType="multipart/form-data"
-              >
-                <h2 className="user__title">Hi {user.name}!</h2>
-                <div className="input-field__image">
-                  <label
-                    htmlFor="profile"
-                    style={{ display: "flex", justifyContent: "center" }}
-                  >
-                    <img
-                      src={avatarPreview || "./assets/images/User/user.png"}
-                      alt="avatar"
-                      width="80"
-                      className="input__image"
-                      style={{width: 150, height: 150}}
+        <>
+        {isAuthenticated === true && (
+          <div className="user_container">
+            <div className="forms-container">
+              <div className="signin-signup">
+                <form
+                  action="#"
+                  className="sign-in-form"
+                  onSubmit={updateHandle}
+                  encType="multipart/form-data"
+                >
+                  <h2 className="user__title">Hi {user.name}!</h2>
+                  <div className="input-field__image">
+                    <label
+                      htmlFor="profile"
+                      style={{ display: "flex", justifyContent: "center" }}
+                    >
+                      <img
+                        src={avatarPreview || "./assets/images/User/user.png"}
+                        alt="avatar"
+                        width="80"
+                        className="input__image"
+                        style={{width: 150, height: 150}}
+                      />
+                    </label>
+                    <input
+                      type="file"
+                      name="avatar"
+                      accept="image/*"
+                      id="profile"
+                      className="input__file"
+                      onChange={updateAvatar}
                     />
-                  </label>
-                  <input
-                    type="file"
-                    name="avatar"
-                    accept="image/*"
-                    id="profile"
-                    className="input__file"
-                    onChange={updateAvatar}
-                  />
-                </div>
-                <div className="input-field">
-                  <i className="fas fa-user"></i>
-                  <input
-                    type="text"
-                    placeholder="Username"
-                    required
-                    value={name}
-                    name="name"
-                    onChange={(e) => setname(e.target.value)}
-                  />
-                </div>
-                <div className="input-field">
-                  <i className="fas fa-envelope"></i>
-                  <input
-                    type="email"
-                    placeholder="Email"
-                    required
-                    value={email}
-                    name="email"
-                    onChange={(e) => setname(e.target.value)}
-                  />
-                </div>
-                <input type="submit" className="btn" value="Update" />
-              </form>
-            </div>
-          </div>
-
-          <div className="panels-container">
-            <div className="panel left-panel">
-              <div className="content">
-                <h3>Update Your Profile!</h3>
-                <p>
-                  You can update your personal details like email, name and your
-                  profile image.
-                </p>
+                  </div>
+                  <div className="input-field">
+                    <i className="fas fa-user"></i>
+                    <input
+                      type="text"
+                      placeholder="Username"
+                      required
+                      value={name}
+                      name="name"
+                      onChange={(e) => setname(e.target.value)}
+                    />
+                  </div>
+                  <div className="input-field">
+                    <i className="fas fa-envelope"></i>
+                    <input
+                      type="email"
+                      placeholder="Email"
+                      required
+                      value={email}
+                      name="email"
+                      onChange={(e) => setname(e.target.value)}
+                    />
+                  </div>
+                  <input type="submit" className="btn" value="Update" />
+                </form>
               </div>
-              <img
-                src="https://res.cloudinary.com/dbymhpzhq/image/upload/v1682880304/SVG%20Images/Mobile_login-amico_vxqetr.svg"
-                className="image"
-                alt=""
-              />
+            </div>
+  
+            <div className="panels-container">
+              <div className="panel left-panel">
+                <div className="content">
+                  <h3>Update Your Profile!</h3>
+                  <p>
+                    You can update your personal details like email, name and your
+                    profile image.
+                  </p>
+                </div>
+                <img
+                  src="https://res.cloudinary.com/dbymhpzhq/image/upload/v1682880304/SVG%20Images/Mobile_login-amico_vxqetr.svg"
+                  className="image"
+                  alt=""
+                />
+              </div>
             </div>
           </div>
-        </div>
+        )}
+        </>
       )}
     </>
   );

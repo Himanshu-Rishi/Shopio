@@ -26,6 +26,11 @@ const SignInHeader = (props) => {
   function signin() {
     history("/login");
   }
+  
+  function cart() {
+    history("/cart");
+  }
+  
 
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
@@ -110,7 +115,7 @@ const SignInHeader = (props) => {
               <span className="count">0</span>
             </button>
 
-            <button className="action-btn">
+            <button className="action-btn" onClick={cart}>
               <ion-icon name="bag-handle-outline"></ion-icon>
               <span className="count">{cartItems.length}</span>
             </button>
@@ -183,7 +188,7 @@ const SignInHeader = (props) => {
           </div>
         </div>
       </div>
-
+      {props.flag && (
       <nav className="desktop-navigation-menu">
         <div className="container">
           <ul className="desktop-menu-category-list">
@@ -459,6 +464,7 @@ const SignInHeader = (props) => {
           </ul>
         </div>
       </nav>
+      )}
 
       <div className="mobile-bottom-navigation">
         <button className="action-btn" data-mobile-menu-open-btn>

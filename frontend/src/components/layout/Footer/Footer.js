@@ -1,8 +1,9 @@
 import React from 'react'
 import "./Footer.css";
-const Footer = () => {
+const Footer = (props) => {
   return (
     <>
+      {props.flag && (
       <section className="footer__section newsletter">
         <div className="footer__container">
           <div className="newsletter-card">
@@ -38,6 +39,7 @@ const Footer = () => {
           </div>
         </div>
       </section>
+      )}
       <footer className="footer">
         <div className="footer-top">
           <div className="footer__container">

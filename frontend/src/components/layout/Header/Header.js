@@ -225,6 +225,7 @@ function logoutUser() {
         </div>
       </div>
 
+      {props.flag && (
       <nav className="desktop-navigation-menu">
         <div className="container">
           <ul className="desktop-menu-category-list">
@@ -500,6 +501,7 @@ function logoutUser() {
           </ul>
         </div>
       </nav>
+      )}
 
       <div className="mobile-bottom-navigation">
         <button className="action-btn" data-mobile-menu-open-btn>

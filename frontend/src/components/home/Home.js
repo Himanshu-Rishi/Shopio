@@ -33,9 +33,13 @@ const Home = (props) => {
       </Helmet>
       <Toaster position="top-center" reverseOrder={false} />
       {props.isAuthenticated ? (
-        <Header user={props.user} isAuthenticated={props.isAuthenticated} />
-      ):(
-        <SignInHeader />
+        <Header
+          user={props.user}
+          isAuthenticated={props.isAuthenticated}
+          flag={true}
+        />
+      ) : (
+        <SignInHeader flag={true} />
       )}
       <div className="banner">
         <div className="container">
@@ -146,7 +150,7 @@ const Home = (props) => {
         </main>
       )}
       <Testinomial />
-      <Footer />
+      <Footer flag={true}/>
     </Fragment>
   );
 };

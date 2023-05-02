@@ -131,9 +131,13 @@ const Products = (props) => {
       ) : (
         <Fragment>
           {props.isAuthenticated ? (
-            <Header user={props.user} isAuthenticated={props.isAuthenticated} />
+            <Header
+              user={props.user}
+              isAuthenticated={props.isAuthenticated}
+              flag={true}
+            />
           ) : (
-            <SignInHeader />
+            <SignInHeader flag={true} />
           )}
           <main>
             <div className="product-container">
