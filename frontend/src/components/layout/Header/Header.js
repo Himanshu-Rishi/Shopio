@@ -10,9 +10,13 @@ import ExitToAppIcon from "@mui/icons-material/ExitToApp";
 import "./Header.css";
 import { Toaster, toast } from "react-hot-toast";
 import { useDispatch, useSelector } from "react-redux";
-import { logout } from '../../../action/userAction'
+import { logout } from "../../../action/userAction";
 const Header = (props) => {
-  const {cartItems} = useSelector((state)=>state.cart)
+  const { cartItems } = useSelector((state) => state.cart);
+  const [expand, setexpand] = useState(false);
+  const [expand2, setexpand2] = useState(false);
+  const [expand3, setexpand3] = useState(false);
+  const [expand4, setexpand4] = useState(false);
   const history = useNavigate();
   const [keyword, setkeyword] = useState("");
   const searchSubmitHandler = (e) => {
@@ -25,29 +29,26 @@ const Header = (props) => {
   };
   const dispatch = useDispatch();
 
+  const [toggle, settoggle] = useState(false);
 
-// button links
-function dashboard() {
-  history("/admin/dashboard");
-}
+  // button links
+  function dashboard() {
+    history("/admin/dashboard");
+  }
 
-function orders() {
-  history("/orders");
-}
-function account() {
-  history("/account");
-}
-function cart() {
-  history("/cart");
-}
-function home() {
-  history("/");
-}
-function logoutUser() {
-  dispatch(logout());
-  toast.success("Logout Successfully");
-} 
-
+  function orders() {
+    history("/orders");
+  }
+  function account() {
+    history("/account");
+  }
+  function cart() {
+    history("/cart");
+  }
+  function logoutUser() {
+    dispatch(logout());
+    toast.success("Logout Successfully");
+  }
 
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [another__anchorEl, setanother__AnchorEl] = React.useState(null);
@@ -65,8 +66,6 @@ function logoutUser() {
   const another__handleClose = () => {
     setanother__AnchorEl(null);
   };
-
-  
 
   return (
     <header>
@@ -495,7 +494,11 @@ function logoutUser() {
       )}
 
       <div className="mobile-bottom-navigation">
-        <button className="action-btn" data-mobile-menu-open-btn>
+        <button
+          className="action-btn"
+          data-mobile-menu-open-btn
+          onClick={() => settoggle(!toggle)}
+        >
           <ion-icon name="menu-outline"></ion-icon>
         </button>
 
@@ -505,8 +508,8 @@ function logoutUser() {
           <span className="count">{cartItems.length}</span>
         </button>
 
-        <button className="action-btn" onClick={home}>
-          <ion-icon name="home-outline"></ion-icon>
+        <button className="action-btn">
+          <ion-icon name="grid-outline"></ion-icon>
         </button>
 
         <button className="action-btn">
@@ -581,11 +584,22 @@ function logoutUser() {
         </React.Fragment>
       </div>
 
-      <nav className="mobile-navigation-menu  has-scrollbar" data-mobile-menu>
+      <nav
+        className={
+          toggle
+            ? `mobile-navigation-menu active has-scrollbar`
+            : `mobile-navigation-menu has-scrollbar`
+        }
+        data-mobile-menu
+      >
         <div className="menu-top">
           <h2 className="menu-title">Menu</h2>
 
-          <button className="menu-close-btn" data-mobile-menu-close-btn>
+          <button
+            className="menu-close-btn"
+            data-mobile-menu-close-btn
+            onClick={() => settoggle(false)}
+          >
             <ion-icon name="close-outline"></ion-icon>
           </button>
         </div>
@@ -598,19 +612,41 @@ function logoutUser() {
           </li>
 
           <li className="menu-category">
-            <button className="accordion-menu" data-accordion-btn>
+            <button
+              className="accordion-menu"
+              data-accordion-btn
+              onClick={() => setexpand(!expand)}
+            >
               <p className="menu-title">Men's</p>
 
               <div>
-                <ion-icon name="add-outline" className="add-icon"></ion-icon>
-                <ion-icon
-                  name="remove-outline"
-                  className="remove-icon"
-                ></ion-icon>
+                <button
+                  onClick={() => setexpand(!expand)}
+                  style={{
+                    display: expand ? "none" : "block",
+                  }}
+                >
+                  <ion-icon name="add-outline"></ion-icon>
+                </button>
+                <button
+                  onClick={() => setexpand(!expand)}
+                  style={{
+                    display: !expand ? "none" : "block",
+                  }}
+                >
+                  <ion-icon name="remove-outline"></ion-icon>
+                </button>
               </div>
             </button>
 
-            <ul className="submenu-category-list" data-accordion>
+            <ul
+              className={
+                expand
+                  ? "submenu-category-list active"
+                  : "submenu-category-list "
+              }
+              data-accordion
+            >
               <li className="submenu-category">
                 <a href="/" className="submenu-title">
                   Shirt
@@ -638,19 +674,41 @@ function logoutUser() {
           </li>
 
           <li className="menu-category">
-            <button className="accordion-menu" data-accordion-btn>
+            <button
+              className="accordion-menu"
+              data-accordion-btn
+              onClick={() => setexpand2(!expand2)}
+            >
               <p className="menu-title">Women's</p>
 
               <div>
-                <ion-icon name="add-outline" className="add-icon"></ion-icon>
-                <ion-icon
-                  name="remove-outline"
-                  className="remove-icon"
-                ></ion-icon>
+                <button
+                  onClick={() => setexpand2(!expand2)}
+                  style={{
+                    display: expand2 ? "none" : "block",
+                  }}
+                >
+                  <ion-icon name="add-outline"></ion-icon>
+                </button>
+                <button
+                  onClick={() => setexpand2(!expand2)}
+                  style={{
+                    display: !expand2 ? "none" : "block",
+                  }}
+                >
+                  <ion-icon name="remove-outline"></ion-icon>
+                </button>
               </div>
             </button>
 
-            <ul className="submenu-category-list" data-accordion>
+            <ul
+              className={
+                expand2
+                  ? "submenu-category-list active"
+                  : "submenu-category-list "
+              }
+              data-accordion
+            >
               <li className="submenu-category">
                 <a href="/" className="submenu-title">
                   Dress & Frock
@@ -678,19 +736,41 @@ function logoutUser() {
           </li>
 
           <li className="menu-category">
-            <button className="accordion-menu" data-accordion-btn>
+            <button
+              className="accordion-menu"
+              data-accordion-btn
+              onClick={() => setexpand3(!expand3)}
+            >
               <p className="menu-title">Jewelry</p>
 
               <div>
-                <ion-icon name="add-outline" className="add-icon"></ion-icon>
-                <ion-icon
-                  name="remove-outline"
-                  className="remove-icon"
-                ></ion-icon>
+                <button
+                  onClick={() => setexpand3(!expand2)}
+                  style={{
+                    display: expand3 ? "none" : "block",
+                  }}
+                >
+                  <ion-icon name="add-outline"></ion-icon>
+                </button>
+                <button
+                  onClick={() => setexpand3(!expand3)}
+                  style={{
+                    display: !expand3 ? "none" : "block",
+                  }}
+                >
+                  <ion-icon name="remove-outline"></ion-icon>
+                </button>
               </div>
             </button>
 
-            <ul className="submenu-category-list" data-accordion>
+            <ul
+              data-accordion
+              className={
+                expand3
+                  ? "submenu-category-list active"
+                  : "submenu-category-list "
+              }
+            >
               <li className="submenu-category">
                 <a href="/" className="submenu-title">
                   Earrings
@@ -718,19 +798,41 @@ function logoutUser() {
           </li>
 
           <li className="menu-category">
-            <button className="accordion-menu" data-accordion-btn>
+            <button
+              className="accordion-menu"
+              data-accordion-btn
+              onClick={() => setexpand4(!expand4)}
+            >
               <p className="menu-title">Perfume</p>
 
               <div>
-                <ion-icon name="add-outline" className="add-icon"></ion-icon>
-                <ion-icon
-                  name="remove-outline"
-                  className="remove-icon"
-                ></ion-icon>
+                <button
+                  onClick={() => setexpand4(!expand4)}
+                  style={{
+                    display: expand4 ? "none" : "block",
+                  }}
+                >
+                  <ion-icon name="add-outline"></ion-icon>
+                </button>
+                <button
+                  onClick={() => setexpand4(!expand4)}
+                  style={{
+                    display: !expand4 ? "none" : "block",
+                  }}
+                >
+                  <ion-icon name="remove-outline"></ion-icon>
+                </button>
               </div>
             </button>
 
-            <ul className="submenu-category-list" data-accordion>
+            <ul
+              className={
+                expand4
+                  ? "submenu-category-list active"
+                  : "submenu-category-list "
+              }
+              data-accordion
+            >
               <li className="submenu-category">
                 <a href="/" className="submenu-title">
                   Clothes Perfume
@@ -771,63 +873,6 @@ function logoutUser() {
         </ul>
 
         <div className="menu-bottom">
-          <ul className="menu-category-list">
-            <li className="menu-category">
-              <button className="accordion-menu" data-accordion-btn>
-                <p className="menu-title">Language</p>
-
-                <ion-icon
-                  name="caret-back-outline"
-                  className="caret-back"
-                ></ion-icon>
-              </button>
-
-              <ul className="submenu-category-list" data-accordion>
-                <li className="submenu-category">
-                  <a href="/" className="submenu-title">
-                    English
-                  </a>
-                </li>
-
-                <li className="submenu-category">
-                  <a href="/" className="submenu-title">
-                    Espa&ntilde;ol
-                  </a>
-                </li>
-
-                <li className="submenu-category">
-                  <a href="/" className="submenu-title">
-                    Fren&ccedil;h
-                  </a>
-                </li>
-              </ul>
-            </li>
-
-            <li className="menu-category">
-              <button className="accordion-menu" data-accordion-btn>
-                <p className="menu-title">Currency</p>
-                <ion-icon
-                  name="caret-back-outline"
-                  className="caret-back"
-                ></ion-icon>
-              </button>
-
-              <ul className="submenu-category-list" data-accordion>
-                <li className="submenu-category">
-                  <a href="/" className="submenu-title">
-                    USD &dollar;
-                  </a>
-                </li>
-
-                <li className="submenu-category">
-                  <a href="/" className="submenu-title">
-                    EUR &euro;
-                  </a>
-                </li>
-              </ul>
-            </li>
-          </ul>
-
           <ul className="menu-social-container">
             <li>
               <a href="/" className="social-link">
