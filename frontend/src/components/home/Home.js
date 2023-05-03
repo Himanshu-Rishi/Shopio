@@ -16,16 +16,13 @@ const Home = (props) => {
   const { loading, error, products } = useSelector((state) => state.products);
 
   useEffect(() => {
-    dispatch(getProduct());
-  }, [dispatch]);
-
-  // error alert
-  useEffect(() => {
     if (error) {
       toast.error(error);
       dispatch(clearErrors());
     }
-  }, [error]);
+    dispatch(getProduct());
+  }, [dispatch, error]);
+
   return (
     <Fragment>
       <Helmet>

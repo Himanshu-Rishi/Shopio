@@ -205,7 +205,7 @@ h3 > a {
   background-position: left;
   padding: 80px 15px;
   text-align: center;
-  background-image: url("../../../../public/assets/images/newsletter-bg.png");
+  background-image: url("https://res.cloudinary.com/dbymhpzhq/image/upload/v1683117579/newsletter/newsletter-bg_djgfck.png");
 }
 
 .newsletter-card .card-title {

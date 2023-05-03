@@ -1,4 +1,5 @@
-import React from 'react'
+/* eslint-disable jsx-a11y/anchor-is-valid */
+import React from "react";
 
 const Testinomial = () => {
   return (
@@ -11,8 +12,8 @@ const Testinomial = () => {
 
               <div className="testimonial-card">
                 <img
-                  src="./assets/images/testimonial-1.jpg"
-                  alt="alan doe"
+                  src="https://res.cloudinary.com/dbymhpzhq/image/upload/v1683118014/newsletter/profile_fjgmqr.jpg"
+                  alt="owner"
                   className="testimonial-banner"
                   width="80"
                   height="80"
@@ -23,7 +24,7 @@ const Testinomial = () => {
                 <p className="testimonial-title">Creator of this Invision</p>
 
                 <img
-                  src="./assets/images/icons/quotes.svg"
+                  src="https://res.cloudinary.com/dbymhpzhq/image/upload/v1683118158/SVG%20Images/quotes_kozhfs.svg"
                   alt="quotation"
                   className="quotation-img"
                   width="26"
@@ -37,7 +38,7 @@ const Testinomial = () => {
 
             <div className="cta-container">
               <img
-                src="./assets/images/cta-banner.jpg"
+                src="https://res.cloudinary.com/dbymhpzhq/image/upload/v1683116797/Footer%20and%20Testinomial/cta-banner_q6dtn3.jpg"
                 alt="summer collection"
                 className="cta-banner"
               />
@@ -57,7 +58,7 @@ const Testinomial = () => {
               <h2 className="title">Our Services</h2>
 
               <div className="service-container">
-                <a href="/" className="service-item">
+                <a className="service-item">
                   <div className="service-icon">
                     <ion-icon name="boat-outline"></ion-icon>
                   </div>
@@ -68,18 +69,18 @@ const Testinomial = () => {
                   </div>
                 </a>
 
-                <a href="/" className="service-item">
+                <a className="service-item">
                   <div className="service-icon">
                     <ion-icon name="rocket-outline"></ion-icon>
                   </div>
 
                   <div className="service-content">
                     <h3 className="service-title">Next Day delivery</h3>
-                    <p className="service-desc">UK Orders Only</p>
+                    <p className="service-desc">All countries delivery</p>
                   </div>
                 </a>
 
-                <a href="/" className="service-item">
+                <a className="service-item">
                   <div className="service-icon">
                     <ion-icon name="call-outline"></ion-icon>
                   </div>
@@ -90,7 +91,7 @@ const Testinomial = () => {
                   </div>
                 </a>
 
-                <a href="/" className="service-item">
+                <a className="service-item">
                   <div className="service-icon">
                     <ion-icon name="arrow-undo-outline"></ion-icon>
                   </div>
@@ -101,14 +102,14 @@ const Testinomial = () => {
                   </div>
                 </a>
 
-                <a href="/" className="service-item">
+                <a className="service-item">
                   <div className="service-icon">
                     <ion-icon name="ticket-outline"></ion-icon>
                   </div>
 
                   <div className="service-content">
                     <h3 className="service-title">30% money back</h3>
-                    <p className="service-desc">For Order Over $100</p>
+                    <p className="service-desc">For Order Over ₹10000</p>
                   </div>
                 </a>
               </div>
@@ -123,7 +124,7 @@ const Testinomial = () => {
             <div className="blog-card">
               <a href="/">
                 <img
-                  src="./assets/images/blog-1.jpg"
+                  src="https://res.cloudinary.com/dbymhpzhq/image/upload/v1683116797/Footer%20and%20Testinomial/blog-1_bd84ek.jpg"
                   alt="Clothes Retail KPIs 2021 Guide for Clothes Executives"
                   width="300"
                   className="blog-banner"
@@ -136,14 +137,11 @@ const Testinomial = () => {
                 </a>
 
                 <a href="/">
-                  <h3 className="blog-title">
-                    Clothes Retail KPIs 2021 Guide for Clothes Executives.
-                  </h3>
+                  <h3 className="blog-title">Top online fashion store.</h3>
                 </a>
 
                 <p className="blog-meta">
-                  By <cite>Mr Admin</cite> /{" "}
-                  <time dateTime="2022-04-06">Apr 06, 2022</time>
+                  By <cite>Aditi Yadav</cite>{" "}
                 </p>
               </div>
             </div>
@@ -151,7 +149,7 @@ const Testinomial = () => {
             <div className="blog-card">
               <a href="/">
                 <img
-                  src="./assets/images/blog-2.jpg"
+                  src="https://res.cloudinary.com/dbymhpzhq/image/upload/v1683117430/Footer%20and%20Testinomial/blog-2_m4lkkz.jpg"
                   alt="Curbside fashion Trends: How to Win the Pickup Battle."
                   className="blog-banner"
                   width="300"
@@ -165,13 +163,12 @@ const Testinomial = () => {
 
                 <h3>
                   <a href="/" className="blog-title">
-                    Curbside fashion Trends: How to Win the Pickup Battle.
+                    Curbside fashion Trends
                   </a>
                 </h3>
 
                 <p className="blog-meta">
-                  By <cite>Mr Robin</cite> /{" "}
-                  <time dateTime="2022-01-18">Jan 18, 2022</time>
+                  By <cite>Annu Saini</cite>{" "}
                 </p>
               </div>
             </div>
@@ -179,7 +176,7 @@ const Testinomial = () => {
             <div className="blog-card">
               <a href="/">
                 <img
-                  src="./assets/images/blog-3.jpg"
+                  src="https://res.cloudinary.com/dbymhpzhq/image/upload/v1683117430/Footer%20and%20Testinomial/blog-3_ie513h.jpg"
                   alt="EBT vendors: Claim Your Share of SNAP Online Revenue."
                   className="blog-banner"
                   width="300"
@@ -193,13 +190,12 @@ const Testinomial = () => {
 
                 <h3>
                   <a href="/" className="blog-title">
-                    EBT vendors: Claim Your Share of SNAP Online Revenue.
+                    Shop from the latest collection
                   </a>
                 </h3>
 
                 <p className="blog-meta">
-                  By <cite>Mr Selsa</cite> /{" "}
-                  <time dateTime="2022-02-10">Feb 10, 2022</time>
+                  By <cite>Khushi</cite>
                 </p>
               </div>
             </div>
@@ -207,7 +203,7 @@ const Testinomial = () => {
             <div className="blog-card">
               <a href="/">
                 <img
-                  src="./assets/images/blog-4.jpg"
+                  src="https://res.cloudinary.com/dbymhpzhq/image/upload/v1683116797/Footer%20and%20Testinomial/blog-4_ut6jx2.jpg"
                   alt="Curbside fashion Trends: How to Win the Pickup Battle."
                   className="blog-banner"
                   width="300"
@@ -221,13 +217,12 @@ const Testinomial = () => {
 
                 <h3>
                   <a href="/" className="blog-title">
-                    Curbside fashion Trends: How to Win the Pickup Battle.
+                    Great deals on Electronics.
                   </a>
                 </h3>
 
                 <p className="blog-meta">
-                  By <cite>Mr Pawar</cite> /{" "}
-                  <time dateTime="2022-03-15">Mar 15, 2022</time>
+                  By <cite>Rishita</cite>
                 </p>
               </div>
             </div>
@@ -236,6 +231,6 @@ const Testinomial = () => {
       </div>
     </>
   );
-}
+};
 
-export default Testinomial
+export default Testinomial;
