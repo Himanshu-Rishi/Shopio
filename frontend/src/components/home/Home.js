@@ -57,7 +57,7 @@ const Home = (props) => {
                   starting at ₹ <b>299</b>
                 </p>
 
-                <a href="/" className="banner-btn">
+                <a href="/products" className="banner-btn">
                   Shop now
                 </a>
               </div>
@@ -82,7 +82,7 @@ const Home = (props) => {
                 </p>
 
                 <a
-                  href="/"
+                  href="/products"
                   className="banner-btn"
                   style={{ backgroundColor: "gray" }}
                 >
@@ -107,7 +107,7 @@ const Home = (props) => {
                   starting at ₹ <b>159</b>
                 </p>
 
-                <a href="/" className="banner-btn">
+                <a href="/products" className="banner-btn">
                   Shop now
                 </a>
               </div>
@@ -129,7 +129,7 @@ const Home = (props) => {
                   starting at ₹ <b>299</b>
                 </p>
 
-                <a href="/" className="banner-btn">
+                <a href="/products" className="banner-btn">
                   Shop now
                 </a>
               </div>

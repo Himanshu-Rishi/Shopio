@@ -1,13 +1,10 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Box from "@mui/material/Box";
 import Avatar from "@mui/material/Avatar";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import AdminPanelSettingsIcon from "@mui/icons-material/AdminPanelSettings";
-import IconButton from "@mui/material/IconButton";
-import Tooltip from "@mui/material/Tooltip";
 import ListAltIcon from "@mui/icons-material/ListAlt";
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
 import "./Header.css";
@@ -43,6 +40,9 @@ function account() {
 function cart() {
   history("/cart");
 }
+function home() {
+  history("/");
+}
 function logoutUser() {
   dispatch(logout());
   toast.success("Logout Successfully");
@@ -50,13 +50,23 @@ function logoutUser() {
 
 
   const [anchorEl, setAnchorEl] = React.useState(null);
+  const [another__anchorEl, setanother__AnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
+  const another__open = Boolean(another__anchorEl);
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
+  };
+  const another__handleClick = (event) => {
+    setanother__AnchorEl(event.currentTarget);
   };
   const handleClose = () => {
     setAnchorEl(null);
   };
+  const another__handleClose = () => {
+    setanother__AnchorEl(null);
+  };
+
+  
 
   return (
     <header>
@@ -142,24 +152,6 @@ function logoutUser() {
               <ion-icon name="person-outline"></ion-icon>
             </button>
             <React.Fragment>
-              <Box
-                sx={{
-                  display: "flex",
-                  alignItems: "center",
-                  textAlign: "center",
-                }}
-              >
-                <Tooltip title="Account settings">
-                  <IconButton
-                    onClick={handleClick}
-                    size="small"
-                    sx={{ ml: 2 }}
-                    aria-controls={open ? "account-menu" : undefined}
-                    aria-haspopup="true"
-                    aria-expanded={open ? "true" : undefined}
-                  ></IconButton>
-                </Tooltip>
-              </Box>
               <Menu
                 anchorEl={anchorEl}
                 id="account-menu"
@@ -179,7 +171,6 @@ function logoutUser() {
                       mr: 1,
                     },
                     "&:before": {
-                      content: '""',
                       display: "block",
                       position: "absolute",
                       top: 0,
@@ -508,13 +499,13 @@ function logoutUser() {
           <ion-icon name="menu-outline"></ion-icon>
         </button>
 
-        <button className="action-btn">
+        <button className="action-btn" onClick={cart}>
           <ion-icon name="bag-handle-outline"></ion-icon>
 
-          <span className="count">0</span>
+          <span className="count">{cartItems.length}</span>
         </button>
 
-        <button className="action-btn">
+        <button className="action-btn" onClick={home}>
           <ion-icon name="home-outline"></ion-icon>
         </button>
 
@@ -524,9 +515,70 @@ function logoutUser() {
           <span className="count">0</span>
         </button>
 
-        <button className="action-btn" data-mobile-menu-open-btn>
-          <ion-icon name="grid-outline"></ion-icon>
+        <button className="action-btn" onClick={another__handleClick}>
+          <ion-icon name="person-outline"></ion-icon>
         </button>
+        <React.Fragment>
+          <Menu
+            anchorEl={another__anchorEl}
+            id="account-menu"
+            open={another__open}
+            onClose={another__handleClose}
+            onClick={another__handleClose}
+            PaperProps={{
+              elevation: 0,
+              sx: {
+                overflow: "visible",
+                filter: "drop-shadow(0px 2px 8px rgba(0,0,0,0.32))",
+                mt: -6,
+                "& .MuiAvatar-root": {
+                  width: 32,
+                  height: 32,
+                  ml: -0.5,
+                  mr: 1,
+                },
+                "&:before": {
+                  display: "block",
+                  position: "absolute",
+                  top: 0,
+                  right: 14,
+                  width: 10,
+                  height: 10,
+                  bgcolor: "background.paper",
+                  transform: "translateY(-50%) rotate(45deg)",
+                  zIndex: 0,
+                },
+              },
+            }}
+            transformOrigin={{ horizontal: "right", vertical: "top" }}
+            anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
+          >
+            <MenuItem onClick={(another__handleClose, account)}>
+              <Avatar alt="user_profile" src={props.user.avatar.url} />
+              Profile
+            </MenuItem>
+            <MenuItem onClick={(another__handleClose, orders)}>
+              <ListItemIcon>
+                <ListAltIcon fontSize="small" />
+              </ListItemIcon>
+              Orders
+            </MenuItem>
+            {props.user.role === "admin" && (
+              <MenuItem onClick={(another__handleClose, dashboard)}>
+                <ListItemIcon>
+                  <AdminPanelSettingsIcon fontSize="small" />
+                </ListItemIcon>
+                Admin
+              </MenuItem>
+            )}
+            <MenuItem onClick={(another__handleClose, logoutUser)}>
+              <ListItemIcon>
+                <ExitToAppIcon fontSize="small" />
+              </ListItemIcon>
+              Logout
+            </MenuItem>
+          </Menu>
+        </React.Fragment>
       </div>
 
       <nav className="mobile-navigation-menu  has-scrollbar" data-mobile-menu>
