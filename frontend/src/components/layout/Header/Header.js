@@ -17,6 +17,7 @@ const Header = (props) => {
   const [expand2, setexpand2] = useState(false);
   const [expand3, setexpand3] = useState(false);
   const [expand4, setexpand4] = useState(false);
+  const [toggle, settoggle] = useState(false);
   const history = useNavigate();
   const [keyword, setkeyword] = useState("");
   const searchSubmitHandler = (e) => {
@@ -29,7 +30,6 @@ const Header = (props) => {
   };
   const dispatch = useDispatch();
 
-  const [toggle, settoggle] = useState(false);
 
   // button links
   function dashboard() {
@@ -50,21 +50,21 @@ const Header = (props) => {
     toast.success("Logout Successfully");
   }
 
-  const [anchorEl, setAnchorEl] = React.useState(null);
   const [another__anchorEl, setanother__AnchorEl] = React.useState(null);
-  const open = Boolean(anchorEl);
   const another__open = Boolean(another__anchorEl);
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
   const another__handleClick = (event) => {
     setanother__AnchorEl(event.currentTarget);
   };
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
   const another__handleClose = () => {
     setanother__AnchorEl(null);
+  };
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
   };
 
   return (
