@@ -1,7 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import Item from "./MainProductCard";
 
 const Product = (props) => {
+  const [expand, setexpand] = useState(false);
+  const [expand1, setexpand1] = useState(false);
+  const [expand2, setexpand2] = useState(false);
+  const [expand3, setexpand3] = useState(false);
+  const [expand4, setexpand4] = useState(false);
+  const [expand5, setexpand5] = useState(false);
+  const [expand6, setexpand6] = useState(false);
   return (
     <>
       <div className="product-container">
@@ -21,402 +28,368 @@ const Product = (props) => {
 
               <ul className="sidebar-menu-category-list">
                 <li className="sidebar-menu-category">
-                  <button className="sidebar-accordion-menu" data-accordion-btn>
+                  <button
+                    className="sidebar-accordion-menu"
+                    data-accordion-btn
+                    onClick={() => setexpand(!expand)}
+                  >
                     <div className="menu-title-flex">
                       <img
-                        src="./assets/images/icons/dress.svg"
+                        src="https://res.cloudinary.com/dbymhpzhq/image/upload/v1683118157/SVG%20Images/jacket_tuvwjh.svg"
                         alt="clothes"
                         width="20"
                         height="20"
                         className="menu-title-img"
                       />
 
-                      <p className="menu-title">Clothes</p>
+                      <p className="menu-title">Winter Wear</p>
                     </div>
 
                     <div>
-                      <ion-icon
-                        name="add-outline"
-                        className="add-icon"
-                      ></ion-icon>
-                      <ion-icon
-                        name="remove-outline"
-                        className="remove-icon"
-                      ></ion-icon>
+                      <button
+                        onClick={() => setexpand(!expand)}
+                        style={{
+                          display: expand ? "none" : "block",
+                        }}
+                      >
+                        <ion-icon name="add-outline"></ion-icon>
+                      </button>
+                      <button
+                        onClick={() => setexpand(!expand)}
+                        style={{
+                          display: !expand ? "none" : "block",
+                        }}
+                      >
+                        <ion-icon name="remove-outline"></ion-icon>
+                      </button>
                     </div>
                   </button>
 
-                  <ul className="sidebar-submenu-category-list" data-accordion>
+                  <ul
+                    className={
+                      expand
+                        ? "sidebar-submenu-category-list active"
+                        : "sidebar-submenu-category-list "
+                    }
+                    data-accordion
+                  >
                     <li className="sidebar-submenu-category">
                       <a href="/" className="sidebar-submenu-title">
                         <p className="product-name">Shirt</p>
-                        <data
-                          value="300"
-                          className="stock"
-                          title="Available Stock"
-                        >
-                          300
-                        </data>
                       </a>
                     </li>
 
                     <li className="sidebar-submenu-category">
                       <a href="/" className="sidebar-submenu-title">
-                        <p className="product-name">shorts & jeans</p>
-                        <data
-                          value="60"
-                          className="stock"
-                          title="Available Stock"
-                        >
-                          60
-                        </data>
+                        <p className="product-name">Blazers & Coat</p>
                       </a>
                     </li>
 
                     <li className="sidebar-submenu-category">
                       <a href="/" className="sidebar-submenu-title">
                         <p className="product-name">jacket</p>
-                        <data
-                          value="50"
-                          className="stock"
-                          title="Available Stock"
-                        >
-                          50
-                        </data>
                       </a>
                     </li>
 
                     <li className="sidebar-submenu-category">
                       <a href="/" className="sidebar-submenu-title">
-                        <p className="product-name">dress & frock</p>
-                        <data
-                          value="87"
-                          className="stock"
-                          title="Available Stock"
-                        >
-                          87
-                        </data>
+                        <p className="product-name">Hoodies</p>
                       </a>
                     </li>
                   </ul>
                 </li>
 
                 <li className="sidebar-menu-category">
-                  <button className="sidebar-accordion-menu" data-accordion-btn>
+                  <button
+                    className="sidebar-accordion-menu"
+                    data-accordion-btn
+                    onClick={() => setexpand1(!expand1)}
+                  >
                     <div className="menu-title-flex">
                       <img
-                        src="./assets/images/icons/shoes.svg"
+                        src="https://res.cloudinary.com/dbymhpzhq/image/upload/v1683118159/SVG%20Images/tee_hsaust.svg"
                         alt="footwear"
                         className="menu-title-img"
                         width="20"
                         height="20"
                       />
 
-                      <p className="menu-title">Footwear</p>
+                      <p className="menu-title">Summer Wear</p>
                     </div>
 
                     <div>
-                      <ion-icon
-                        name="add-outline"
-                        className="add-icon"
-                      ></ion-icon>
-                      <ion-icon
-                        name="remove-outline"
-                        className="remove-icon"
-                      ></ion-icon>
+                      <button
+                        onClick={() => setexpand1(!expand1)}
+                        style={{
+                          display: expand1 ? "none" : "block",
+                        }}
+                      >
+                        <ion-icon name="add-outline"></ion-icon>
+                      </button>
+                      <button
+                        onClick={() => setexpand1(!expand1)}
+                        style={{
+                          display: !expand1 ? "none" : "block",
+                        }}
+                      >
+                        <ion-icon name="remove-outline"></ion-icon>
+                      </button>
                     </div>
                   </button>
 
-                  <ul className="sidebar-submenu-category-list" data-accordion>
+                  <ul
+                    className={
+                      expand1
+                        ? "sidebar-submenu-category-list active"
+                        : "sidebar-submenu-category-list "
+                    }
+                    data-accordion
+                  >
                     <li className="sidebar-submenu-category">
                       <a href="/" className="sidebar-submenu-title">
-                        <p className="product-name">Sports</p>
-                        <data
-                          value="45"
-                          className="stock"
-                          title="Available Stock"
-                        >
-                          45
-                        </data>
+                        <p className="product-name">Shirt</p>
                       </a>
                     </li>
 
                     <li className="sidebar-submenu-category">
                       <a href="/" className="sidebar-submenu-title">
-                        <p className="product-name">Formal</p>
-                        <data
-                          value="75"
-                          className="stock"
-                          title="Available Stock"
-                        >
-                          75
-                        </data>
+                        <p className="product-name">T-shirt</p>
                       </a>
                     </li>
 
                     <li className="sidebar-submenu-category">
                       <a href="/" className="sidebar-submenu-title">
-                        <p className="product-name">Casual</p>
-                        <data
-                          value="35"
-                          className="stock"
-                          title="Available Stock"
-                        >
-                          35
-                        </data>
+                        <p className="product-name">Shorts & Frocks</p>
                       </a>
                     </li>
 
                     <li className="sidebar-submenu-category">
                       <a href="/" className="sidebar-submenu-title">
-                        <p className="product-name">Safety Shoes</p>
-                        <data
-                          value="26"
-                          className="stock"
-                          title="Available Stock"
-                        >
-                          26
-                        </data>
+                        <p className="product-name">Sleeveless Tshirt</p>
                       </a>
                     </li>
                   </ul>
                 </li>
 
                 <li className="sidebar-menu-category">
-                  <button className="sidebar-accordion-menu" data-accordion-btn>
+                  <button
+                    className="sidebar-accordion-menu"
+                    data-accordion-btn
+                    onClick={() => setexpand2(!expand2)}
+                  >
                     <div className="menu-title-flex">
                       <img
-                        src="./assets/images/icons/jewelry.svg"
+                        src="https://res.cloudinary.com/dbymhpzhq/image/upload/v1683118158/SVG%20Images/shorts_roeevf.svg"
                         alt="clothes"
                         className="menu-title-img"
                         width="20"
                         height="20"
                       />
 
-                      <p className="menu-title">Jewelry</p>
+                      <p className="menu-title">Casual</p>
                     </div>
 
                     <div>
-                      <ion-icon
-                        name="add-outline"
-                        className="add-icon"
-                      ></ion-icon>
-                      <ion-icon
-                        name="remove-outline"
-                        className="remove-icon"
-                      ></ion-icon>
+                      <button
+                        onClick={() => setexpand2(!expand2)}
+                        style={{
+                          display: expand2 ? "none" : "block",
+                        }}
+                      >
+                        <ion-icon name="add-outline"></ion-icon>
+                      </button>
+                      <button
+                        onClick={() => setexpand2(!expand2)}
+                        style={{
+                          display: !expand2 ? "none" : "block",
+                        }}
+                      >
+                        <ion-icon name="remove-outline"></ion-icon>
+                      </button>
                     </div>
                   </button>
 
-                  <ul className="sidebar-submenu-category-list" data-accordion>
+                  <ul
+                    className={
+                      expand2
+                        ? "sidebar-submenu-category-list active"
+                        : "sidebar-submenu-category-list "
+                    }
+                    data-accordion
+                  >
                     <li className="sidebar-submenu-category">
                       <a href="/" className="sidebar-submenu-title">
-                        <p className="product-name">Earrings</p>
-                        <data
-                          value="46"
-                          className="stock"
-                          title="Available Stock"
-                        >
-                          46
-                        </data>
+                        <p className="product-name">Plain T-shirt</p>
                       </a>
                     </li>
 
                     <li className="sidebar-submenu-category">
                       <a href="/" className="sidebar-submenu-title">
-                        <p className="product-name">Couple Rings</p>
-                        <data
-                          value="73"
-                          className="stock"
-                          title="Available Stock"
-                        >
-                          73
-                        </data>
+                        <p className="product-name">Shorts</p>
                       </a>
                     </li>
 
                     <li className="sidebar-submenu-category">
                       <a href="/" className="sidebar-submenu-title">
-                        <p className="product-name">Necklace</p>
-                        <data
-                          value="61"
-                          className="stock"
-                          title="Available Stock"
-                        >
-                          61
-                        </data>
+                        <p className="product-name">Oversized Tshirt</p>
                       </a>
                     </li>
                   </ul>
                 </li>
 
                 <li className="sidebar-menu-category">
-                  <button className="sidebar-accordion-menu" data-accordion-btn>
+                  <button
+                    className="sidebar-accordion-menu"
+                    data-accordion-btn
+                    onClick={() => setexpand3(!expand3)}
+                  >
                     <div className="menu-title-flex">
                       <img
-                        src="./assets/images/icons/perfume.svg"
+                        src="https://res.cloudinary.com/dbymhpzhq/image/upload/v1683179347/SVG%20Images/suit_kew0g9.png"
                         alt="perfume"
                         className="menu-title-img"
                         width="20"
                         height="20"
                       />
 
-                      <p className="menu-title">Perfume</p>
+                      <p className="menu-title">Formal</p>
                     </div>
 
                     <div>
-                      <ion-icon
-                        name="add-outline"
-                        className="add-icon"
-                      ></ion-icon>
-                      <ion-icon
-                        name="remove-outline"
-                        className="remove-icon"
-                      ></ion-icon>
+                      <button
+                        onClick={() => setexpand3(!expand3)}
+                        style={{
+                          display: expand3 ? "none" : "block",
+                        }}
+                      >
+                        <ion-icon name="add-outline"></ion-icon>
+                      </button>
+                      <button
+                        onClick={() => setexpand3(!expand3)}
+                        style={{
+                          display: !expand3 ? "none" : "block",
+                        }}
+                      >
+                        <ion-icon name="remove-outline"></ion-icon>
+                      </button>
                     </div>
                   </button>
 
-                  <ul className="sidebar-submenu-category-list" data-accordion>
+                  <ul
+                    className={
+                      expand3
+                        ? "sidebar-submenu-category-list active"
+                        : "sidebar-submenu-category-list "
+                    }
+                    data-accordion
+                  >
                     <li className="sidebar-submenu-category">
                       <a href="/" className="sidebar-submenu-title">
-                        <p className="product-name">Clothes Perfume</p>
-                        <data
-                          value="12"
-                          className="stock"
-                          title="Available Stock"
-                        >
-                          12 pcs
-                        </data>
+                        <p className="product-name">Shirts</p>
                       </a>
                     </li>
 
                     <li className="sidebar-submenu-category">
                       <a href="/" className="sidebar-submenu-title">
-                        <p className="product-name">Deodorant</p>
-                        <data
-                          value="60"
-                          className="stock"
-                          title="Available Stock"
-                        >
-                          60 pcs
-                        </data>
+                        <p className="product-name">Plain Shirt</p>
                       </a>
                     </li>
 
                     <li className="sidebar-submenu-category">
                       <a href="/" className="sidebar-submenu-title">
-                        <p className="product-name">jacket</p>
-                        <data
-                          value="50"
-                          className="stock"
-                          title="Available Stock"
-                        >
-                          50 pcs
-                        </data>
+                        <p className="product-name">Check Shirts</p>
                       </a>
                     </li>
 
                     <li className="sidebar-submenu-category">
                       <a href="/" className="sidebar-submenu-title">
-                        <p className="product-name">dress & frock</p>
-                        <data
-                          value="87"
-                          className="stock"
-                          title="Available Stock"
-                        >
-                          87 pcs
-                        </data>
+                        <p className="product-name">Blazers</p>
                       </a>
                     </li>
                   </ul>
                 </li>
 
                 <li className="sidebar-menu-category">
-                  <button className="sidebar-accordion-menu" data-accordion-btn>
+                  <button
+                    className="sidebar-accordion-menu"
+                    data-accordion-btn
+                    onClick={() => setexpand4(!expand4)}
+                  >
                     <div className="menu-title-flex">
                       <img
-                        src="./assets/images/icons/cosmetics.svg"
+                        src="https://res.cloudinary.com/dbymhpzhq/image/upload/v1683179414/SVG%20Images/costume-party_vfydf1.png"
                         alt="cosmetics"
                         className="menu-title-img"
                         width="20"
                         height="20"
                       />
 
-                      <p className="menu-title">Cosmetics</p>
+                      <p className="menu-title">Party Wear</p>
                     </div>
 
                     <div>
-                      <ion-icon
-                        name="add-outline"
-                        className="add-icon"
-                      ></ion-icon>
-                      <ion-icon
-                        name="remove-outline"
-                        className="remove-icon"
-                      ></ion-icon>
+                      <button
+                        onClick={() => setexpand4(!expand4)}
+                        style={{
+                          display: expand4 ? "none" : "block",
+                        }}
+                      >
+                        <ion-icon name="add-outline"></ion-icon>
+                      </button>
+                      <button
+                        onClick={() => setexpand4(!expand4)}
+                        style={{
+                          display: !expand4 ? "none" : "block",
+                        }}
+                      >
+                        <ion-icon name="remove-outline"></ion-icon>
+                      </button>
                     </div>
                   </button>
 
-                  <ul className="sidebar-submenu-category-list" data-accordion>
+                  <ul
+                    className={
+                      expand4
+                        ? "sidebar-submenu-category-list active"
+                        : "sidebar-submenu-category-list "
+                    }
+                    data-accordion
+                  >
                     <li className="sidebar-submenu-category">
                       <a href="/" className="sidebar-submenu-title">
-                        <p className="product-name">Shampoo</p>
-                        <data
-                          value="68"
-                          className="stock"
-                          title="Available Stock"
-                        >
-                          68
-                        </data>
+                        <p className="product-name">Tops</p>
                       </a>
                     </li>
 
                     <li className="sidebar-submenu-category">
                       <a href="/" className="sidebar-submenu-title">
-                        <p className="product-name">Sunscreen</p>
-                        <data
-                          value="46"
-                          className="stock"
-                          title="Available Stock"
-                        >
-                          46
-                        </data>
+                        <p className="product-name">Women Dress</p>
                       </a>
                     </li>
 
                     <li className="sidebar-submenu-category">
                       <a href="/" className="sidebar-submenu-title">
-                        <p className="product-name">Body Wash</p>
-                        <data
-                          value="79"
-                          className="stock"
-                          title="Available Stock"
-                        >
-                          79
-                        </data>
+                        <p className="product-name">Crop Top</p>
                       </a>
                     </li>
 
                     <li className="sidebar-submenu-category">
                       <a href="/" className="sidebar-submenu-title">
-                        <p className="product-name">Makeup Kit</p>
-                        <data
-                          value="23"
-                          className="stock"
-                          title="Available Stock"
-                        >
-                          23
-                        </data>
+                        <p className="product-name">One Piece</p>
                       </a>
                     </li>
                   </ul>
                 </li>
 
                 <li className="sidebar-menu-category">
-                  <button className="sidebar-accordion-menu" data-accordion-btn>
+                  <button
+                    className="sidebar-accordion-menu"
+                    data-accordion-btn
+                    onClick={() => setexpand5(!expand5)}
+                  >
                     <div className="menu-title-flex">
                       <img
-                        src="./assets/images/icons/glasses.svg"
+                        src="https://res.cloudinary.com/dbymhpzhq/image/upload/v1683179450/SVG%20Images/glasses_x6m0kb.png"
                         alt="glasses"
                         className="menu-title-img"
                         width="20"
@@ -427,51 +400,56 @@ const Product = (props) => {
                     </div>
 
                     <div>
-                      <ion-icon
-                        name="add-outline"
-                        className="add-icon"
-                      ></ion-icon>
-                      <ion-icon
-                        name="remove-outline"
-                        className="remove-icon"
-                      ></ion-icon>
+                      <button
+                        onClick={() => setexpand5(!expand5)}
+                        style={{
+                          display: expand5 ? "none" : "block",
+                        }}
+                      >
+                        <ion-icon name="add-outline"></ion-icon>
+                      </button>
+                      <button
+                        onClick={() => setexpand5(!expand5)}
+                        style={{
+                          display: !expand5 ? "none" : "block",
+                        }}
+                      >
+                        <ion-icon name="remove-outline"></ion-icon>
+                      </button>
                     </div>
                   </button>
 
-                  <ul className="sidebar-submenu-category-list" data-accordion>
+                  <ul
+                    className={
+                      expand5
+                        ? "sidebar-submenu-category-list active"
+                        : "sidebar-submenu-category-list "
+                    }
+                    data-accordion
+                  >
                     <li className="sidebar-submenu-category">
                       <a href="/" className="sidebar-submenu-title">
                         <p className="product-name">Sunglasses</p>
-                        <data
-                          value="50"
-                          className="stock"
-                          title="Available Stock"
-                        >
-                          50
-                        </data>
                       </a>
                     </li>
 
                     <li className="sidebar-submenu-category">
                       <a href="/" className="sidebar-submenu-title">
                         <p className="product-name">Lenses</p>
-                        <data
-                          value="48"
-                          className="stock"
-                          title="Available Stock"
-                        >
-                          48
-                        </data>
                       </a>
                     </li>
                   </ul>
                 </li>
 
                 <li className="sidebar-menu-category">
-                  <button className="sidebar-accordion-menu" data-accordion-btn>
+                  <button
+                    className="sidebar-accordion-menu"
+                    data-accordion-btn
+                    onClick={() => setexpand6(!expand6)}
+                  >
                     <div className="menu-title-flex">
                       <img
-                        src="./assets/images/icons/bag.svg"
+                        src="https://res.cloudinary.com/dbymhpzhq/image/upload/v1683179498/SVG%20Images/bag_lazd7o.png"
                         alt="bags"
                         className="menu-title-img"
                         width="20"
@@ -482,67 +460,54 @@ const Product = (props) => {
                     </div>
 
                     <div>
-                      <ion-icon
-                        name="add-outline"
-                        className="add-icon"
-                      ></ion-icon>
-                      <ion-icon
-                        name="remove-outline"
-                        className="remove-icon"
-                      ></ion-icon>
+                      <button
+                        onClick={() => setexpand6(!expand6)}
+                        style={{
+                          display: expand6 ? "none" : "block",
+                        }}
+                      >
+                        <ion-icon name="add-outline"></ion-icon>
+                      </button>
+                      <button
+                        onClick={() => setexpand6(!expand6)}
+                        style={{
+                          display: !expand6 ? "none" : "block",
+                        }}
+                      >
+                        <ion-icon name="remove-outline"></ion-icon>
+                      </button>
                     </div>
                   </button>
 
-                  <ul className="sidebar-submenu-category-list" data-accordion>
+                  <ul
+                    className={
+                      expand6
+                        ? "sidebar-submenu-category-list active"
+                        : "sidebar-submenu-category-list "
+                    }
+                    data-accordion
+                  >
                     <li className="sidebar-submenu-category">
                       <a href="/" className="sidebar-submenu-title">
                         <p className="product-name">Shopping Bag</p>
-                        <data
-                          value="62"
-                          className="stock"
-                          title="Available Stock"
-                        >
-                          62
-                        </data>
                       </a>
                     </li>
 
                     <li className="sidebar-submenu-category">
                       <a href="/" className="sidebar-submenu-title">
                         <p className="product-name">Gym Backpack</p>
-                        <data
-                          value="35"
-                          className="stock"
-                          title="Available Stock"
-                        >
-                          35
-                        </data>
                       </a>
                     </li>
 
                     <li className="sidebar-submenu-category">
                       <a href="/" className="sidebar-submenu-title">
                         <p className="product-name">Purse</p>
-                        <data
-                          value="80"
-                          className="stock"
-                          title="Available Stock"
-                        >
-                          80
-                        </data>
                       </a>
                     </li>
 
                     <li className="sidebar-submenu-category">
                       <a href="/" className="sidebar-submenu-title">
                         <p className="product-name">Wallet</p>
-                        <data
-                          value="75"
-                          className="stock"
-                          title="Available Stock"
-                        >
-                          75
-                        </data>
                       </a>
                     </li>
                   </ul>
@@ -551,141 +516,141 @@ const Product = (props) => {
             </div>
 
             <div className="product-showcase">
+              <h3 className="showcase-heading">best sellers</h3>
 
-            <h3 className="showcase-heading">best sellers</h3>
-
-            <div className="showcase-wrapper">
-
-              <div className="showcase-container">
-
-                <div className="showcase">
-
-                  <a href="/" className="showcase-img-box">
-                    <img src="./assets/images/products/1.jpg" alt="baby fabric shoes" width="75" height="75"
-                      className="showcase-img"/>
-                  </a>
-
-                  <div className="showcase-content">
-
-                    <a href="/">
-                      <h4 className="showcase-title">baby fabric shoes</h4>
+              <div className="showcase-wrapper">
+                <div className="showcase-container">
+                  <div className="showcase">
+                    <a href="/" className="showcase-img-box">
+                      <img
+                        src="./assets/images/products/1.jpg"
+                        alt="baby fabric shoes"
+                        width="75"
+                        height="75"
+                        className="showcase-img"
+                      />
                     </a>
 
-                    <div className="showcase-rating">
-                      <ion-icon name="star"></ion-icon>
-                      <ion-icon name="star"></ion-icon>
-                      <ion-icon name="star"></ion-icon>
-                      <ion-icon name="star"></ion-icon>
-                      <ion-icon name="star"></ion-icon>
-                    </div>
+                    <div className="showcase-content">
+                      <a href="/">
+                        <h4 className="showcase-title">baby fabric shoes</h4>
+                      </a>
 
-                    <div className="price-box">
-                      <del>$5.00</del>
-                      <p className="price">$4.00</p>
-                    </div>
+                      <div className="showcase-rating">
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                      </div>
 
+                      <div className="price-box">
+                        <del>$5.00</del>
+                        <p className="price">$4.00</p>
+                      </div>
+                    </div>
                   </div>
 
-                </div>
-
-                <div className="showcase">
-
-                  <a href="/" className="showcase-img-box">
-                    <img src="./assets/images/products/2.jpg" alt="men's hoodies t-shirt" className="showcase-img"
-                      width="75" height="75" />
-                  </a>
-
-                  <div className="showcase-content">
-
-                    <a href="/">
-                      <h4 className="showcase-title">men's hoodies t-shirt</h4>
+                  <div className="showcase">
+                    <a href="/" className="showcase-img-box">
+                      <img
+                        src="./assets/images/products/2.jpg"
+                        alt="men's hoodies t-shirt"
+                        className="showcase-img"
+                        width="75"
+                        height="75"
+                      />
                     </a>
-                    <div className="showcase-rating">
-                      <ion-icon name="star"></ion-icon>
-                      <ion-icon name="star"></ion-icon>
-                      <ion-icon name="star"></ion-icon>
-                      <ion-icon name="star"></ion-icon>
-                      <ion-icon name="star-half-outline"></ion-icon>
-                    </div>
 
-                    <div className="price-box">
-                      <del>$17.00</del>
-                      <p className="price">$7.00</p>
-                    </div>
+                    <div className="showcase-content">
+                      <a href="/">
+                        <h4 className="showcase-title">
+                          men's hoodies t-shirt
+                        </h4>
+                      </a>
+                      <div className="showcase-rating">
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star-half-outline"></ion-icon>
+                      </div>
 
+                      <div className="price-box">
+                        <del>$17.00</del>
+                        <p className="price">$7.00</p>
+                      </div>
+                    </div>
                   </div>
 
-                </div>
-
-                <div className="showcase">
-
-                  <a href="/" className="showcase-img-box">
-                    <img src="./assets/images/products/3.jpg" alt="girls t-shirt" className="showcase-img" width="75"
-                      height="75"/>
-                  </a>
-
-                  <div className="showcase-content">
-
-                    <a href="/">
-                      <h4 className="showcase-title">girls t-shirt</h4>
+                  <div className="showcase">
+                    <a href="/" className="showcase-img-box">
+                      <img
+                        src="./assets/images/products/3.jpg"
+                        alt="girls t-shirt"
+                        className="showcase-img"
+                        width="75"
+                        height="75"
+                      />
                     </a>
-                    <div className="showcase-rating">
-                      <ion-icon name="star"></ion-icon>
-                      <ion-icon name="star"></ion-icon>
-                      <ion-icon name="star"></ion-icon>
-                      <ion-icon name="star"></ion-icon>
-                      <ion-icon name="star-half-outline"></ion-icon>
-                    </div>
 
-                    <div className="price-box">
-                      <del>$5.00</del>
-                      <p className="price">$3.00</p>
-                    </div>
+                    <div className="showcase-content">
+                      <a href="/">
+                        <h4 className="showcase-title">girls t-shirt</h4>
+                      </a>
+                      <div className="showcase-rating">
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star-half-outline"></ion-icon>
+                      </div>
 
+                      <div className="price-box">
+                        <del>$5.00</del>
+                        <p className="price">$3.00</p>
+                      </div>
+                    </div>
                   </div>
 
-                </div>
-
-                <div className="showcase">
-
-                  <a href="/" className="showcase-img-box">
-                    <img src="./assets/images/products/4.jpg" alt="woolen hat for men" className="showcase-img" width="75"
-                      height="75"/>
-                  </a>
-
-                  <div className="showcase-content">
-
-                    <a href="/">
-                      <h4 className="showcase-title">woolen hat for men</h4>
+                  <div className="showcase">
+                    <a href="/" className="showcase-img-box">
+                      <img
+                        src="./assets/images/products/4.jpg"
+                        alt="woolen hat for men"
+                        className="showcase-img"
+                        width="75"
+                        height="75"
+                      />
                     </a>
-                    <div className="showcase-rating">
-                      <ion-icon name="star"></ion-icon>
-                      <ion-icon name="star"></ion-icon>
-                      <ion-icon name="star"></ion-icon>
-                      <ion-icon name="star"></ion-icon>
-                      <ion-icon name="star"></ion-icon>
-                    </div>
 
-                    <div className="price-box">
-                      <del>$15.00</del>
-                      <p className="price">$12.00</p>
-                    </div>
+                    <div className="showcase-content">
+                      <a href="/">
+                        <h4 className="showcase-title">woolen hat for men</h4>
+                      </a>
+                      <div className="showcase-rating">
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                      </div>
 
+                      <div className="price-box">
+                        <del>$15.00</del>
+                        <p className="price">$12.00</p>
+                      </div>
+                    </div>
                   </div>
-
                 </div>
-
               </div>
-
             </div>
-
-          </div>
           </div>
 
           <div className="product-box">
             <div className="product-minimal">
               <div className="product-showcase">
-                <h2 className="title">New Arrivals</h2>
+                <h2 className="title"> </h2>
 
                 <div className="showcase-wrapper has-scrollbar">
                   <div className="showcase-container">

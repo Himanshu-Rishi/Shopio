@@ -45,6 +45,9 @@ const Header = (props) => {
   function cart() {
     history("/cart");
   }
+  function home() {
+    history("/");
+  }
   function logoutUser() {
     dispatch(logout());
     toast.success("Logout Successfully");
@@ -508,8 +511,8 @@ const Header = (props) => {
           <span className="count">{cartItems.length}</span>
         </button>
 
-        <button className="action-btn">
-          <ion-icon name="grid-outline"></ion-icon>
+        <button className="action-btn" onClick={home}>
+          <ion-icon name="home-outline"></ion-icon>
         </button>
 
         <button className="action-btn">

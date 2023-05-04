@@ -4,8 +4,6 @@ import Box from "@mui/material/Box";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import ListItemIcon from "@mui/material/ListItemIcon";
-import IconButton from "@mui/material/IconButton";
-import Tooltip from "@mui/material/Tooltip";
 import LoginIcon from "@mui/icons-material/Login";
 import "./Header.css";
 import { useSelector } from "react-redux";
@@ -38,6 +36,10 @@ const SignInHeader = (props) => {
   // button links
   function signin() {
     history("/login");
+  }
+
+  function home() {
+    history("/");
   }
   
   function cart() {
@@ -234,7 +236,7 @@ const SignInHeader = (props) => {
                     <li className="panel-list-item">
                       <a href="/">
                         <img
-                          src="./assets/images/electronics-banner-1.jpg"
+                          src="https://res.cloudinary.com/dbymhpzhq/image/upload/v1683116447/category%20images/electronics-banner-1_bzguco.jpg"
                           alt="headphone collection"
                           width="250"
                           height="119"
@@ -271,7 +273,7 @@ const SignInHeader = (props) => {
                     <li className="panel-list-item">
                       <a href="/">
                         <img
-                          src="./assets/images/mens-banner.jpg"
+                          src="https://res.cloudinary.com/dbymhpzhq/image/upload/v1683116446/category%20images/mens-banner_niguha.jpg"
                           alt="men's fashion"
                           width="250"
                           height="119"
@@ -308,7 +310,7 @@ const SignInHeader = (props) => {
                     <li className="panel-list-item">
                       <a href="/">
                         <img
-                          src="./assets/images/womens-banner.jpg"
+                          src="https://res.cloudinary.com/dbymhpzhq/image/upload/v1683116447/category%20images/womens-banner_zqq1em.jpg"
                           alt="women's fashion"
                           width="250"
                           height="119"
@@ -345,7 +347,7 @@ const SignInHeader = (props) => {
                     <li className="panel-list-item">
                       <a href="/">
                         <img
-                          src="./assets/images/electronics-banner-2.jpg"
+                          src="https://res.cloudinary.com/dbymhpzhq/image/upload/v1683116447/category%20images/electronics-banner-2_tv10fm.jpg"
                           alt="mouse collection"
                           width="250"
                           height="119"
@@ -483,8 +485,8 @@ const SignInHeader = (props) => {
           <span className="count">{cartItems.length}</span>
         </button>
 
-        <button className="action-btn">
-          <ion-icon name="grid-outline"></ion-icon>
+        <button className="action-btn" onClick={home}>
+          <ion-icon name="home-outline"></ion-icon>
         </button>
 
         <button className="action-btn">
