@@ -1,66 +1,65 @@
 .paymentContainer {
-  display: grid;
-  place-items: center;
-  background-color: rgb(255, 255, 255);
-  height: 65vh;
-  margin: 2vmax;
+  /* From https://css.glass */
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  margin: 3rem auto;
+  max-width: 400px;
+  min-height: 350px;
 }
 
-.paymentForm {
-  width: 40%;
-  height: 100%;
+.paymnentHeading {
+  border-bottom: 2px black solid;
+  padding-top: 1rem;
 }
 
-.paymentForm > p {
-  font: 400 2vmax ;
-  color: rgba(0, 0, 0, 0.753);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.13);
-  padding: 1vmax 0;
-  text-align: center;
-  width: 50%;
-  margin: auto;
-}
-
-.paymentForm > div {
-  display: flex;
-  align-items: center;
-  margin: 2vmax 0;
+.payment__input
+{
+  margin: 2rem 0;
 }
 
 .paymentInput {
-  padding: 1vmax 15vmax;
-  padding-right: 1vmax;
-  width: 100%;
-  box-sizing: border-box;
-  border: 1px solid rgba(0, 0, 0, 0.267);
-  border-radius: 4px;
-  outline: none;
+  width: 10rem;
+  font-size: 1rem;
+  margin: 0.5rem;
 }
 
-.paymentForm > div > svg {
-  position: absolute;
-  transform: translateX(1vmax);
-  font-size: 1.6vmax;
-  color: rgba(0, 0, 0, 0.623);
+.input__field {
+  border: 1px darkgray solid;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0.75rem 0;
+}
+
+.payment__icons
+{
+  margin: 0 5px;
 }
 
 .paymentFormBtn {
   border: none;
-  background-color: var(--toggle-color-primary);
+  background-color:var(--toggle-color-primary);
   color: white;
-  font: 300 0.9vmax ;
-  width: 60%;
-  padding: 0.8vmax;
+  font: 300 0.9vmax;
+  width: 80%;
+  padding: 0.6vmax;
   cursor: pointer;
   transition: all 0.5s;
   outline: none;
-  border-radius: 4px;
+  border-radius: 8px;
 }
 
 .paymentFormBtn:hover {
-  background-color: var(--toggel-color-secondary);
+  background-color: rgb(94, 209, 203);
 }
 
-
 @media screen and (max-width: 600px) {
+  .paymentFormBtn {
+  width: 40%;
+}
 }

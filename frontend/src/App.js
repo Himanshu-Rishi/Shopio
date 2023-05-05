@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import Home from "./components/home/Home";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ProductPage from "./components/Product/ProductPage";
@@ -17,20 +17,17 @@ import ResetPassword from "./components/User/ResetPassword";
 import Cart from "./components/cart/Cart";
 import Shipping from "./components/cart/Shipping";
 import ConfirmOrder from "./components/cart/ConfirmOrder";
-import axios from "axios";
 import Payment from "./components/cart/Payment";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
+import OrderSuccess from "./components/cart/OrderSuccess";
 const App = () => {
   const { user, isAuthenticated } = useSelector((state) => state.user);
-  const [stripeApiKey, setstripeApiKey] = useState("");
-  async function getstripeApiKey() {
-    const { data } = await axios.get("/api/v1//stripeapikey");
-    setstripeApiKey(data.stripeApiKey);
-  }
+  const stripePromise = loadStripe(
+    "pk_test_51N3KZWSFyuLceomLzX3BZJ0lSgwF9YatY15eSjOQIdpCTq3bRIWOjcshlejdSzYRtdj8RMbr8vWkJjhzmBJ5K7ja00jF8i1aeD"
+  );
   useEffect(() => {
     store.dispatch(loadUser());
-    getstripeApiKey();
   }, []);
 
   return (
@@ -138,15 +135,18 @@ const App = () => {
           exact
           path="/process/payment"
           element={
-            <Elements
-              stripe={loadStripe(
-                "pk_test_51N3KZWSFyuLceomLzX3BZJ0lSgwF9YatY15eSjOQIdpCTq3bRIWOjcshlejdSzYRtdj8RMbr8vWkJjhzmBJ5K7ja00jF8i1aeD"
-              )}
-            >
-              <ProtectedRoute>
+            <ProtectedRoute>
+              <Elements stripe={stripePromise}>
                 <Payment user={user} isAuthenticated={isAuthenticated} />
-              </ProtectedRoute>
-            </Elements>
+              </Elements>
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          exact
+          path="/success"
+          element={
+            <OrderSuccess user={user} isAuthenticated={isAuthenticated} />
           }
         />
       </Routes>

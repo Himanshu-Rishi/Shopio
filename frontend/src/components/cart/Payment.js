@@ -13,13 +13,14 @@ import VpnKeyIcon from "@mui/icons-material/VpnKey";
 import axios from "axios";
 import "./payment.css";
 import CheckoutSteps from "./CheckoutSteps";
-import { Tooltip, Typography } from "@mui/material";
+import { Typography } from "@mui/material";
 import SignInHeader from "../layout/Header/SignInHeader";
 import Header from "../layout/Header/Header";
 import { useNavigate } from "react-router-dom";
 import { Toaster, toast } from "react-hot-toast";
 import { Helmet } from "react-helmet";
 import Footer from "../layout/Footer/Footer";
+import { clearErrors, createOrder } from "../../action/orderAction";
 
 const Payment = (props) => {
   const orderInfo = JSON.parse(sessionStorage.getItem("orderInfo"));
@@ -31,7 +32,7 @@ const Payment = (props) => {
 
   const { shippingInfo, cartItems } = useSelector((state) => state.cart);
   const { user } = useSelector((state) => state.user);
-  // const { error } = useSelector((state) => state.newOrder);
+  const { error } = useSelector((state) => state.newOrder);
 
   const paymentData = {
     amount: Math.round(orderInfo.totalPrice * 100),
@@ -94,7 +95,7 @@ const Payment = (props) => {
             status: result.paymentIntent.status,
           };
 
-          //   dispatch(createOrder(order));
+            dispatch(createOrder(order));
 
           history("/success");
         } else {
@@ -107,12 +108,12 @@ const Payment = (props) => {
     }
   };
 
-  // useEffect(() => {
-  //   if (error) {
-  //     alert.error(error);
-  //     dispatch(clearErrors());
-  //   }
-  // }, [dispatch, error, alert]);
+  useEffect(() => {
+    if (error) {
+      toast.error(error);
+      dispatch(clearErrors());
+    }
+  }, [dispatch, error]);
 
   return (
     <Fragment>
@@ -129,26 +130,22 @@ const Payment = (props) => {
         <CheckoutSteps activeStep={2} />
         <div className="paymentContainer">
           <form className="paymentForm" onSubmit={(e) => submitHandler(e)}>
-            <Typography>Card Info</Typography>
-            {/* <Tooltip title="Card Number"> */}
-              <div>
-                <CreditCardIcon label="First" />
-                <CardNumberElement className="paymentInput"/>
-              </div>
-            {/* </Tooltip> */}
-            <Tooltip title="Card Expiry Date">
-              <div>
-                <EventIcon />
+            <Typography className="paymnentHeading">Card Info</Typography>
+            <div className="payment__input">
+            <div className="input__field">
+              <CreditCardIcon label="First" className="payment__icons"/>
+              <CardNumberElement className="paymentInput" />
+            </div>
+              <div className="input__field">
+                <EventIcon className="payment__icons"/>
                 <CardExpiryElement className="paymentInput" />
               </div>
-            </Tooltip>
-            <Tooltip title="CVC Number">
-            <div>
-              <VpnKeyIcon />
-              <CardCvcElement className="paymentInput" />
+              <div className="input__field">
+                <VpnKeyIcon className="payment__icons"/>
+                <CardCvcElement className="paymentInput" />
+              </div>
             </div>
-            </Tooltip>
-
+           
             <input
               type="submit"
               value={`Pay - ₹${orderInfo && orderInfo.totalPrice}`}
@@ -164,3 +161,4 @@ const Payment = (props) => {
 };
 
 export default Payment;
+

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Helmet } from 'react-helmet';
 import Loader from '../layout/Loader/Loader';
 import { Toaster, toast } from 'react-hot-toast';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link} from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { clearErrors} from '../../action/productAction'
 import { forgotPassword } from "../../action/userAction";
