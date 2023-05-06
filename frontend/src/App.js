@@ -21,6 +21,7 @@ import Payment from "./components/cart/Payment";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import OrderSuccess from "./components/cart/OrderSuccess";
+import MyOrders from "./components/Order/Myorders";
 const App = () => {
   const { user, isAuthenticated } = useSelector((state) => state.user);
   const stripePromise = loadStripe(
@@ -147,6 +148,15 @@ const App = () => {
           path="/success"
           element={
             <OrderSuccess user={user} isAuthenticated={isAuthenticated} />
+          }
+        />
+        <Route
+          exact
+          path="/orders"
+          element={
+            <ProtectedRoute>
+              <MyOrders user={user} isAuthenticated={isAuthenticated} />
+            </ProtectedRoute>
           }
         />
       </Routes>

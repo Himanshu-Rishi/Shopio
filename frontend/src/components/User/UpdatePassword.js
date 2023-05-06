@@ -24,11 +24,11 @@ const UpdatePassword = () => {
     myform.set("confirmPassword", confirmPassword);
     dispatch(updatePassword(myform));
   };
-  useEffect(() => {
-    if (isAuthenticated === false) {
-      history("/login");
-    }
-  }, [history, isAuthenticated]);
+   useEffect(() => {
+     if (isAuthenticated === false && loading === false) {
+       history("/login");
+     }
+   }, [history, isAuthenticated, loading]);
 
   // error
   useEffect(() => {

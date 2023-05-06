@@ -10,7 +10,7 @@ import Footer from "../layout/Footer/Footer";
 const OrderSuccess = (props) => {
   return (
     <>
-      {props.isAuthenticated ? (
+      {props.isAuthenticated === true ? (
         <Header user={props.user} isAuthenticated={props.isAuthenticated} />
       ) : (
         <SignInHeader />

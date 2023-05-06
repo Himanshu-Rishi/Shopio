@@ -14,6 +14,10 @@ const Profile = (props) => {
       history("/login");
     }
   }, [history, isAuthenticated]);
+  function handleorders()
+  {
+    history('/orders')
+  }
   function updateProfile()
   {
     history("/profile/update")
@@ -57,7 +61,7 @@ const Profile = (props) => {
                       User Role: <span>{user.role}</span>
                     </div>
                     <div className="button__section">
-                      <button className="profile__btn">My Orders</button>
+                      <button className="profile__btn" onClick={handleorders}>My Orders</button>
                       <button className="profile__btn" onClick={handlePassword}>Change Password</button>
                     </div>
                   </div>

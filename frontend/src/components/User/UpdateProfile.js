@@ -29,10 +29,10 @@ const UpdateProfile = () => {
       dispatch(updateProfile(myForm));
     };
     useEffect(() => {
-      if (isAuthenticated === false) {
+      if (isAuthenticated === false && loading === false) {
         history("/login");
       }
-    }, [history, isAuthenticated]);
+    }, [history, isAuthenticated, loading]);
 
     // error
     useEffect(() => {
@@ -46,7 +46,7 @@ const UpdateProfile = () => {
         toast.error(error);
         dispatch(clearErrors());
       }
-      if (isUpdated) {
+      if (isUpdated === true) {
         toast.success("Profile Update Successfully.")
         dispatch(loadUser());
         history("/account");

@@ -54,14 +54,14 @@ exports.getAllOrderDetails = async_error(async(req, res, next)=>{
 })
 
 exports.getLoggedInOrder = async_error(async (req, res, next) => {
-  const order = await Order.find({user: req.user.id});
+  const orders = await Order.find({user: req.user.id});
 
-  if (!order) {
+  if (!orders) {
     return next(new Errorhandler("No orders", 404));
   }
   res.status(201).json({
     success: true,
-    order,
+    orders,
   });
 });
 
