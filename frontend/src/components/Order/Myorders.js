@@ -8,6 +8,7 @@ import Loader from "../layout/Loader/Loader";
 import Header from "../layout/Header/Header";
 import SignInHeader from "../layout/Header/SignInHeader";
 import { Toaster, toast } from "react-hot-toast";
+import { Helmet } from "react-helmet";
 
 const MyOrders = (props) => {
   const dispatch = useDispatch();
@@ -64,6 +65,8 @@ const MyOrders = (props) => {
 
   return (
     <Fragment>
+      <Helmet><title>Orders
+        </title></Helmet>
       <Toaster reverseOrder={false} position="top-center" />
       {props.isAuthenticated === true ? (
         <Header user={props.user} isAuthenticated={props.isAuthenticated} />

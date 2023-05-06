@@ -22,6 +22,7 @@ import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import OrderSuccess from "./components/cart/OrderSuccess";
 import MyOrders from "./components/Order/Myorders";
+import OrderDetails from "./components/Order/OrderDetails";
 const App = () => {
   const { user, isAuthenticated } = useSelector((state) => state.user);
   const stripePromise = loadStripe(
@@ -156,6 +157,15 @@ const App = () => {
           element={
             <ProtectedRoute>
               <MyOrders user={user} isAuthenticated={isAuthenticated} />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          exact
+          path="/order/:id"
+          element={
+            <ProtectedRoute>
+              <OrderDetails user={user} isAuthenticated={isAuthenticated} />
             </ProtectedRoute>
           }
         />

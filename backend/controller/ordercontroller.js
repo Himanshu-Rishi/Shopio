@@ -31,25 +31,24 @@ exports.getOrderDetails = async_error(async(req, res, next)=>{
     if(!order)
     {
         return next(new Errorhandler("Order not found with this id.", 404));
-
     }
     res.status(201).json({
       success: true,
-      order,
+      order
     });
 })
 
 exports.getAllOrderDetails = async_error(async(req, res, next)=>{
-    const order = await Order.find();
+    const orders = await Order.find();
 
     let totalAmount = 0;
-    order.forEach(element => {
-        totalAmount += order.totalPrice
+    orders.forEach(element => {
+        totalAmount += orders.totalPrice
     });
     res.status(201).json({
       success: true,
       totalAmount,
-      order,
+      orders,
     });
 })
 

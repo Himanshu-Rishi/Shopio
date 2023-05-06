@@ -11,7 +11,7 @@ const {
 } = require("../controller/ordercontroller");
 
 router.route("/order/new").post(isAuthenticated, newOrder);
-router.route("/order/:id").put(isAuthenticated, getOrderDetails);
+router.route("/order/:id").get(isAuthenticated, getOrderDetails);
 router.route("/myorders").get(isAuthenticated, getLoggedInOrder);
 
 router
