@@ -130,19 +130,19 @@ const Products = (props) => {
         <title>{props.page}</title>
       </Helmet>
       <Toaster position="top-center" reverseOrder={false} />
+      {props.isAuthenticated ? (
+        <Header
+          user={props.user}
+          isAuthenticated={props.isAuthenticated}
+          flag={true}
+        />
+        ) : (
+          <SignInHeader flag={true} />
+        )}
       {loading ? (
         <Loader />
       ) : (
         <Fragment>
-          {props.isAuthenticated ? (
-            <Header
-              user={props.user}
-              isAuthenticated={props.isAuthenticated}
-              flag={true}
-            />
-          ) : (
-            <SignInHeader flag={true} />
-          )}
           <main>
             <div className="product-container">
               <div className="container">

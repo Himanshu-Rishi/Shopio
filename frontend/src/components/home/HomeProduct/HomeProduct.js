@@ -523,8 +523,8 @@ const Product = (props) => {
                   <div className="showcase">
                     <a href="/" className="showcase-img-box">
                       <img
-                        src="./assets/images/products/1.jpg"
-                        alt="baby fabric shoes"
+                        src="https://www.linkpicture.com/q/shirt-1_1.jpg"
+                        alt="shirt"
                         width="75"
                         height="75"
                         className="showcase-img"
@@ -532,8 +532,8 @@ const Product = (props) => {
                     </a>
 
                     <div className="showcase-content">
-                      <a href="/">
-                        <h4 className="showcase-title">baby fabric shoes</h4>
+                      <a href="/product/64564acfb9d4e1f2cbcaf243">
+                        <h4 className="showcase-title">Men's Stylish Shirt</h4>
                       </a>
 
                       <div className="showcase-rating">
@@ -545,89 +545,95 @@ const Product = (props) => {
                       </div>
 
                       <div className="price-box">
-                        <del>$5.00</del>
-                        <p className="price">$4.00</p>
+                        <del>₹2000</del>
+                        <p className="price">₹1250</p>
                       </div>
                     </div>
                   </div>
-
                   <div className="showcase">
-                    <a href="/" className="showcase-img-box">
+                    <a
+                      href="/product/64565246b9d4e1f2cbcaf37f"
+                      className="showcase-img-box"
+                    >
                       <img
-                        src="./assets/images/products/2.jpg"
-                        alt="men's hoodies t-shirt"
-                        className="showcase-img"
+                        src="https://res.cloudinary.com/dbymhpzhq/image/upload/v1683378205/products/jacket-3_jzp3q1.jpg"
+                        alt="jacket"
                         width="75"
                         height="75"
+                        className="showcase-img"
                       />
                     </a>
 
                     <div className="showcase-content">
-                      <a href="/">
+                      <a href="/product/64565246b9d4e1f2cbcaf37f">
+                        <h4 className="showcase-title">Men's Leather Jacket</h4>
+                      </a>
+
+                      <div className="showcase-rating">
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                      </div>
+
+                      <div className="price-box">
+                        <del>₹1999</del>
+                        <p className="price">₹3000</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="showcase">
+                    <a
+                      href="/product/64565180b9d4e1f2cbcaf32f"
+                      className="showcase-img-box"
+                    >
+                      <img
+                        src="https://res.cloudinary.com/dbymhpzhq/image/upload/v1683378195/products/party-wear-1_fqjg28.jpg"
+                        alt="footwear"
+                        width="75"
+                        height="75"
+                        className="showcase-img"
+                      />
+                    </a>
+
+                    <div className="showcase-content">
+                      <a href="/product/64565180b9d4e1f2cbcaf32f">
                         <h4 className="showcase-title">
-                          men's hoodies t-shirt
+                          Women's Stylish Footwear
                         </h4>
                       </a>
+
                       <div className="showcase-rating">
                         <ion-icon name="star"></ion-icon>
                         <ion-icon name="star"></ion-icon>
                         <ion-icon name="star"></ion-icon>
                         <ion-icon name="star"></ion-icon>
-                        <ion-icon name="star-half-outline"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
                       </div>
 
                       <div className="price-box">
-                        <del>$17.00</del>
-                        <p className="price">$7.00</p>
+                        <del>₹2999</del>
+                        <p className="price">₹5000</p>
                       </div>
                     </div>
                   </div>
-
                   <div className="showcase">
                     <a href="/" className="showcase-img-box">
                       <img
-                        src="./assets/images/products/3.jpg"
-                        alt="girls t-shirt"
-                        className="showcase-img"
+                        src="https://res.cloudinary.com/dbymhpzhq/image/upload/v1683377644/products/watch-2_nvckgf.jpg"
+                        alt="smart watches"
                         width="75"
                         height="75"
+                        className="showcase-img"
                       />
                     </a>
 
                     <div className="showcase-content">
-                      <a href="/">
-                        <h4 className="showcase-title">girls t-shirt</h4>
+                      <a href="/product/64564eacb9d4e1f2cbcaf275">
+                        <h4 className="showcase-title">Men's Smart Watch</h4>
                       </a>
-                      <div className="showcase-rating">
-                        <ion-icon name="star"></ion-icon>
-                        <ion-icon name="star"></ion-icon>
-                        <ion-icon name="star"></ion-icon>
-                        <ion-icon name="star"></ion-icon>
-                        <ion-icon name="star-half-outline"></ion-icon>
-                      </div>
 
-                      <div className="price-box">
-                        <del>$5.00</del>
-                        <p className="price">$3.00</p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="showcase">
-                    <a href="/" className="showcase-img-box">
-                      <img
-                        src="./assets/images/products/4.jpg"
-                        alt="woolen hat for men"
-                        className="showcase-img"
-                        width="75"
-                        height="75"
-                      />
-                    </a>
-
-                    <div className="showcase-content">
-                      <a href="/">
-                        <h4 className="showcase-title">woolen hat for men</h4>
-                      </a>
                       <div className="showcase-rating">
                         <ion-icon name="star"></ion-icon>
                         <ion-icon name="star"></ion-icon>
@@ -637,8 +643,8 @@ const Product = (props) => {
                       </div>
 
                       <div className="price-box">
-                        <del>$15.00</del>
-                        <p className="price">$12.00</p>
+                        <del>₹2000</del>
+                        <p className="price">₹1250</p>
                       </div>
                     </div>
                   </div>
@@ -650,14 +656,17 @@ const Product = (props) => {
           <div className="product-box">
             <div className="product-minimal">
               <div className="product-showcase">
-                <h2 className="title"> </h2>
+                <h2 className="title">new arrivals</h2>
 
                 <div className="showcase-wrapper has-scrollbar">
                   <div className="showcase-container">
                     <div className="showcase">
-                      <a href="/" className="showcase-img-box">
+                      <a
+                        href="/product/64565be45dfede3d2f716f6d"
+                        className="showcase-img-box"
+                      >
                         <img
-                          src="./assets/images/products/clothes-1.jpg"
+                          src="https://res.cloudinary.com/dbymhpzhq/image/upload/v1683116709/One%20image%20Products/clothes-1_tgroni.jpg"
                           alt="relaxed short full sleeve t-shirt"
                           width="70"
                           className="showcase-img"
@@ -665,27 +674,30 @@ const Product = (props) => {
                       </a>
 
                       <div className="showcase-content">
-                        <a href="/">
+                        <a href="/product/64565be45dfede3d2f716f6d">
                           <h4 className="showcase-title">
                             Relaxed Short full Sleeve T-Shirt
                           </h4>
                         </a>
 
-                        <a href="/" className="showcase-category">
+                        <a href="/products/tops" className="showcase-category">
                           Clothes
                         </a>
 
                         <div className="price-box">
-                          <p className="price">$45.00</p>
-                          <del>$12.00</del>
+                          <p className="price">₹1999</p>
+                          <del>₹2000</del>
                         </div>
                       </div>
                     </div>
 
                     <div className="showcase">
-                      <a href="/" className="showcase-img-box">
+                      <a
+                        href="/product/64565ba45dfede3d2f716f69"
+                        className="showcase-img-box"
+                      >
                         <img
-                          src="./assets/images/products/clothes-2.jpg"
+                          src="https://res.cloudinary.com/dbymhpzhq/image/upload/v1683116710/One%20image%20Products/clothes-2_xbbnq3.jpg"
                           alt="girls pink embro design top"
                           className="showcase-img"
                           width="70"
@@ -693,27 +705,30 @@ const Product = (props) => {
                       </a>
 
                       <div className="showcase-content">
-                        <a href="/">
+                        <a href="/product/64565ba45dfede3d2f716f69">
                           <h4 className="showcase-title">
                             Girls pnk Embro design Top
                           </h4>
                         </a>
 
-                        <a href="/" className="showcase-category">
+                        <a href="/products/tops" className="showcase-category">
                           Clothes
                         </a>
 
                         <div className="price-box">
-                          <p className="price">$61.00</p>
-                          <del>$9.00</del>
+                          <p className="price">₹999</p>
+                          <del>₹1000</del>
                         </div>
                       </div>
                     </div>
 
                     <div className="showcase">
-                      <a href="/" className="showcase-img-box">
+                      <a
+                        href="/product/64564fffb9d4e1f2cbcaf2ba"
+                        className="showcase-img-box"
+                      >
                         <img
-                          src="./assets/images/products/clothes-3.jpg"
+                          src="https://res.cloudinary.com/dbymhpzhq/image/upload/v1683378071/products/clothes-3_jgb2es.jpg"
                           alt="black floral wrap midi skirt"
                           className="showcase-img"
                           width="70"
@@ -721,27 +736,33 @@ const Product = (props) => {
                       </a>
 
                       <div className="showcase-content">
-                        <a href="/">
+                        <a href="/products/bottomwear">
                           <h4 className="showcase-title">
                             Black Floral Wrap Midi Skirt
                           </h4>
                         </a>
 
-                        <a href="/" className="showcase-category">
+                        <a
+                          href="/product/64564fffb9d4e1f2cbcaf2ba"
+                          className="showcase-category"
+                        >
                           Clothes
                         </a>
 
                         <div className="price-box">
-                          <p className="price">$76.00</p>
-                          <del>$25.00</del>
+                          <p className="price">₹1050</p>
+                          <del>₹2000</del>
                         </div>
                       </div>
                     </div>
 
                     <div className="showcase">
-                      <a href="/" className="showcase-img-box">
+                      <a
+                        href="/product/64564acfb9d4e1f2cbcaf243"
+                        className="showcase-img-box"
+                      >
                         <img
-                          src="./assets/images/products/shirt-1.jpg"
+                          src="https://res.cloudinary.com/dbymhpzhq/image/upload/v1683511257/products/shirt-1_tqujwo.jpg"
                           alt="pure garment dyed cotton shirt"
                           className="showcase-img"
                           width="70"
@@ -749,19 +770,19 @@ const Product = (props) => {
                       </a>
 
                       <div className="showcase-content">
-                        <a href="/">
+                        <a href="/product/64564acfb9d4e1f2cbcaf243">
                           <h4 className="showcase-title">
                             Pure Garment Dyed Cotton Shirt
                           </h4>
                         </a>
 
-                        <a href="/" className="showcase-category">
+                        <a href="/products/men" className="showcase-category">
                           Mens Fashion
                         </a>
 
                         <div className="price-box">
-                          <p className="price">$68.00</p>
-                          <del>$31.00</del>
+                          <p className="price">₹1250</p>
+                          <del>₹2000</del>
                         </div>
                       </div>
                     </div>
@@ -769,9 +790,12 @@ const Product = (props) => {
 
                   <div className="showcase-container">
                     <div className="showcase">
-                      <a href="/" className="showcase-img-box">
+                      <a
+                        href="/product/645650b6b9d4e1f2cbcaf2bf"
+                        className="showcase-img-box"
+                      >
                         <img
-                          src="./assets/images/products/jacket-5.jpg"
+                          src="https://res.cloudinary.com/dbymhpzhq/image/upload/v1683378190/products/jacket-5_fsuyyz.jpg"
                           alt="men yarn fleece full-zip jacket"
                           className="showcase-img"
                           width="70"
@@ -779,27 +803,33 @@ const Product = (props) => {
                       </a>
 
                       <div className="showcase-content">
-                        <a href="/">
+                        <a href="/product/645650b6b9d4e1f2cbcaf2bf">
                           <h4 className="showcase-title">
                             MEN Yarn Fleece Full-Zip Jacket
                           </h4>
                         </a>
 
-                        <a href="/" className="showcase-category">
+                        <a
+                          href="/products/jacket"
+                          className="showcase-category"
+                        >
                           Winter wear
                         </a>
 
                         <div className="price-box">
-                          <p className="price">$61.00</p>
-                          <del>$11.00</del>
+                          <p className="price">₹2199</p>
+                          <del>₹4000</del>
                         </div>
                       </div>
                     </div>
 
                     <div className="showcase">
-                      <a href="/" className="showcase-img-box">
+                      <a
+                        href="/product/64565246b9d4e1f2cbcaf37f"
+                        className="showcase-img-box"
+                      >
                         <img
-                          src="./assets/images/products/jacket-1.jpg"
+                          src="https://res.cloudinary.com/dbymhpzhq/image/upload/v1683378205/products/jacket-4_abrcr9.jpg"
                           alt="mens winter leathers jackets"
                           className="showcase-img"
                           width="70"
@@ -807,27 +837,33 @@ const Product = (props) => {
                       </a>
 
                       <div className="showcase-content">
-                        <a href="/">
+                        <a href="/product/64565246b9d4e1f2cbcaf37f">
                           <h4 className="showcase-title">
                             Mens Winter Leathers Jackets
                           </h4>
                         </a>
 
-                        <a href="/" className="showcase-category">
+                        <a
+                          href="/products/jacket"
+                          className="showcase-category"
+                        >
                           Winter wear
                         </a>
 
                         <div className="price-box">
-                          <p className="price">$32.00</p>
-                          <del>$20.00</del>
+                          <p className="price">₹1999</p>
+                          <del>₹3000</del>
                         </div>
                       </div>
                     </div>
 
                     <div className="showcase">
-                      <a href="/" className="showcase-img-box">
+                      <a
+                        href="/product/645651f3b9d4e1f2cbcaf355"
+                        className="showcase-img-box"
+                      >
                         <img
-                          src="./assets/images/products/jacket-3.jpg"
+                          src="https://res.cloudinary.com/dbymhpzhq/image/upload/v1683378200/products/jacket-2_ojmw7e.jpg"
                           alt="mens winter leathers jackets"
                           className="showcase-img"
                           width="70"
@@ -835,27 +871,33 @@ const Product = (props) => {
                       </a>
 
                       <div className="showcase-content">
-                        <a href="/">
+                        <a href="/product/645651f3b9d4e1f2cbcaf355">
                           <h4 className="showcase-title">
                             Mens Winter Leathers Jackets
                           </h4>
                         </a>
 
-                        <a href="/" className="showcase-category">
+                        <a
+                          href="/products/jacket"
+                          className="showcase-category"
+                        >
                           Jackets
                         </a>
 
                         <div className="price-box">
-                          <p className="price">$50.00</p>
-                          <del>$25.00</del>
+                          <p className="price">₹1999</p>
+                          <del>₹3000</del>
                         </div>
                       </div>
                     </div>
 
                     <div className="showcase">
-                      <a href="/" className="showcase-img-box">
+                      <a
+                        href="/product/6456549a87a78b78669a2996"
+                        className="showcase-img-box"
+                      >
                         <img
-                          src="./assets/images/products/shorts-1.jpg"
+                          src="https://res.cloudinary.com/dbymhpzhq/image/upload/v1683116710/One%20image%20Products/sports-1_uccdft.jpg"
                           alt="better basics french terry sweatshorts"
                           className="showcase-img"
                           width="70"
@@ -863,19 +905,22 @@ const Product = (props) => {
                       </a>
 
                       <div className="showcase-content">
-                        <a href="/">
+                        <a href="/product/6456549a87a78b78669a2996">
                           <h4 className="showcase-title">
                             Better Basics French Terry Sweatshorts
                           </h4>
                         </a>
 
-                        <a href="/" className="showcase-category">
+                        <a
+                          href="/products/shorts"
+                          className="showcase-category"
+                        >
                           Shorts
                         </a>
 
                         <div className="price-box">
-                          <p className="price">$20.00</p>
-                          <del>$10.00</del>
+                          <p className="price">₹999</p>
+                          <del>₹2000</del>
                         </div>
                       </div>
                     </div>
@@ -889,9 +934,12 @@ const Product = (props) => {
                 <div className="showcase-wrapper  has-scrollbar">
                   <div className="showcase-container">
                     <div className="showcase">
-                      <a href="/" className="showcase-img-box">
+                      <a
+                        href="/product/64585aaec5a1ece7e7789afa"
+                        className="showcase-img-box"
+                      >
                         <img
-                          src="./assets/images/products/sports-1.jpg"
+                          src="https://res.cloudinary.com/dbymhpzhq/image/upload/v1683116711/One%20image%20Products/sports-5_eowudq.jpg"
                           alt="running & trekking shoes - white"
                           className="showcase-img"
                           width="70"
@@ -905,21 +953,24 @@ const Product = (props) => {
                           </h4>
                         </a>
 
-                        <a href="/" className="showcase-category">
+                        <a href="/products/shoes" className="showcase-category">
                           Sports
                         </a>
 
                         <div className="price-box">
-                          <p className="price">$49.00</p>
-                          <del>$15.00</del>
+                          <p className="price">₹2999</p>
+                          <del>₹5000</del>
                         </div>
                       </div>
                     </div>
 
                     <div className="showcase">
-                      <a href="/" className="showcase-img-box">
+                      <a
+                        href="/product/6456578787a78b78669a29d0"
+                        className="showcase-img-box"
+                      >
                         <img
-                          src="./assets/images/products/sports-2.jpg"
+                          src="https://res.cloudinary.com/dbymhpzhq/image/upload/v1683116711/One%20image%20Products/sports-2_xb8zqi.jpg"
                           alt="trekking & running shoes - black"
                           className="showcase-img"
                           width="70"
@@ -927,27 +978,30 @@ const Product = (props) => {
                       </a>
 
                       <div className="showcase-content">
-                        <a href="/">
+                        <a href="/product/6456578787a78b78669a29d0">
                           <h4 className="showcase-title">
                             Trekking & Running Shoes - black
                           </h4>
                         </a>
 
-                        <a href="/" className="showcase-category">
+                        <a href="/products/shoes" className="showcase-category">
                           Sports
                         </a>
 
                         <div className="price-box">
-                          <p className="price">$78.00</p>
-                          <del>$36.00</del>
+                          <p className="price">₹3999</p>
+                          <del>₹8000</del>
                         </div>
                       </div>
                     </div>
 
                     <div className="showcase">
-                      <a href="/" className="showcase-img-box">
+                      <a
+                        href="/product/64565180b9d4e1f2cbcaf32f"
+                        className="showcase-img-box"
+                      >
                         <img
-                          src="./assets/images/products/party-wear-1.jpg"
+                          src="https://res.cloudinary.com/dbymhpzhq/image/upload/v1683378195/products/party-wear-1_fqjg28.jpg"
                           alt="womens party wear shoes"
                           className="showcase-img"
                           width="70"
@@ -961,41 +1015,45 @@ const Product = (props) => {
                           </h4>
                         </a>
 
-                        <a href="/" className="showcase-category">
+                        <a
+                          href="/product/64565180b9d4e1f2cbcaf32f"
+                          className="showcase-category"
+                        >
                           Party wear
                         </a>
 
                         <div className="price-box">
-                          <p className="price">$94.00</p>
-                          <del>$42.00</del>
+                          <p className="price">₹2999</p>
+                          <del>₹5000</del>
                         </div>
                       </div>
                     </div>
 
                     <div className="showcase">
-                      <a href="/" className="showcase-img-box">
+                      <a
+                        href="/product/6456531fb9d4e1f2cbcaf46f"
+                        className="showcase-img-box"
+                      >
                         <img
-                          src="./assets/images/products/sports-3.jpg"
-                          alt="sports claw women's shoes"
+                          src="https://res.cloudinary.com/dbymhpzhq/image/upload/v1683378221/products/shoe-1_ikjzpp.jpg"
+                          alt="leather shoes"
                           className="showcase-img"
                           width="70"
                         />
                       </a>
 
                       <div className="showcase-content">
-                        <a href="/">
-                          <h4 className="showcase-title">
-                            Sports Claw Women's Shoes
-                          </h4>
+                        <a href="/product/6456531fb9d4e1f2cbcaf46f">
+                          <h4 className="showcase-title">Leather Shoes</h4>
                         </a>
 
-                        <a href="/" className="showcase-category">
+                        <a href="/products/shoes" className="showcase-category">
                           Sports
                         </a>
 
                         <div className="price-box">
-                          <p className="price">$54.00</p>
-                          <del>$65.00</del>
+                          <p className="price">₹1499</p>
+                          <del>₹3000</del>
                         </div>
                       </div>
                     </div>
@@ -1003,9 +1061,12 @@ const Product = (props) => {
 
                   <div className="showcase-container">
                     <div className="showcase">
-                      <a href="/" className="showcase-img-box">
+                      <a
+                        href="/product/64585ce77a2620544691e28c"
+                        className="showcase-img-box"
+                      >
                         <img
-                          src="./assets/images/products/sports-6.jpg"
+                          src="https://res.cloudinary.com/dbymhpzhq/image/upload/v1683116711/One%20image%20Products/sports-6_xfbbml.jpg"
                           alt="air tekking shoes - white"
                           className="showcase-img"
                           width="70"
@@ -1013,27 +1074,30 @@ const Product = (props) => {
                       </a>
 
                       <div className="showcase-content">
-                        <a href="/">
+                        <a href="/product/64585ce77a2620544691e28c">
                           <h4 className="showcase-title">
                             Air Trekking Shoes - white
                           </h4>
                         </a>
 
-                        <a href="/" className="showcase-category">
+                        <a href="/products/shoes" className="showcase-category">
                           Sports
                         </a>
 
                         <div className="price-box">
-                          <p className="price">$52.00</p>
-                          <del>$55.00</del>
+                          <p className="price">₹2999</p>
+                          <del>₹5000</del>
                         </div>
                       </div>
                     </div>
 
                     <div className="showcase">
-                      <a href="/" className="showcase-img-box">
+                      <a
+                        href="/product/6456540687a78b78669a28fe"
+                        className="showcase-img-box"
+                      >
                         <img
-                          src="./assets/images/products/shoe-3.jpg"
+                          src="https://res.cloudinary.com/dbymhpzhq/image/upload/v1683378226/products/shoe-5_cebcwp.jpg"
                           alt="Boot With Suede Detail"
                           className="showcase-img"
                           width="70"
@@ -1041,27 +1105,30 @@ const Product = (props) => {
                       </a>
 
                       <div className="showcase-content">
-                        <a href="/">
+                        <a href="/product/6456540687a78b78669a28fe">
                           <h4 className="showcase-title">
                             Boot With Suede Detail
                           </h4>
                         </a>
 
-                        <a href="/" className="showcase-category">
+                        <a href="/products/shoes" className="showcase-category">
                           boots
                         </a>
 
                         <div className="price-box">
-                          <p className="price">$20.00</p>
-                          <del>$30.00</del>
+                          <p className="price">₹13499</p>
+                          <del>₹15000</del>
                         </div>
                       </div>
                     </div>
 
                     <div className="showcase">
-                      <a href="/" className="showcase-img-box">
+                      <a
+                        href="/product/64564dcfb9d4e1f2cbcaf263"
+                        className="showcase-img-box"
+                      >
                         <img
-                          src="./assets/images/products/shoe-1.jpg"
+                          src="https://res.cloudinary.com/dbymhpzhq/image/upload/v1683377386/products/shoe-2_1_i5nav2.jpg"
                           alt="men's leather formal wear shoes"
                           className="showcase-img"
                           width="70"
@@ -1069,27 +1136,30 @@ const Product = (props) => {
                       </a>
 
                       <div className="showcase-content">
-                        <a href="/">
+                        <a href="/product/64564dcfb9d4e1f2cbcaf263">
                           <h4 className="showcase-title">
-                            Men's Leather Formal Wear shoes
+                            Casual Men's Brown shoes
                           </h4>
                         </a>
 
-                        <a href="/" className="showcase-category">
+                        <a href="/products/shoes" className="showcase-category">
                           formal
                         </a>
 
                         <div className="price-box">
-                          <p className="price">$56.00</p>
-                          <del>$78.00</del>
+                          <p className="price">₹1250</p>
+                          <del>₹2400</del>
                         </div>
                       </div>
                     </div>
 
                     <div className="showcase">
-                      <a href="/" className="showcase-img-box">
+                      <a
+                        href="/product/6456531fb9d4e1f2cbcaf46f"
+                        className="showcase-img-box"
+                      >
                         <img
-                          src="./assets/images/products/shoe-2.jpg"
+                          src="https://res.cloudinary.com/dbymhpzhq/image/upload/v1683378221/products/shoe-1_ikjzpp.jpg"
                           alt="casual men's brown shoes"
                           className="showcase-img"
                           width="70"
@@ -1097,19 +1167,19 @@ const Product = (props) => {
                       </a>
 
                       <div className="showcase-content">
-                        <a href="/">
+                        <a href="/product/6456531fb9d4e1f2cbcaf46f">
                           <h4 className="showcase-title">
-                            Casual Men's Brown shoes
+                            Men's Leather Formal Wear shoes
                           </h4>
                         </a>
 
-                        <a href="/" className="showcase-category">
+                        <a href="/products/shoes" className="showcase-category">
                           Casual
                         </a>
 
                         <div className="price-box">
-                          <p className="price">$50.00</p>
-                          <del>$55.00</del>
+                          <p className="price">₹1499</p>
+                          <del>₹3000</del>
                         </div>
                       </div>
                     </div>
@@ -1122,9 +1192,12 @@ const Product = (props) => {
                 <div className="showcase-wrapper  has-scrollbar">
                   <div className="showcase-container">
                     <div className="showcase">
-                      <a href="/" className="showcase-img-box">
+                      <a
+                        href="/product/64564f61b9d4e1f2cbcaf28b"
+                        className="showcase-img-box"
+                      >
                         <img
-                          src="./assets/images/products/watch-3.jpg"
+                          src="https://res.cloudinary.com/dbymhpzhq/image/upload/v1683377991/products/watch-3_yevg18.jpg"
                           alt="pocket watch leather pouch"
                           className="showcase-img"
                           width="70"
@@ -1132,27 +1205,30 @@ const Product = (props) => {
                       </a>
 
                       <div className="showcase-content">
-                        <a href="/">
+                        <a href="/product/64564f61b9d4e1f2cbcaf28b">
                           <h4 className="showcase-title">
                             Pocket Watch Leather Pouch
                           </h4>
                         </a>
 
-                        <a href="/" className="showcase-category">
+                        <a href="/products/watch" className="showcase-category">
                           Watches
                         </a>
 
                         <div className="price-box">
-                          <p className="price">$50.00</p>
-                          <del>$34.00</del>
+                          <p className="price">₹8050</p>
+                          <del>₹17000</del>
                         </div>
                       </div>
                     </div>
 
                     <div className="showcase">
-                      <a href="/" className="showcase-img-box">
+                      <a
+                        href="/product/64565c825dfede3d2f716fdd"
+                        className="showcase-img-box"
+                      >
                         <img
-                          src="./assets/images/products/jewellery-3.jpg"
+                          src="https://res.cloudinary.com/dbymhpzhq/image/upload/v1683116709/One%20image%20Products/jewellery-3_mpuija.jpg"
                           alt="silver deer heart necklace"
                           className="showcase-img"
                           width="70"
@@ -1160,27 +1236,33 @@ const Product = (props) => {
                       </a>
 
                       <div className="showcase-content">
-                        <a href="/">
+                        <a href="/product/64565c825dfede3d2f716fdd">
                           <h4 className="showcase-title">
                             Silver Deer Heart Necklace
                           </h4>
                         </a>
 
-                        <a href="/" className="showcase-category">
+                        <a
+                          href="/products/jewelry"
+                          className="showcase-category"
+                        >
                           Jewellery
                         </a>
 
                         <div className="price-box">
-                          <p className="price">$84.00</p>
-                          <del>$30.00</del>
+                          <p className="price">₹19999</p>
+                          <del>₹20000</del>
                         </div>
                       </div>
                     </div>
 
                     <div className="showcase">
-                      <a href="/" className="showcase-img-box">
+                      <a
+                        href="/product/64565cad5dfede3d2f716fe1"
+                        className="showcase-img-box"
+                      >
                         <img
-                          src="./assets/images/products/perfume.jpg"
+                          src="https://res.cloudinary.com/dbymhpzhq/image/upload/v1683116710/One%20image%20Products/perfume_srtt46.jpg"
                           alt="titan 100 ml womens perfume"
                           className="showcase-img"
                           width="70"
@@ -1188,27 +1270,33 @@ const Product = (props) => {
                       </a>
 
                       <div className="showcase-content">
-                        <a href="/">
+                        <a href="/product/64565cad5dfede3d2f716fe1">
                           <h4 className="showcase-title">
                             Titan 100 Ml Womens Perfume
                           </h4>
                         </a>
 
-                        <a href="/" className="showcase-category">
+                        <a
+                          href="/products/perfume"
+                          className="showcase-category"
+                        >
                           Perfume
                         </a>
 
                         <div className="price-box">
-                          <p className="price">$42.00</p>
-                          <del>$10.00</del>
+                          <p className="price">₹1999</p>
+                          <del>₹2000</del>
                         </div>
                       </div>
                     </div>
 
                     <div className="showcase">
-                      <a href="/" className="showcase-img-box">
+                      <a
+                        href="/product/64565c225dfede3d2f716f71"
+                        className="showcase-img-box"
+                      >
                         <img
-                          src="./assets/images/products/belt.jpg"
+                          src="https://res.cloudinary.com/dbymhpzhq/image/upload/v1683116709/One%20image%20Products/belt_ssma50.jpg"
                           alt="men's leather reversible belt"
                           className="showcase-img"
                           width="70"
@@ -1216,19 +1304,19 @@ const Product = (props) => {
                       </a>
 
                       <div className="showcase-content">
-                        <a href="/">
+                        <a href="/product/64565c225dfede3d2f716f71">
                           <h4 className="showcase-title">
                             Men's Leather Reversible Belt
                           </h4>
                         </a>
 
-                        <a href="/" className="showcase-category">
+                        <a href="/products/belt" className="showcase-category">
                           Belt
                         </a>
 
                         <div className="price-box">
-                          <p className="price">$24.00</p>
-                          <del>$10.00</del>
+                          <p className="price">₹1999</p>
+                          <del>₹2000</del>
                         </div>
                       </div>
                     </div>
@@ -1236,9 +1324,12 @@ const Product = (props) => {
 
                   <div className="showcase-container">
                     <div className="showcase">
-                      <a href="/" className="showcase-img-box">
+                      <a
+                        href="/product/645861f9105e2fac32daa90f"
+                        className="showcase-img-box"
+                      >
                         <img
-                          src="./assets/images/products/jewellery-2.jpg"
+                          src="https://res.cloudinary.com/dbymhpzhq/image/upload/v1683116709/One%20image%20Products/jewellery-2_ckumnn.jpg"
                           alt="platinum zircon classic ring"
                           className="showcase-img"
                           width="70"
@@ -1246,7 +1337,7 @@ const Product = (props) => {
                       </a>
 
                       <div className="showcase-content">
-                        <a href="/">
+                        <a href="/product/645861f9105e2fac32daa90f">
                           <h4 className="showcase-title">
                             platinum Zircon Classic Ring
                           </h4>
@@ -1257,16 +1348,19 @@ const Product = (props) => {
                         </a>
 
                         <div className="price-box">
-                          <p className="price">$62.00</p>
-                          <del>$65.00</del>
+                          <p className="price">₹7999</p>
+                          <del>₹15000</del>
                         </div>
                       </div>
                     </div>
 
                     <div className="showcase">
-                      <a href="/" className="showcase-img-box">
+                      <a
+                        href="/product/64564eacb9d4e1f2cbcaf275"
+                        className="showcase-img-box"
+                      >
                         <img
-                          src="./assets/images/products/watch-1.jpg"
+                          src="https://res.cloudinary.com/dbymhpzhq/image/upload/v1683116712/One%20image%20Products/watch-1_kz3rnj.jpg"
                           alt="smart watche vital plus"
                           className="showcase-img"
                           width="70"
@@ -1274,27 +1368,30 @@ const Product = (props) => {
                       </a>
 
                       <div className="showcase-content">
-                        <a href="/">
+                        <a href="/product/64564eacb9d4e1f2cbcaf275">
                           <h4 className="showcase-title">
                             Smart watche Vital Plus
                           </h4>
                         </a>
 
-                        <a href="/" className="showcase-category">
+                        <a href="/products/watch" className="showcase-category">
                           Watches
                         </a>
 
                         <div className="price-box">
-                          <p className="price">$56.00</p>
-                          <del>$78.00</del>
+                          <p className="price">₹3250</p>
+                          <del>₹7000</del>
                         </div>
                       </div>
                     </div>
 
                     <div className="showcase">
-                      <a href="/" className="showcase-img-box">
+                      <a
+                        href="/product/645657f587a78b78669a2a62"
+                        className="showcase-img-box"
+                      >
                         <img
-                          src="./assets/images/products/shampoo.jpg"
+                          src="https://res.cloudinary.com/dbymhpzhq/image/upload/v1683116710/One%20image%20Products/shampoo_lamua7.jpg"
                           alt="shampoo conditioner packs"
                           className="showcase-img"
                           width="70"
@@ -1302,27 +1399,33 @@ const Product = (props) => {
                       </a>
 
                       <div className="showcase-content">
-                        <a href="/">
+                        <a href="/product/645657f587a78b78669a2a62">
                           <h4 className="showcase-title">
                             shampoo conditioner packs
                           </h4>
                         </a>
 
-                        <a href="/" className="showcase-category">
+                        <a
+                          href="/products/shampoo"
+                          className="showcase-category"
+                        >
                           cosmetics
                         </a>
 
                         <div className="price-box">
-                          <p className="price">$20.00</p>
-                          <del>$30.00</del>
+                          <p className="price">₹999</p>
+                          <del>₹1200</del>
                         </div>
                       </div>
                     </div>
 
                     <div className="showcase">
-                      <a href="/" className="showcase-img-box">
+                      <a
+                        href="/product/6456591e5dfede3d2f716e19"
+                        className="showcase-img-box"
+                      >
                         <img
-                          src="./assets/images/products/jewellery-1.jpg"
+                          src="https://res.cloudinary.com/dbymhpzhq/image/upload/v1683116710/One%20image%20Products/jewellery-1_ojht9r.jpg"
                           alt="rose gold peacock earrings"
                           className="showcase-img"
                           width="70"
@@ -1330,13 +1433,13 @@ const Product = (props) => {
                       </a>
 
                       <div className="showcase-content">
-                        <a href="/">
+                        <a href="/product/6456591e5dfede3d2f716e19">
                           <h4 className="showcase-title">
                             Rose Gold Peacock Earrings
                           </h4>
                         </a>
 
-                        <a href="/" className="showcase-category">
+                        <a href="/products/jewelry" className="showcase-category">
                           jewellery
                         </a>
 
@@ -1361,7 +1464,7 @@ const Product = (props) => {
                   <div className="showcase">
                     <div className="showcase-banner">
                       <img
-                        src="./assets/images/products/shampoo.jpg"
+                        src="https://res.cloudinary.com/dbymhpzhq/image/upload/v1683116710/One%20image%20Products/shampoo_lamua7.jpg"
                         alt="shampoo, conditioner & facewash packs"
                         className="showcase-img"
                       />
@@ -1376,21 +1479,21 @@ const Product = (props) => {
                         <ion-icon name="star-outline"></ion-icon>
                       </div>
 
-                      <a href="/">
+                      <a href="/product/645657f587a78b78669a2a62">
                         <h3 className="showcase-title">
                           shampoo, conditioner & facewash packs
                         </h3>
                       </a>
 
                       <p className="showcase-desc">
-                        Lorem ipsum dolor sit amet consectetur Lorem ipsum dolor
-                        dolor sit amet consectetur Lorem ipsum dolor
+                        Transform your hair with our advanced formula shampoo.
+                        Crafted with the finest ingredients.
                       </p>
 
                       <div className="price-box">
-                        <p className="price">$150.00</p>
+                        <p className="price">₹999</p>
 
-                        <del>$200.00</del>
+                        <del>₹1200</del>
                       </div>
 
                       <button className="add-cart-btn">add to cart</button>
@@ -1445,7 +1548,7 @@ const Product = (props) => {
                   <div className="showcase">
                     <div className="showcase-banner">
                       <img
-                        src="./assets/images/products/jewellery-1.jpg"
+                        src="https://res.cloudinary.com/dbymhpzhq/image/upload/v1683116710/One%20image%20Products/jewellery-1_ojht9r.jpg"
                         alt="Rose Gold diamonds Earring"
                         className="showcase-img"
                       />
@@ -1456,24 +1559,27 @@ const Product = (props) => {
                         <ion-icon name="star"></ion-icon>
                         <ion-icon name="star"></ion-icon>
                         <ion-icon name="star"></ion-icon>
-                        <ion-icon name="star-outline"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
                         <ion-icon name="star-outline"></ion-icon>
                       </div>
 
                       <h3 className="showcase-title">
-                        <a href="/" className="showcase-title">
+                        <a
+                          href="/product/6456591e5dfede3d2f716e19"
+                          className="showcase-title"
+                        >
                           Rose Gold diamonds Earring
                         </a>
                       </h3>
 
                       <p className="showcase-desc">
-                        Lorem ipsum dolor sit amet consectetur Lorem ipsum dolor
-                        dolor sit amet consectetur Lorem ipsum dolor
+                        From stunning diamond necklaces to elegant pearl
+                        earrings.
                       </p>
 
                       <div className="price-box">
-                        <p className="price">$1990.00</p>
-                        <del>$2000.00</del>
+                        <p className="price">₹8999</p>
+                        <del>₹12000</del>
                       </div>
 
                       <button className="add-cart-btn">add to cart</button>

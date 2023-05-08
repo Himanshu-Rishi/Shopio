@@ -20,12 +20,21 @@ const Item = (props) => {
             width="300"
             className="product-img default"
           />
-          <img
-            src={props.product.images[1].url}
-            alt="Mens Winter Leathers Jackets"
-            width="300"
-            className="product-img hover"
-          />
+          {props.product.images.length > 1 ? (
+            <img
+              src={props.product.images[1].url}
+              alt="Mens Winter Leathers Jackets"
+              width="300"
+              className="product-img hover"
+            />
+          ) : (
+            <img
+              src={props.product.images[0].url}
+              alt="Mens Winter Leathers Jackets"
+              width="300"
+              className="product-img hover"
+            />
+          )}
           {props.product.tag === "new" ? (
             <p className="showcase-badge angle pink">new</p>
           ) : null}
@@ -33,9 +42,7 @@ const Item = (props) => {
             <p className="showcase-badge angle black">sale</p>
           ) : null}
           {props.product.tag === "15" ? (
-            <p className="showcase-badge angle green">
-              {props.product.tag}%
-            </p>
+            <p className="showcase-badge angle green">{props.product.tag}%</p>
           ) : null}
 
           <div className="showcase-actions">
