@@ -1,15 +1,7 @@
+import { Rating } from "@mui/material";
 import React from "react";
 import { Link } from "react-router-dom";
-import ReactStars from "react-rating-stars-component";
 const Item = (props) => {
-  const options = {
-    edit: false,
-    color: "lightgray",
-    activeColor: "rgb(246, 163, 85)",
-    size: 17,
-    value: props.product.ratings,
-    isHalf: true,
-  };
   return (
     <Link to={`/product/${props.product._id}`} target="_blank">
       <div className="showcase">
@@ -46,17 +38,9 @@ const Item = (props) => {
           ) : null}
 
           <div className="showcase-actions">
-            {/* <button className="btn-action">
-              <ion-icon name="heart-outline"></ion-icon>
-            </button> */}
-
             <button className="btn-action">
               <ion-icon name="eye-outline"></ion-icon>
             </button>
-
-            {/* <button className="btn-action">
-              <ion-icon name="bag-add-outline"></ion-icon>
-            </button> */}
           </div>
         </div>
 
@@ -72,7 +56,12 @@ const Item = (props) => {
               justifyContent: "space-between",
             }}
           >
-            <ReactStars {...options} />
+            <Rating
+              size="small"
+              readOnly="true"
+              precision={0.5}
+              value={props.product.ratings}
+            />
             <span style={{ color: "#707070", fontSize: "0.7rem" }}>
               ({props.product.numOfReviews} Reviews)
             </span>

@@ -124,7 +124,20 @@ hr
     display: flex;
     justify-content: center;
 }
+.submitDialog
+{
+    display: flex;
+    flex-direction: column;
+    border-radius: 4px;
+}
 
+.submitDialogTextArea {
+  border: 1px solid rgba(0, 0, 0, 0.082);
+  margin: 1vmax 0;
+  outline: none;
+  padding: 1rem;
+  font: 300 1rem;
+}
 .category
 {
     margin-bottom: 3rem;

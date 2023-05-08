@@ -1,6 +1,6 @@
 import React from 'react'
 import './Review.css'
-import ReactStars from "react-rating-stars-component"
+import { Rating } from '@mui/material';
 const Review = (props) => {
   return (
     <>
@@ -12,12 +12,10 @@ const Review = (props) => {
           ></i>
           <div className="review__box">
             <p className="testimonial-name review__name">{props.review.name}</p>
-            <ReactStars
-              edit={false}
-              color={"lightgray"}
-              activeColor={"rgb(246, 163, 85)"}
-              size={17}
-              isHalf={true}
+            <Rating
+              size="small"
+              readOnly="true"
+              precision={0.5}
               value={props.review.rating}
             />
           </div>
