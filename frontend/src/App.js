@@ -23,6 +23,7 @@ import { loadStripe } from "@stripe/stripe-js";
 import OrderSuccess from "./components/cart/OrderSuccess";
 import MyOrders from "./components/Order/Myorders";
 import OrderDetails from "./components/Order/OrderDetails";
+import Liked from "./components/Favourite/LikedItem";
 const App = () => {
   const { user, isAuthenticated } = useSelector((state) => state.user);
   const stripePromise = loadStripe(
@@ -113,6 +114,11 @@ const App = () => {
           exact
           path="/cart"
           element={<Cart user={user} isAuthenticated={isAuthenticated} />}
+        />
+        <Route
+          exact
+          path="/favourite"
+          element={<Liked user={user} isAuthenticated={isAuthenticated} />}
         />
         <Route
           exact

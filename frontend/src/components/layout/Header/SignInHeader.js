@@ -34,6 +34,9 @@ const SignInHeader = (props) => {
   };
 
   // button links
+  function like() {
+    history("/favourite");
+  }
   function signin() {
     history("/login");
   }
@@ -125,9 +128,9 @@ const SignInHeader = (props) => {
           </div>
 
           <div className="header-user-actions">
-            <button className="action-btn">
+            <button className="action-btn" onClick={like}>
               <ion-icon name="heart-outline"></ion-icon>
-              <span className="count">0</span>
+              {/* <span className="count">0</span> */}
             </button>
 
             <button className="action-btn" onClick={cart}>

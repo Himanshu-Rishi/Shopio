@@ -48,6 +48,9 @@ const Header = (props) => {
   function home() {
     history("/");
   }
+  function like() {
+    history("/favourite");
+  }
   function logoutUser() {
     dispatch(logout());
     toast.success("Logout Successfully");
@@ -139,10 +142,10 @@ const Header = (props) => {
             </form>
           </div>
 
-          <div className="header-user-actions">
+          <div className="header-user-actions" onClick={like}>
             <button className="action-btn">
               <ion-icon name="heart-outline"></ion-icon>
-              <span className="count">0</span>
+              {/* <span className="count">0</span> */}
             </button>
 
             <button className="action-btn" onClick={cart}>
