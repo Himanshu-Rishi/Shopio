@@ -9,7 +9,7 @@ import store from "./Store";
 import { loadUser } from "./action/userAction";
 import { useSelector } from "react-redux";
 import Profile from "./components/User/Profile";
-import ProtectedRoute from "./components/Middleware/ProtectedRoute";
+import ProtectedRoute from "./components/RouteMiddleware/ProtectedRoute";
 import UpdateProfile from "./components/User/UpdateProfile";
 import UpdatePassword from "./components/User/UpdatePassword";
 import ForgotPassword from "./components/User/ForgotPassword";
