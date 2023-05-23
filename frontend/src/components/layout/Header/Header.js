@@ -142,8 +142,8 @@ const Header = (props) => {
             </form>
           </div>
 
-          <div className="header-user-actions" onClick={like}>
-            <button className="action-btn">
+          <div className="header-user-actions">
+            <button className="action-btn" onClick={like}>
               <ion-icon name="heart-outline"></ion-icon>
               {/* <span className="count">0</span> */}
             </button>
