@@ -7,42 +7,20 @@ import { Toaster } from 'react-hot-toast'
 import { Helmet } from 'react-helmet'
 import { useDispatch, useSelector } from 'react-redux'
 import { Typography } from '@mui/material'
-import { Link, useNavigate } from 'react-router-dom'
-import RemoveShoppingCartIcon from "@mui/icons-material/RemoveShoppingCart";
-import CartItemCard from '../cart/CartItemCard'
+import { Link} from 'react-router-dom'
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import { removeItemsFromLike } from '../../action/likeAction'
 const Liked = (props) => {
     const dispatch = useDispatch();
-    const history = useNavigate();
-    const {cartItems} = useSelector((state)=>state.cart);
-    const increaseQuantity = (id, quantity, stock)=>{
-        const qty = quantity+1;
-        if(stock <= quantity)
-        {
-            return;
-        }
-        dispatch(addItemsToCart(id, qty))
-    }
-    const decreaseQuantity = (id, quantity)=>{
-        const qty = quantity-1;
-        if(1 >= quantity)
-        {
-            return;
-        }
-        dispatch(addItemsToCart(id, qty))
-    }
-    const removeCartItems = (id)=>
+    const { likeItems } = useSelector((state) => state.favourite);
+    const removeLikedItems = (id)=>
     {
-        dispatch(removeItemsFromCart(id));
-    }
-    const checkoutHandler = ()=>
-    {
-      history("/login?redirect=shipping");
-        
+        dispatch(removeItemsFromLike(id));
     }
   return (
     <Fragment>
       <Helmet>
-        <title>Cart</title>
+        <title>Favourite</title>
       </Helmet>
       <Toaster position="top-center" reverseOrder={false} />
       {props.isAuthenticated ? (
@@ -50,69 +28,39 @@ const Liked = (props) => {
       ) : (
         <SignInHeader />
       )}
-      {cartItems.length === 0 ? (
+      {likeItems.length === 0 ? (
         <div className="emptyCart">
-          <RemoveShoppingCartIcon />
+          <FavoriteBorderIcon />
 
-          <Typography>No Product in Your Cart</Typography>
-          <Link style={{borderRadius: "4px", marginTop: "0.5rem"}} to="/products">View Products</Link>
+          <Typography>No Product to show</Typography>
+          <Link
+            style={{ borderRadius: "4px", marginTop: "0.5rem" }}
+            to="/products"
+          >
+            View Products
+          </Link>
         </div>
       ) : (
         <div className="cartPage">
           <div className="cartHeader">
-            <p>Product</p>
-            <p>Quantity</p>
-            <p>Subtotal</p>
+            <p style={{ textAlign: "left" }}>Products</p>
           </div>
 
-          {cartItems &&
-            cartItems.map((item) => (
+          {likeItems &&
+            likeItems.map((item) => (
               <div className="cartContainer" key={item.product}>
-                <CartItemCard deleteCartItems={removeCartItems} item={item} />
-                <div className="cartInput">
-                  <button
-                    onClick={() =>
-                      decreaseQuantity(item.product, item.quantity)
-                    }
-                    className="quantity__button"
-                  >
-                    -
-                  </button>
-                  <input
-                    className="quantity__input"
-                    value={item.quantity}
-                    type="number"
-                    readOnly={true}
-                  />
-                  <button
-                    onClick={() =>
-                      increaseQuantity(item.product, item.quantity, item.stock)
-                    }
-                    className="quantity__button"
-                  >
-                    +
-                  </button>
+                <div
+                  className="CartItemCard card__responsive"
+                >
+                  <img src={item.image} alt="ssa" />
+                  <div>
+                    <Link to={`/product/${item.product}`}>{item.name}</Link>
+                    <span>{`Price: ₹${item.price}`}</span>
+                  </div>
+                  <p className='remove__button' onClick={() => removeLikedItems(item.product)}>Remove</p>
                 </div>
-                <p className="cartSubtotal">{`₹${
-                  item.price * item.quantity
-                }`}</p>
               </div>
             ))}
-
-          <div className="cartGrossProfit">
-            <div></div>
-            <div className="cartGrossProfitBox">
-              <p>Gross Total</p>
-              <p>{`₹${cartItems.reduce(
-                (acc, item) => acc + item.quantity * item.price,
-                0
-              )}`}</p>
-            </div>
-            <div></div>
-            <div className="checkOutBtn">
-              <button onClick={checkoutHandler}>Check Out</button>
-            </div>
-          </div>
         </div>
       )}
       <Footer />

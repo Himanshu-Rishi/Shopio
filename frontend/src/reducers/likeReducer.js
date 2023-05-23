@@ -1,9 +1,6 @@
 import { ADD_TO_LIKE, REMOVE_LIKED_ITEM } from "../constants/likeConstants";
 
-export const likeReducer = (
-  state = { cartItems: [], shippingInfo: {} },
-  action
-) => {
+export const likeReducer = (state = { likeItems: []}, action) => {
   switch (action.type) {
     case ADD_TO_LIKE:
       const item = action.payload;

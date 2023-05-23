@@ -18,6 +18,7 @@ import Testinomial from "../layout/Footer/Testinomial";
 import Footer from "../layout/Footer/Footer";
 import SignInHeader from "../layout/Header/SignInHeader";
 import { addItemsToCart } from "../../action/cartAction";
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import {
   Button,
   Dialog,
@@ -27,6 +28,7 @@ import {
   Rating,
 } from "@mui/material";
 import { NEW_REVIEW_RESET } from "../../constants/productConstants";
+import { addItemsToLike } from "../../action/likeAction";
 
 const SpecificProduct = (props) => {
   const dispatch = useDispatch();
@@ -69,6 +71,10 @@ const SpecificProduct = (props) => {
   const addToCartHandler = () => {
     dispatch(addItemsToCart(id, quantity));
     toast.success("Items added to cart.");
+  };
+  const addToFavouriteHandler = () => {
+    dispatch(addItemsToLike(id, quantity));
+    toast.success("Items added to Favourite.");
   };
   // error alert
   useEffect(() => {
@@ -168,6 +174,13 @@ const SpecificProduct = (props) => {
                   >
                     Add to Cart
                   </button>
+                  <button
+                    className="add__button"
+                    style={{display: "flex", justifyContent: "center", alignItems: "center"}}
+                    onClick={addToFavouriteHandler}
+                  >
+                    <FavoriteBorderIcon fontSize="medium"/>
+                  </button>
                 </div>
 
                 <p>
@@ -241,8 +254,8 @@ const SpecificProduct = (props) => {
                     <Link to={`/product/${product._id}`} target="_blank">
                       <div className="category-item category_box">
                         <img
-                          src={product.images[0].url}
-                          alt={product.images[0].public_id}
+                          src={product.images[0] ? product.images[0].url : null}
+                          alt={product.images[0] ? product.images[0].public_id : null}
                           width="100"
                         />
 

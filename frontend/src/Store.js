@@ -5,6 +5,7 @@ import { newReviewReducer, productDetailReducer, productsReducer } from "./reduc
 import { forgotPasswordReducer, profileReducer, userReducer } from "./reducers/userReducer";
 import { cartReducer } from "./reducers/cartReducer";
 import { myOrdersReducer, newOrderReducer, orderDetailsReducer } from "./reducers/orderReducer";
+import { likeReducer } from "./reducers/likeReducer";
 
 const reducer = combineReducers({
   products: productsReducer,
@@ -17,6 +18,7 @@ const reducer = combineReducers({
   myOrders: myOrdersReducer,
   orderDetails: orderDetailsReducer,
   newReview: newReviewReducer,
+  favourite: likeReducer,
 });
 
 let initialState = {
@@ -26,11 +28,14 @@ let initialState = {
       : [],
     shippingInfo: localStorage.getItem("shippingInfo")
       ? JSON.parse(localStorage.getItem("shippingInfo"))
-      : {},
+      : []
+    },
+    favourite:
+    {
     likeItems: localStorage.getItem("likeItems")
       ? JSON.parse(localStorage.getItem("likeItems"))
       : [],
-  },
+  }
 };
 
 const middleware = [thunk];

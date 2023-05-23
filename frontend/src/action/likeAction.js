@@ -14,6 +14,10 @@ export const addItemsToLike = (id, quantity) => async (dispatch, getState) => {
       quantity,
     },
   });
+  localStorage.setItem(
+    "likeItems",
+    JSON.stringify(getState().favourite.likeItems)
+  );
 };
 
 export const removeItemsFromLike = (id) => async (dispatch, getState) => {
@@ -21,5 +25,5 @@ export const removeItemsFromLike = (id) => async (dispatch, getState) => {
     type: REMOVE_LIKED_ITEM,
     payload: id,
   });
-  localStorage.setItem("likeItems", JSON.stringify(getState().cart.likeItems));
+  localStorage.setItem("likeItems", JSON.stringify(getState().favourite.likeItems));
 };
