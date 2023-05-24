@@ -35,6 +35,17 @@ exports.getproducts = async_error(async (req, res, next) => {
 
 // admin routes
 
+exports.getAdminproducts = async_error(async (req, res, next) => {
+  const products = await Product.find();
+  res.status(200).json({
+    success: true,
+    products,
+    productCount,
+    itemPerPage,
+    filteredProductsCount,
+  });
+});
+
 exports.createproducts = async_error(async (req, res) => {
   req.body.user = req.user.id;
   const product = await Product.create(req.body);

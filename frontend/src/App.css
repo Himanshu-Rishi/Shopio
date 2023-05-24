@@ -96,6 +96,10 @@ html {
   font-family: "Poppins", sans-serif;
   overscroll-behavior: contain;
 }
+html, body {
+height: 100vh;
+width: 100vw;
+}
 
 input {
   display: block;

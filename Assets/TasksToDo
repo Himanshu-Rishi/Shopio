@@ -13,3 +13,8 @@ and for each category we have to create count for that category
 and fetch only those category products.
 
 Have to create favourite button in category.
+
+
+
+To clear the backend buffer use command 
+sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder
