@@ -16,6 +16,8 @@ import {
   ALL_REVIEW_REQUEST,
   ALL_REVIEW_SUCCESS,
   ALL_REVIEW_FAIL,
+  ALL_ADMIN_PRODUCT_SUCCESS,
+  ALL_ADMIN_PRODUCT_REQUEST,
 } from "../constants/productConstants";
 export const getProduct =
   (keyword = "", currentPage = 1, price = [0, 25000], category, Ratings = 0) =>
@@ -129,4 +131,23 @@ export const getAllReviews = (id) => async (dispatch) => {
 // Clearing Errors
 export const clearErrors = () => async (dispatch) => {
   dispatch({ type: CLEAR_ERRORS });
+};
+
+
+export const getAdminProducts = () => async (dispatch) => {
+  try {
+    dispatch({
+      type: ALL_ADMIN_PRODUCT_REQUEST,
+    });
+    const { data } = await axios.get(`/api/v1/admin/products`);
+    dispatch({
+      type: ALL_ADMIN_PRODUCT_SUCCESS,
+      payload: data,
+    });
+  } catch (error) {
+    dispatch({
+      type: ALL_PRODUCT_FAIL,
+      payload: error.response.data.message,
+    });
+  }
 };

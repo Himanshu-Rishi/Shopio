@@ -6,7 +6,6 @@ import { useSelector, useDispatch } from "react-redux";
 import { Doughnut, Line } from "react-chartjs-2";
 import Header from "../layout/Header/Header.js";
 import SignInHeader from "../layout/Header/SignInHeader.js";
-import { Toaster } from "react-hot-toast";
 import { Helmet } from "react-helmet";
 import Footer from "../layout/Footer/Footer.js";
 import { Typography } from "@mui/material";
@@ -22,6 +21,7 @@ import {
   Legend,
 } from "chart.js";
 import { Chart } from "react-chartjs-2";
+import { clearErrors, getAdminProducts } from "../../action/productAction.js";
 
 const Dashboard = (props) => {
   ChartJS.register(
@@ -36,26 +36,30 @@ const Dashboard = (props) => {
   );
   const dispatch = useDispatch();
 
-  //   const { products } = useSelector((state) => state.products);
+    const {products } = useSelector((state) => state.products);
 
   //   const { orders } = useSelector((state) => state.allOrders);
 
   //   const { users } = useSelector((state) => state.allUsers);
 
-  //   let outOfStock = 0;
+    let outOfStock = 0;
 
-  //   products &&
-  //     products.forEach((item) => {
-  //       if (item.Stock === 0) {
-  //         outOfStock += 1;
-  //       }
-  //     });
+    products &&
+      products.forEach((item) => {
+        if (item.Stock === 0) {
+          outOfStock += 1;
+        }
+      });
 
   //   let totalAmount = 0;
   //   orders &&
   //     orders.forEach((item) => {
   //       totalAmount += item.totalPrice;
   //     });
+
+  useEffect(() => {
+    dispatch(getAdminProducts());
+  }, [dispatch]);
 
   const lineState = {
     labels: ["Initial Amount", "Amount Earned"],
@@ -75,7 +79,7 @@ const Dashboard = (props) => {
       {
         backgroundColor: ["#00A6B4", "#6800B4"],
         hoverBackgroundColor: ["#4B5000", "#35014F"],
-        data: [4, 10],
+        data: [outOfStock, products.length-outOfStock],
       },
     ],
   };
@@ -85,15 +89,14 @@ const Dashboard = (props) => {
       <Helmet>
         <title>Dashbaord-Admin</title>
       </Helmet>
-      <Toaster position="top-center" reverseOrder={false} />
       {props.isAuthenticated ? (
         <Header
           user={props.user}
           isAuthenticated={props.isAuthenticated}
-          flag={true}
+          flag={false}
         />
       ) : (
-        <SignInHeader flag={true} />
+        <SignInHeader flag={false} />
       )}
       <div className="dashboard">
         <Sidebar />
