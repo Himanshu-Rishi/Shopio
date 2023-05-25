@@ -2,17 +2,17 @@ import React, { Fragment, useEffect } from "react";
 import { DataGrid } from "@mui/x-data-grid";
 import "./productList.css";
 import { useSelector, useDispatch } from "react-redux";
-import { clearErrors, getAdminProducts } from "../../action/productAction";
+import { clearErrors, deleteProduct, getAdminProducts } from "../../action/productAction";
 import { Link, useNavigate } from "react-router-dom";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 import SideBar from "./Sidebar";
-// import { DELETE_PRODUCT_RESET } from "../../constants/productConstants";
 import { Button } from "@mui/material";
 import Header from "../layout/Header/Header";
 import SignInHeader from "../layout/Header/SignInHeader";
 import Footer from "../layout/Footer/Footer";
 import { Toaster, toast } from "react-hot-toast";
+import { DELETE_PRODUCT_RESET } from "../../constants/productConstants";
 
 const ProductList = (props) => {
   const dispatch = useDispatch();
@@ -20,12 +20,12 @@ const ProductList = (props) => {
 
   const { error, products } = useSelector((state) => state.products);
 
-  //   const { error: deleteError, isDeleted } = useSelector(
-  //     (state) => state.product
-  //   );
+    const { error: deleteError, isDeleted } = useSelector(
+      (state) => state.product
+    );
 
   const deleteProductHandler = (id) => {
-    // dispatch(deleteProduct(id));
+    dispatch(deleteProduct(id));
   };
 
   useEffect(() => {
@@ -34,18 +34,17 @@ const ProductList = (props) => {
       dispatch(clearErrors());
     }
 
-    // if (deleteError) {
-    //   dispatch(clearErrors());
-    // }
+    if (deleteError) {
+      dispatch(clearErrors());
+    }
 
-    // if (isDeleted) {
-    //   alert.success("Product Deleted Successfully");
-    //   history("/admin/dashboard");
-    // //   dispatch({ type: DELETE_PRODUCT_RESET });
-    // }
+    if (isDeleted) {
+      toast.success("Product Deleted Successfully");
+      dispatch({ type: DELETE_PRODUCT_RESET });
+    }
 
     dispatch(getAdminProducts());
-  }, [dispatch, error]);
+  }, [dispatch, error, history, deleteError, isDeleted]);
   const columns = [
     { field: "id", headerName: "Product ID", minWidth: 200, flex: 0.5 },
 
@@ -86,9 +85,9 @@ const ProductList = (props) => {
             </Link>
 
             <Button
-            //   onClick={() =>
-            //     deleteProductHandler(params.getValue(params.id, "id"))
-            //   }
+              onClick={() =>
+                deleteProductHandler(params.id)
+              }
             >
               <DeleteIcon />
             </Button>
