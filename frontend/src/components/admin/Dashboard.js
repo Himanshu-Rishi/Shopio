@@ -22,6 +22,7 @@ import {
 } from "chart.js";
 import { Chart } from "react-chartjs-2";
 import { clearErrors, getAdminProducts } from "../../action/productAction.js";
+import { Toaster } from "react-hot-toast";
 
 const Dashboard = (props) => {
   ChartJS.register(
@@ -86,6 +87,7 @@ const Dashboard = (props) => {
 
   return (
     <>
+      <Toaster reverseOrder={false} position="top-center" />
       <Helmet>
         <title>Dashbaord-Admin</title>
       </Helmet>
@@ -114,8 +116,7 @@ const Dashboard = (props) => {
             <div className="dashboardSummaryBox2">
               <Link to="/admin/products">
                 <p>Product</p>
-                <p>50</p>
-                {/* <p>{products && products.length}</p> */}
+                <p>{products && products.length}</p>
               </Link>
               <Link to="/admin/orders">
                 <p>Orders</p>

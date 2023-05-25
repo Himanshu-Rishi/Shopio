@@ -93,7 +93,6 @@ const NewProduct = () => {
       <Helmet>
         <title>Create Product</title>
       </Helmet>
-      <Toaster reverseOrder={false} position="top-center" />
       <div className="dashboard">
         <SideBar />
         <div className="newProductContainer">
