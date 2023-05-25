@@ -57,7 +57,7 @@ exports.createproducts = async_error(async (req, res) => {
 
   const imagesLink = [];
 
-  for(let i = 0; i < images.length(); i++)
+  for(let i = 0; i < images.length; i++)
   {
     const result = await cloudinary.v2.uploader.upload(images[i], {
       folder: "products",
@@ -70,7 +70,7 @@ exports.createproducts = async_error(async (req, res) => {
   req.body.images = imagesLink;
   req.body.user = req.user.id;
   const product = await Product.create(req.body);
-  return res.status(200).json({ msg: "Success", product });
+  return res.status(200).json({ success: true, product });
 });
 
 exports.updateproducts = async_error(async (req, res, next) => {
