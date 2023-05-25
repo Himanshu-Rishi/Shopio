@@ -26,6 +26,7 @@ import OrderDetails from "./components/Order/OrderDetails";
 import Liked from "./components/Favourite/LikedItem";
 import Dashboard from "./components/admin/Dashboard.js";
 import ProductList from "./components/admin/ProductList";
+import NewProduct from "./components/admin/NewProduct";
 const App = () => {
   const { user, isAuthenticated } = useSelector((state) => state.user);
   const stripePromise = loadStripe(
@@ -192,6 +193,15 @@ const App = () => {
           element={
             <ProtectedRoute isAdmin={true}>
               <ProductList user={user} isAuthenticated={isAuthenticated} />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          exact
+          path="/admin/product"
+          element={
+            <ProtectedRoute isAdmin={true}>
+              <NewProduct user={user} isAuthenticated={isAuthenticated} />
             </ProtectedRoute>
           }
         />
