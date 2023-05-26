@@ -20,7 +20,6 @@ import { Toaster, toast } from "react-hot-toast";
 
 const UpdateProduct = (props) => {
   const dispatch = useDispatch();
-  const history = useNavigate();
   const { id } = useParams();
 
   const { error, product } = useSelector((state) => state.productDetails);
@@ -75,13 +74,11 @@ const UpdateProduct = (props) => {
 
     if (isUpdated) {
       toast.success("Product Updated Successfully");
-      history("/admin/products");
       dispatch({ type: UPDATE_PRODUCT_RESET });
     }
   }, [
     dispatch,
     error,
-    history,
     isUpdated,
     productId,
     product,

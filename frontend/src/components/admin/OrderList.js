@@ -2,30 +2,30 @@ import React, { Fragment, useEffect } from "react";
 import { DataGrid } from "@mui/x-data-grid";
 import "./productList.css";
 import { useSelector, useDispatch } from "react-redux";
-import { clearErrors, deleteProduct, getAdminProducts } from "../../action/productAction";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 import SideBar from "./Sidebar";
-import { Button } from "@mui/material";
+import {
+  deleteOrder,
+  getAllOrders,
+  clearErrors,
+} from "../../action/orderAction";
+import { DELETE_ORDER_RESET } from "../../constants/orderConstants";
+import { Toaster, toast } from "react-hot-toast";
 import Header from "../layout/Header/Header";
 import SignInHeader from "../layout/Header/SignInHeader";
-import Footer from "../layout/Footer/Footer";
-import { Toaster, toast } from "react-hot-toast";
-import { DELETE_PRODUCT_RESET } from "../../constants/productConstants";
+import { Button } from "@mui/material";
 
-const ProductList = (props) => {
+const OrderList = (props) => {
   const dispatch = useDispatch();
-  const history = useNavigate();
 
-  const { error, products } = useSelector((state) => state.products);
+  const { error, orders } = useSelector((state) => state.allOrders);
 
-    const { error: deleteError, isDeleted } = useSelector(
-      (state) => state.product
-    );
+  const { error: deleteError, isDeleted } = useSelector((state) => state.order);
 
-  const deleteProductHandler = (id) => {
-    dispatch(deleteProduct(id));
+  const deleteOrderHandler = (id) => {
+    dispatch(deleteOrder(id));
   };
 
   useEffect(() => {
@@ -35,36 +35,38 @@ const ProductList = (props) => {
     }
 
     if (deleteError) {
+      toast.error(deleteError);
       dispatch(clearErrors());
     }
 
     if (isDeleted) {
-      toast.success("Product Deleted Successfully");
-      dispatch({ type: DELETE_PRODUCT_RESET });
+      toast.success("Order Deleted Successfully");
+      dispatch({ type: DELETE_ORDER_RESET });
     }
 
-    dispatch(getAdminProducts());
-  }, [dispatch, error, history, deleteError, isDeleted]);
+    dispatch(getAllOrders());
+  }, [dispatch, error, deleteError, isDeleted]);
+
   const columns = [
-    { field: "id", headerName: "Product ID", minWidth: 200, flex: 0.5 },
+    { field: "id", headerName: "Order ID", minWidth: 300, flex: 1 },
 
     {
-      field: "name",
-      headerName: "Name",
-      minWidth: 350,
-      flex: 1,
+      field: "status",
+      headerName: "Status",
+      minWidth: 150,
+      flex: 0.5,
     },
     {
-      field: "stock",
-      headerName: "Stock",
+      field: "itemsQty",
+      headerName: "Items Qty",
       type: "number",
       minWidth: 150,
-      flex: 0.3,
+      flex: 0.4,
     },
 
     {
-      field: "price",
-      headerName: "Price",
+      field: "amount",
+      headerName: "Amount",
       type: "number",
       minWidth: 270,
       flex: 0.5,
@@ -80,13 +82,13 @@ const ProductList = (props) => {
       renderCell: (params) => {
         return (
           <Fragment>
-            <Link to={`/admin/product/${params.id}`}>
+            <Link to={`/admin/order/${params.id}`}>
               <EditIcon />
             </Link>
 
             <Button
               onClick={() =>
-                deleteProductHandler(params.id)
+                deleteOrderHandler(params.id)
               }
             >
               <DeleteIcon />
@@ -99,13 +101,13 @@ const ProductList = (props) => {
 
   const rows = [];
 
-  products &&
-    products.forEach((item) => {
+  orders &&
+    orders.forEach((item) => {
       rows.push({
         id: item._id,
-        stock: item.stock,
-        price: item.price,
-        name: item.name,
+        itemsQty: item.orderItems.length,
+        amount: item.totalPrice,
+        status: item.orderStatus,
       });
     });
 
@@ -125,7 +127,7 @@ const ProductList = (props) => {
       <div className="dashboard">
         <SideBar />
         <div className="productListContainer">
-          <h1 id="productListHeading">ALL PRODUCTS</h1>
+          <h1 id="productListHeading">ALL ORDERS</h1>
 
           <DataGrid
             rows={rows}
@@ -137,9 +139,8 @@ const ProductList = (props) => {
           />
         </div>
       </div>
-      <Footer />
     </Fragment>
   );
 };
 
-export default ProductList;
+export default OrderList;
