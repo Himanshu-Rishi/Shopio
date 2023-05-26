@@ -14,7 +14,7 @@ import SignInHeader from "../layout/Header/SignInHeader";
 const Home = (props) => {
   const dispatch = useDispatch();
   const { loading, error, products } = useSelector((state) => state.products);
-
+  window.addEventListener("contextmenu", (e) => e.preventDefault());
   useEffect(() => {
     if (error) {
       toast.error(error);

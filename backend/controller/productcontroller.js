@@ -172,11 +172,14 @@ exports.createProductReview = async_error(async (req, res, next) => {
   });
 });
 
-exports.getAllReview = async_error(async (req, res, next) => {
-  const product = await Product.findById(req.user.id);
+// Get All Reviews of a product
+exports.getProductReviews = async_error(async (req, res, next) => {
+  const product = await Product.findById(req.query.id);
+
   if (!product) {
-    return next(new Errorhandler("Prdouct not found", 404));
+    return next(new Errorhandler("Product not found", 404));
   }
+
   res.status(200).json({
     success: true,
     reviews: product.reviews,
@@ -187,7 +190,7 @@ exports.deleteReview = async_error(async (req, res, next) => {
   const product = await Product.findById(req.query.productId);
 
   if (!product) {
-    return next(new ErrorHander("Product not found", 404));
+    return next(new Errorhandler("Product not found", 404));
   }
 
   const reviews = product.reviews.filter(

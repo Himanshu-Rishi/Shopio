@@ -12,9 +12,9 @@ https://github.com/codewithsadee/casmart
 and for each category we have to create count for that category
 and fetch only those category products.
 
-Have to create favourite button in category.
-
-
-
 To clear the backend buffer use command 
 sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder
+
+have to add 
+  window.addEventListener("contextmenu", (e) => e.preventDefault());
+on every page so that no one can open inspect.

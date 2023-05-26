@@ -32,6 +32,8 @@ import OrderList from "./components/admin/OrderList";
 import ProcessOrder from "./components/admin/ProcessOrder";
 import UsersList from "./components/admin/UserList";
 import UpdateUser from "./components/admin/UpdateUser";
+import ProductReviews from "./components/admin/ProductReviews";
+import NotFound from "./components/layout/NotFound/Notfound";
 const App = () => {
   const { user, isAuthenticated } = useSelector((state) => state.user);
   const stripePromise = loadStripe(
@@ -260,8 +262,14 @@ const App = () => {
           path="/admin/reviews"
           element={
             <ProtectedRoute isAdmin={true}>
-              <UpdateUser user={user} isAuthenticated={isAuthenticated} />
+              <ProductReviews user={user} isAuthenticated={isAuthenticated} />
             </ProtectedRoute>
+          }
+        />
+        <Route
+        path="*"
+          element={
+            <NotFound />
           }
         />
       </Routes>
