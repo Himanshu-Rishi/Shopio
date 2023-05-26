@@ -9,6 +9,7 @@ const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser")
 const fileUpload = require("express-fileupload")
 const dotenv = require("dotenv");
+const path = require("path");
 
 dotenv.config({
   path: "backend/config/config.env",

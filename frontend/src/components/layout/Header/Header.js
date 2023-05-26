@@ -30,7 +30,6 @@ const Header = (props) => {
   };
   const dispatch = useDispatch();
 
-
   // button links
   function dashboard() {
     history("/admin/dashboard");
@@ -192,7 +191,10 @@ const Header = (props) => {
                 anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
               >
                 <MenuItem onClick={(handleClose, account)}>
-                  <Avatar alt="user_profile" src={props.user.avatar.url} />
+                  <Avatar
+                    alt="user_profile"
+                    src={props.user.avatar ? props.user.avatar.url : null}
+                  />
                   Profile
                 </MenuItem>
                 <MenuItem onClick={(handleClose, orders)}>
@@ -563,7 +565,10 @@ const Header = (props) => {
             anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
           >
             <MenuItem onClick={(another__handleClose, account)}>
-              <Avatar alt="user_profile" src={props.user.avatar.url} />
+              <Avatar
+                alt="user_profile"
+                src={props.user ? props.user.avatar.url : null}
+              />
               Profile
             </MenuItem>
             <MenuItem onClick={(another__handleClose, orders)}>
