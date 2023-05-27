@@ -209,14 +209,16 @@ const Header = (props) => {
                 </MenuItem>
 
                 {/* admin button for admin role*/}
-                {props.user.role === "admin" && (
-                  <MenuItem onClick={(handleClose, dashboard)}>
-                    <ListItemIcon>
-                      <AdminPanelSettingsIcon fontSize="small" />
-                    </ListItemIcon>
-                    Admin
-                  </MenuItem>
-                )}
+                {props.user
+                  ? props.user.role === "admin" && (
+                      <MenuItem onClick={(another__handleClose, dashboard)}>
+                        <ListItemIcon>
+                          <AdminPanelSettingsIcon fontSize="small" />
+                        </ListItemIcon>
+                        Admin
+                      </MenuItem>
+                    )
+                  : null}
                 <MenuItem onClick={(handleClose, logoutUser)}>
                   <ListItemIcon>
                     <ExitToAppIcon fontSize="small" />
@@ -583,14 +585,16 @@ const Header = (props) => {
               </ListItemIcon>
               Orders
             </MenuItem>
-            {props.user.role === "admin" && (
-              <MenuItem onClick={(another__handleClose, dashboard)}>
-                <ListItemIcon>
-                  <AdminPanelSettingsIcon fontSize="small" />
-                </ListItemIcon>
-                Admin
-              </MenuItem>
-            )}
+            {props.user
+              ? props.user.role === "admin" && (
+                  <MenuItem onClick={(another__handleClose, dashboard)}>
+                    <ListItemIcon>
+                      <AdminPanelSettingsIcon fontSize="small" />
+                    </ListItemIcon>
+                    Admin
+                  </MenuItem>
+                )
+              : null}
             <MenuItem onClick={(another__handleClose, logoutUser)}>
               <ListItemIcon>
                 <ExitToAppIcon fontSize="small" />
