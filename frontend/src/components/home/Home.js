@@ -29,7 +29,7 @@ const Home = (props) => {
         <title>{props.page}</title>
       </Helmet>
       <Toaster position="top-center" reverseOrder={false} />
-      {props.isAuthenticated ? (
+      {props.isAuthenticated === true? (
         <Header
           user={props.user}
           isAuthenticated={props.isAuthenticated}

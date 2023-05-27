@@ -13,6 +13,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../../action/userAction";
 const Header = (props) => {
   const { cartItems } = useSelector((state) => state.cart);
+  const { likeItems } = useSelector((state) => state.favourite);
   const [expand, setexpand] = useState(false);
   const [expand2, setexpand2] = useState(false);
   const [expand3, setexpand3] = useState(false);
@@ -34,7 +35,6 @@ const Header = (props) => {
   function dashboard() {
     history("/admin/dashboard");
   }
-
   function orders() {
     history("/orders");
   }
@@ -75,6 +75,8 @@ const Header = (props) => {
   return (
     <header>
       <Toaster position="top-center" reverseOrder={false} />
+
+      {/* Social media handles */}
       <div className="header-top">
         <div className="container">
           <ul className="header-social-container">
@@ -119,6 +121,7 @@ const Header = (props) => {
         </div>
       </div>
 
+      {/* Site logo, search bar */}
       <div className="header-main">
         <div className="container">
           <a href="/" className="header-logo">
@@ -144,7 +147,7 @@ const Header = (props) => {
           <div className="header-user-actions">
             <button className="action-btn" onClick={like}>
               <ion-icon name="heart-outline"></ion-icon>
-              {/* <span className="count">0</span> */}
+              <span className="count">{likeItems.length}</span>
             </button>
 
             <button className="action-btn" onClick={cart}>
@@ -152,6 +155,7 @@ const Header = (props) => {
               <span className="count">{cartItems.length}</span>
             </button>
 
+            {/* profile menu */}
             <button className="action-btn" onClick={handleClick}>
               <ion-icon name="person-outline"></ion-icon>
             </button>
@@ -193,7 +197,7 @@ const Header = (props) => {
                 <MenuItem onClick={(handleClose, account)}>
                   <Avatar
                     alt="user_profile"
-                    src={props.user.avatar ? props.user.avatar.url : null}
+                    src={props.user ? props.user.avatar.url : null}
                   />
                   Profile
                 </MenuItem>
@@ -203,6 +207,8 @@ const Header = (props) => {
                   </ListItemIcon>
                   Orders
                 </MenuItem>
+
+                {/* admin button for admin role*/}
                 {props.user.role === "admin" && (
                   <MenuItem onClick={(handleClose, dashboard)}>
                     <ListItemIcon>
@@ -523,7 +529,7 @@ const Header = (props) => {
         <button className="action-btn">
           <ion-icon name="heart-outline"></ion-icon>
 
-          <span className="count">0</span>
+          <span className="count">{likeItems.length}</span>
         </button>
 
         <button className="action-btn" onClick={another__handleClick}>
