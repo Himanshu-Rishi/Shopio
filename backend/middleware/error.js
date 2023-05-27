@@ -3,7 +3,7 @@ const Errorhandler = require("../utils/errorhandler");
 // error handler for simple error
 const simple_error = (err, req, res, next) => {
   err.statusCode = err.statusCode || 500;
-  err.message ||= "Internal Server Error";
+  err.message || "Internal Server Error";
   if (err.name === "CastError") {
     err.message = `Resource not found. Invalid ${err.path}`;
     err = new Errorhandler(err.message, 400);

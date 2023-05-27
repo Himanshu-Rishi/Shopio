@@ -11,9 +11,7 @@ const fileUpload = require("express-fileupload")
 const dotenv = require("dotenv");
 // const path = require("path");
 
-dotenv.config({
-  path: "backend/config/config.env",
-});
+dotenv.config();
 app.use(express.json());
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({extended: true}))

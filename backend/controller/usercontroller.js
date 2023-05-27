@@ -80,7 +80,7 @@ exports.forgetPassword = async_error(async (req, res, next) => {
     "host"
   )}/password/reset/${resetToken}`;
 
-  const message = `Your password reset token is :- \n\n ${resetPasswordURL} \n\n If you have not requested this email then, please ignore it.`;
+  const message = `Your password reset token is :- \n\n ${resetPasswordUrl} \n\n If you have not requested this email then, please ignore it.`;
   try {
     await sendEmail({
       email: user.email,
