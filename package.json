@@ -1,15 +1,14 @@
 {
   "name": "ecommerce",
   "version": "1.0.0",
-  "description": "Website under development.",
-  "main": "backend/server.js",
+  "description": "Shopio - Ecommerce Website.",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "concurrently \"node backend/server.js\" \"cd frontend && npm start\"",
     "start": "node backend/server.js",
     "client": "npm start --prefix frontend",
-    "postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix frontend && npm run build --prefix frontend",
-    "type": "module"
+    "postbuild": "npm install --prefix frontend && npm run build --prefix frontend"
   },
   "repository": {
     "type": "git",
