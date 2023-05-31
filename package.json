@@ -2,20 +2,20 @@
   "name": "ecommerce",
   "version": "1.0.0",
   "description": "Website under development.",
+  "type": "module",
   "main": "backend/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "concurrently \"node backend/server.js\" \"cd frontend && npm start\"",
-    "start": "node backend/backend",
+    "start": "node backend/server.js",
     "client": "npm start --prefix frontend",
-    "postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix frontend && npm run build --prefix frontend",
-    "type": "module"
+    "postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix frontend && npm run build --prefix frontend"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Himanshu-Rishi/Ecommerce-Website.git"
   },
-  "author": "",
+  "author": "Himanshu Rishi",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Himanshu-Rishi/Ecommerce-Website/issues"
