@@ -12,7 +12,7 @@ import SpellcheckIcon from "@mui/icons-material/Spellcheck";
 import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
 import SideBar from "./Sidebar";
 import { UPDATE_PRODUCT_RESET } from "../../constants/productConstants";
-import { useNavigate, useParams } from "react-router-dom";
+import {  useParams } from "react-router-dom";
 import Header from "../layout/Header/Header";
 import SignInHeader from "../layout/Header/SignInHeader";
 import { Button } from "@mui/material";
