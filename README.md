@@ -2,8 +2,8 @@
   
 # Shopio
 
-<a href="https://codlax.vercel.app/">
-  <img src="https://res.cloudinary.com/dbymhpzhq/image/upload/v1684331660/code_doabku.png" alt="Logo" width="80" height="80">  
+<a href="https://github.com/Himanshu-Rishi/Shopio/">
+  <img src="https://res.cloudinary.com/dwtntbtvy/image/upload/v1685695913/github%20project%20showbuzz/shopio/Shopio_Logo_dyn9y2.png" alt="Logo" width="80" height="80">  
 </a>
 
 
