@@ -1,6 +1,6 @@
 <div align="center">
   
-# Codlax
+# Shopio
 
 <a href="https://codlax.vercel.app/">
   <img src="https://res.cloudinary.com/dbymhpzhq/image/upload/v1684331660/code_doabku.png" alt="Logo" width="80" height="80">  
@@ -25,8 +25,27 @@ Looking for a seamless shopping experience without leaving the comfort of your h
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-![screenshot](https://res.cloudinary.com/dbymhpzhq/image/upload/v1684343980/Screenshot_2023-05-17_at_10.49.28_PM_h1bxso.png)
-![screenshot](https://res.cloudinary.com/dbymhpzhq/image/upload/v1684344569/Screenshot_2023-05-17_at_10.59.14_PM_tj20lp.png)
+![screenshot](https://res.cloudinary.com/dwtntbtvy/image/upload/v1685694282/github%20project%20showbuzz/shopio/Screenshot_2023-06-02_at_1.49.29_PM_zowlvx.png)
+![screenshot](https://res.cloudinary.com/dwtntbtvy/image/upload/v1685694282/github%20project%20showbuzz/shopio/Screenshot_2023-06-02_at_1.49.49_PM_tenelb.png)
+![screenshot](https://res.cloudinary.com/dwtntbtvy/image/upload/v1685694283/github%20project%20showbuzz/shopio/Screenshot_2023-06-02_at_1.50.01_PM_n7x5rg.png)
+![screenshot](https://res.cloudinary.com/dwtntbtvy/image/upload/v1685694285/github%20project%20showbuzz/shopio/Screenshot_2023-06-02_at_1.50.10_PM_lpkj10.png)
+![screenshot](https://res.cloudinary.com/dwtntbtvy/image/upload/v1685694285/github%20project%20showbuzz/shopio/Screenshot_2023-06-02_at_1.50.21_PM_f3ouer.png)
+![screenshot](https://res.cloudinary.com/dwtntbtvy/image/upload/v1685694286/github%20project%20showbuzz/shopio/Screenshot_2023-06-02_at_1.50.30_PM_l0xs4d.png)
+![screenshot](https://res.cloudinary.com/dwtntbtvy/image/upload/v1685694286/github%20project%20showbuzz/shopio/Screenshot_2023-06-02_at_1.50.39_PM_yzmw1i.png)
+![screenshot](https://res.cloudinary.com/dwtntbtvy/image/upload/v1685694281/github%20project%20showbuzz/shopio/Screenshot_2023-06-02_at_1.50.52_PM_phmik1.png)
+![screenshot](https://res.cloudinary.com/dwtntbtvy/image/upload/v1685694281/github%20project%20showbuzz/shopio/Screenshot_2023-06-02_at_1.51.02_PM_wkqkgp.png)
+![screenshot](https://res.cloudinary.com/dwtntbtvy/image/upload/v1685694284/github%20project%20showbuzz/shopio/Screenshot_2023-06-02_at_1.51.30_PM_wsqovf.png)
+![screenshot](https://res.cloudinary.com/dwtntbtvy/image/upload/v1685694283/github%20project%20showbuzz/shopio/Screenshot_2023-06-02_at_1.52.46_PM_qgdxws.png)
+![screenshot](https://res.cloudinary.com/dwtntbtvy/image/upload/v1685694281/github%20project%20showbuzz/shopio/Screenshot_2023-06-02_at_1.52.31_PM_iecbgt.png)
+![screenshot](https://res.cloudinary.com/dwtntbtvy/image/upload/v1685694283/github%20project%20showbuzz/shopio/Screenshot_2023-06-02_at_1.52.46_PM_qgdxws.png)
+![screenshot](https://res.cloudinary.com/dwtntbtvy/image/upload/v1685694282/github%20project%20showbuzz/shopio/Screenshot_2023-06-02_at_1.53.54_PM_pk8psx.png)
+![screenshot](https://res.cloudinary.com/dwtntbtvy/image/upload/v1685694281/github%20project%20showbuzz/shopio/Screenshot_2023-06-02_at_1.53.23_PM_psgwtc.png)
+![screenshot](https://res.cloudinary.com/dwtntbtvy/image/upload/v1685694283/github%20project%20showbuzz/shopio/Screenshot_2023-06-02_at_1.53.46_PM_n3yqnz.png)
+
+
+
+
+
 
 An online platform that allows businesses to sell products and services over the internet.Has a
 friendly and simple UI with modern styles. Integrated payments using Stripe. User can easily access their personal details like
