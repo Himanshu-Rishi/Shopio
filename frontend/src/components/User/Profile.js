@@ -5,7 +5,7 @@ import Footer from "../layout/Footer/Footer";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Loader from "../layout/Loader/Loader";
-import "./Profile.css"
+import "./Profile.css";
 const Profile = (props) => {
   const { user, loading, isAuthenticated } = useSelector((state) => state.user);
   const history = useNavigate();
@@ -14,16 +14,13 @@ const Profile = (props) => {
       history("/login");
     }
   }, [history, isAuthenticated]);
-  function handleorders()
-  {
-    history('/orders')
+  function handleorders() {
+    history("/orders");
   }
-  function updateProfile()
-  {
-    history("/profile/update")
+  function updateProfile() {
+    history("/profile/update");
   }
-  function handlePassword()
-  {
+  function handlePassword() {
     history("/password/update");
   }
   return (
@@ -39,30 +36,39 @@ const Profile = (props) => {
             <>
               <Header user={user} isAuthenticated={isAuthenticated} />
               <div className="container">
-                <div>
-                  <h2>Profile</h2>
-                  <div className="image__seciton">
-                    <img src={user.avatar.url} alt="profile_pic" />
-                  </div>
-                  <div className="profile__button">
-                    <button className="profile__btn" onClick={updateProfile}>Update Profile</button>
+                <h2 className="profile__heading">Profile</h2>
+                <p className="profile__subheading">User's Profile Section</p>
+                <div className="profile__box">
+                  <div className="user__image_section">
+                    <div className="image__seciton">
+                      <img src={user.avatar.url} alt="profile_pic" />
+                    </div>
+                    <div className="profile__button">
+                      <button className="profile__btn" onClick={updateProfile}>
+                        Update Profile
+                      </button>
+                    </div>
                   </div>
                   <div className="user__text__section">
                     <div className="user__name">
-                      Name: <span>{user.name}</span>
+                      Name: <span className="span__box">{user.name}</span>
                     </div>
                     <div className="user__email">
-                      Email: <span>{user.email}</span>
+                      Email: <span className="span__box">{user.email}</span>
                     </div>
                     <div className="user__info">
-                      Account Created: <span>{user.createdAt}</span>
+                      Account Created: <span className="span__box">{user.created_at}</span>
                     </div>
                     <div className="user__role">
-                      User Role: <span>{user.role}</span>
+                      User Role: <span className="span__box">{user.role}</span>
                     </div>
                     <div className="button__section">
-                      <button className="profile__btn" onClick={handleorders}>My Orders</button>
-                      <button className="profile__btn" onClick={handlePassword}>Change Password</button>
+                      <button className="profile__btn" onClick={handleorders}>
+                        My Orders
+                      </button>
+                      <button className="profile__btn" onClick={handlePassword}>
+                        Change Password
+                      </button>
                     </div>
                   </div>
                 </div>
