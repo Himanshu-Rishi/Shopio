@@ -29,6 +29,8 @@ import {
   DELETE_PRODUCT_FAIL,
 } from "../constants/productConstants";
 
+const url = "https://shopio-backend.onrender.com";
+
 export const getProduct =
   (keyword = "", currentPage = 1, price = [0, 25000], category, Ratings = 0) =>
   async (dispatch) => {
@@ -37,12 +39,12 @@ export const getProduct =
         type: ALL_PRODUCT_REQUEST,
       });
 
-      let link = `/api/v1/products?keyword=${keyword}&page=${currentPage}&price[gt]=${price[0]}&price[lte]=${price[1]}&ratings[gte]=${Ratings}`;
+      let link = `${url}/api/v1/products?keyword=${keyword}&page=${currentPage}&price[gt]=${price[0]}&price[lte]=${price[1]}&ratings[gte]=${Ratings}`;
       if (category) {
         if (category === "All") {
-          link = `/api/v1/products?keyword=${keyword}&page=${currentPage}&price[gt]=${price[0]}&price[lte]=${price[1]}&ratings[gte]=${Ratings}`;
+          link = `${url}/api/v1/products?keyword=${keyword}&page=${currentPage}&price[gt]=${price[0]}&price[lte]=${price[1]}&ratings[gte]=${Ratings}`;
         } else {
-          link = `/api/v1/products?keyword=${keyword}&page=${currentPage}&price[gt]=${price[0]}&price[lte]=${price[1]}&category=${category}&ratings[gte]=${Ratings}`;
+          link = `${url}/api/v1/products?keyword=${keyword}&page=${currentPage}&price[gt]=${price[0]}&price[lte]=${price[1]}&category=${category}&ratings[gte]=${Ratings}`;
         }
       }
       const { data } = await axios.get(link);
