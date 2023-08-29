@@ -9,12 +9,13 @@ const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser")
 const fileUpload = require("express-fileupload")
 const dotenv = require("dotenv");
-
+const cors = require("cors")
 dotenv.config();
 app.use(express.json());
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(fileUpload());
+app.use(cors());
 
 app.get('/', (req, res)=>
 {
