@@ -1,8 +1,9 @@
 import axios from "axios";
 import { ADD_TO_LIKE, REMOVE_LIKED_ITEM } from "../constants/likeConstants";
+const url = "https://shopio-backend.onrender.com";
 
 export const addItemsToLike = (id, quantity) => async (dispatch, getState) => {
-  const { data } = await axios.get(`/api/v1/product/${id}`);
+  const { data } = await axios.get(`${url}/api/v1/product/${id}`);
   dispatch({
     type: ADD_TO_LIKE,
     payload: {
@@ -25,5 +26,8 @@ export const removeItemsFromLike = (id) => async (dispatch, getState) => {
     type: REMOVE_LIKED_ITEM,
     payload: id,
   });
-  localStorage.setItem("likeItems", JSON.stringify(getState().favourite.likeItems));
+  localStorage.setItem(
+    "likeItems",
+    JSON.stringify(getState().favourite.likeItems)
+  );
 };
