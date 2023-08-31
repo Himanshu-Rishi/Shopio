@@ -38,7 +38,7 @@ import {
   ALL_USERS_REQUEST,
 } from "../constants/userConstants";
 
-const url = "https://shopio-backend.onrender.com";
+const url = "";
 
 // Login
 export const login = (email, password) => async (dispatch) => {
@@ -52,7 +52,7 @@ export const login = (email, password) => async (dispatch) => {
       { email, password },
       config
     );
-
+    localStorage.setItem("token", data.token);
     dispatch({ type: LOGIN_SUCCESS, payload: data.user });
   } catch (error) {
     dispatch({ type: LOGIN_FAIL, payload: error.response.data.message });
@@ -71,7 +71,7 @@ export const register = (userData) => async (dispatch) => {
       userData,
       config
     );
-
+    localStorage.setItem("token", data.token);
     dispatch({ type: REGISTER_SUCCESS, payload: data.user });
   } catch (error) {
     dispatch({ type: REGISTER_FAIL, payload: error.response.data.message });
@@ -82,8 +82,12 @@ export const register = (userData) => async (dispatch) => {
 export const loadUser = () => async (dispatch) => {
   try {
     dispatch({ type: LOAD_USER_REQUEST });
-
-    const { data } = await axios.get(`${url}/api/v1/profile`);
+    let config = {
+      headers: {
+        authorization: "Bearer " + localStorage.getItem("token"),
+      },
+    };
+    const { data } = await axios.get(`${url}/api/v1/profile`, config);
     dispatch({ type: LOAD_USER_SUCCESS, payload: data.user });
   } catch (error) {
     dispatch({ type: LOAD_USER_FAIL, payload: error.response.data.message });
@@ -94,7 +98,8 @@ export const loadUser = () => async (dispatch) => {
 export const logout = () => async (dispatch) => {
   try {
     await axios.get(`${url}/api/v1/logout`);
-    dispatch({ type: LOGOUT_USER_SUCCESS});
+    localStorage.removeItem("token");
+    dispatch({ type: LOGOUT_USER_SUCCESS });
   } catch (error) {
     dispatch({ type: LOGOUT_USER_FAIL, payload: error.response.data.message });
   }
@@ -105,7 +110,12 @@ export const updateProfile = (userData) => async (dispatch) => {
   try {
     dispatch({ type: UPDATE_PROFILE_REQUEST });
 
-    const config = { headers: { "Content-Type": "multipart/form-data" } };
+    const config = {
+      headers: {
+        "Content-Type": "multipart/form-data",
+        authorization: "Bearer " + localStorage.getItem("token"),
+      },
+    };
 
     const { data } = await axios.put(
       `${url}/api/v1/profile/update`,
@@ -115,7 +125,10 @@ export const updateProfile = (userData) => async (dispatch) => {
 
     dispatch({ type: UPDATE_PROFILE_SUCCESS, payload: data.success });
   } catch (error) {
-    dispatch({ type: UPDATE_PROFILE_FAIL, payload: error.response.data.message });
+    dispatch({
+      type: UPDATE_PROFILE_FAIL,
+      payload: error.response.data.message,
+    });
   }
 };
 
@@ -124,7 +137,12 @@ export const updatePassword = (passwords) => async (dispatch) => {
   try {
     dispatch({ type: UPDATE_PASSWORD_REQUEST });
 
-    const config = { headers: { "Content-Type": "multipart/form-data" } };
+    const config = {
+      headers: {
+        "Content-Type": "multipart/form-data",
+        authorization: "Bearer " + localStorage.getItem("token"),
+      },
+    };
 
     const { data } = await axios.put(
       `${url}/api/v1/password/update`,
@@ -134,7 +152,10 @@ export const updatePassword = (passwords) => async (dispatch) => {
 
     dispatch({ type: UPDATE_PASSWORD_SUCCESS, payload: data.success });
   } catch (error) {
-    dispatch({ type: UPDATE_PASSWORD_FAIL, payload: error.response.data.message });
+    dispatch({
+      type: UPDATE_PASSWORD_FAIL,
+      payload: error.response.data.message,
+    });
   }
 };
 
@@ -143,7 +164,12 @@ export const forgotPassword = (email) => async (dispatch) => {
   try {
     dispatch({ type: FORGOT_PASSWORD_REQUEST });
 
-    const config = { headers: { "Content-Type": "multipart/form-data" } };
+    const config = {
+      headers: {
+        "Content-Type": "multipart/form-data",
+        authorization: "Bearer " + localStorage.getItem("token"),
+      },
+    };
 
     const { data } = await axios.post(
       `${url}/api/v1/password/forgot`,
@@ -153,33 +179,50 @@ export const forgotPassword = (email) => async (dispatch) => {
 
     dispatch({ type: FORGOT_PASSWORD_SUCCESS, payload: data.message });
   } catch (error) {
-    dispatch({ type: FORGOT_PASSWORD_FAIL, payload: error.response.data.message });
+    dispatch({
+      type: FORGOT_PASSWORD_FAIL,
+      payload: error.response.data.message,
+    });
   }
 };
 
 // Reset Password
-export const resetPassword = (token, password, confirmPassword) => async (dispatch) => {
-  try {
-    dispatch({ type: RESET_PASSWORD_REQUEST });
+export const resetPassword =
+  (token, password, confirmPassword) => async (dispatch) => {
+    try {
+      dispatch({ type: RESET_PASSWORD_REQUEST });
 
-    const config = { headers: { "Content-Type": "application/json" } };
-    const { data } = await axios.put(
-      `${url}/api/v1/password/reset/${token}`,
-      { password, confirmPassword },
-      config
-    );
+      const config = {
+        headers: {
+          "Content-Type": "application/json",
+          authorization: "Bearer " + localStorage.getItem("token"),
+        },
+      };
+      const { data } = await axios.put(
+        `${url}/api/v1/password/reset/${token}`,
+        { password, confirmPassword },
+        config
+      );
 
-    dispatch({ type: RESET_PASSWORD_SUCCESS, payload: data.success });
-  } catch (error) {
-    dispatch({ type: RESET_PASSWORD_FAIL, payload: error.response.data.message });
-  }
-};
+      dispatch({ type: RESET_PASSWORD_SUCCESS, payload: data.success });
+    } catch (error) {
+      dispatch({
+        type: RESET_PASSWORD_FAIL,
+        payload: error.response.data.message,
+      });
+    }
+  };
 
 // get All Users
 export const getAllUsers = () => async (dispatch) => {
   try {
     dispatch({ type: ALL_USERS_REQUEST });
-    const { data } = await axios.get(`${url}/api/v1/admin/users`);
+    let config = {
+      headers: {
+        authorization: "Bearer " + localStorage.getItem("token"),
+      },
+    };
+    const { data } = await axios.get(`${url}/api/v1/admin/users`, config);
 
     dispatch({ type: ALL_USERS_SUCCESS, payload: data.users });
   } catch (error) {
@@ -191,7 +234,12 @@ export const getAllUsers = () => async (dispatch) => {
 export const getUserDetails = (id) => async (dispatch) => {
   try {
     dispatch({ type: USER_DETAILS_REQUEST });
-    const { data } = await axios.get(`${url}/api/v1/admin/user/${id}`);
+    let config = {
+      headers: {
+        authorization: "Bearer " + localStorage.getItem("token"),
+      },
+    };
+    const { data } = await axios.get(`${url}/api/v1/admin/user/${id}`, config);
 
     dispatch({ type: USER_DETAILS_SUCCESS, payload: data.user });
   } catch (error) {
@@ -203,8 +251,12 @@ export const getUserDetails = (id) => async (dispatch) => {
 export const updateUser = (id, userData) => async (dispatch) => {
   try {
     dispatch({ type: UPDATE_USER_REQUEST });
-
-    const config = { headers: { "Content-Type": "application/json" } };
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+        authorization: "Bearer " + localStorage.getItem("token"),
+      },
+    };
 
     const { data } = await axios.put(
       `${url}/api/v1/admin/user/${id}`,
@@ -225,8 +277,15 @@ export const updateUser = (id, userData) => async (dispatch) => {
 export const deleteUser = (id) => async (dispatch) => {
   try {
     dispatch({ type: DELETE_USER_REQUEST });
-
-    const { data } = await axios.delete(`${url}/api/v1/admin/user/${id}`);
+    let config = {
+      headers: {
+        authorization: "Bearer " + localStorage.getItem("token"),
+      },
+    };
+    const { data } = await axios.delete(
+      `${url}/api/v1/admin/user/${id}`,
+      config
+    );
 
     dispatch({ type: DELETE_USER_SUCCESS, payload: data });
   } catch (error) {

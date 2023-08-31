@@ -22,23 +22,21 @@ import {
 
 import axios from "axios";
 
-const url = "https://shopio-backend.onrender.com";
+const url = "";
+// const url = "https://shopio-backend.onrender.com";
 
 // Create Order
 export const createOrder = (order) => async (dispatch) => {
   try {
     dispatch({ type: CREATE_ORDER_REQUEST });
-
     const config = {
       headers: {
         "Content-Type": "application/json",
+        authorization: "Bearer " + localStorage.getItem("token"),
       },
     };
     const { data } = await axios.post(`${url}/api/v1/order/new`, order, config);
-    localStorage.removeItem(
-      "cartItems",
-      {}
-    );
+    localStorage.removeItem("cartItems", {});
     dispatch({ type: CREATE_ORDER_SUCCESS, payload: data });
   } catch (error) {
     dispatch({
@@ -52,8 +50,12 @@ export const createOrder = (order) => async (dispatch) => {
 export const myOrders = () => async (dispatch) => {
   try {
     dispatch({ type: MY_ORDERS_REQUEST });
-
-    const { data } = await axios.get(`${url}/api/v1/myorders`);
+    let config = {
+      headers: {
+        authorization: "Bearer " + localStorage.getItem("token"),
+      },
+    };
+    const { data } = await axios.get(`${url}/api/v1/myorders`, config);
 
     dispatch({ type: MY_ORDERS_SUCCESS, payload: data.orders });
   } catch (error) {
@@ -68,8 +70,13 @@ export const myOrders = () => async (dispatch) => {
 export const getAllOrders = () => async (dispatch) => {
   try {
     dispatch({ type: ALL_ORDERS_REQUEST });
+    let config = {
+      headers: {
+        authorization: "Bearer " + localStorage.getItem("token"),
+      },
+    };
 
-    const { data } = await axios.get(`${url}/api/v1/admin/orders`);
+    const { data } = await axios.get(`${url}/api/v1/admin/orders`, config);
 
     dispatch({ type: ALL_ORDERS_SUCCESS, payload: data.orders });
   } catch (error) {
@@ -88,6 +95,7 @@ export const updateOrder = (id, order) => async (dispatch) => {
     const config = {
       headers: {
         "Content-Type": "application/json",
+        authorization: "Bearer " + localStorage.getItem("token"),
       },
     };
     const { data } = await axios.put(
@@ -109,8 +117,15 @@ export const updateOrder = (id, order) => async (dispatch) => {
 export const deleteOrder = (id) => async (dispatch) => {
   try {
     dispatch({ type: DELETE_ORDER_REQUEST });
-
-    const { data } = await axios.delete(`${url}/api/v1/admin/order/${id}`);
+    let config = {
+      headers: {
+        authorization: "Bearer " + localStorage.getItem("token"),
+      },
+    };
+    const { data } = await axios.delete(
+      `${url}/api/v1/admin/order/${id}`,
+      config
+    );
 
     dispatch({ type: DELETE_ORDER_SUCCESS, payload: data.success });
   } catch (error) {
@@ -125,8 +140,12 @@ export const deleteOrder = (id) => async (dispatch) => {
 export const getOrderDetails = (id) => async (dispatch) => {
   try {
     dispatch({ type: ORDER_DETAILS_REQUEST });
-
-    const { data } = await axios.get(`${url}/api/v1/order/${id}`);
+    let config = {
+      headers: {
+        authorization: "Bearer " + localStorage.getItem("token"),
+      },
+    };
+    const { data } = await axios.get(`${url}/api/v1/order/${id}`, config);
     dispatch({ type: ORDER_DETAILS_SUCCESS, payload: data.order });
   } catch (error) {
     dispatch({

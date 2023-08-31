@@ -29,7 +29,8 @@ import {
   DELETE_PRODUCT_FAIL,
 } from "../constants/productConstants";
 
-const url = "https://shopio-backend.onrender.com";
+const url = "";
+// const url = "https://shopio-backend.onrender.com";
 
 export const getProduct =
   (keyword = "", currentPage = 1, price = [0, 25000], category, Ratings = 0) =>
@@ -154,7 +155,12 @@ export const getAdminProducts = () => async (dispatch) => {
     dispatch({
       type: ALL_ADMIN_PRODUCT_REQUEST,
     });
-    const { data } = await axios.get(`${url}//api/v1/admin/products`);
+    let config = {
+      headers: {
+        authorization: "Bearer " + localStorage.getItem("token"),
+      },
+    };
+    const { data } = await axios.get(`${url}/api/v1/admin/products`, config);
     dispatch({
       type: ALL_ADMIN_PRODUCT_SUCCESS,
       payload: data,
@@ -171,9 +177,9 @@ export const getAdminProducts = () => async (dispatch) => {
 export const createProduct = (productData) => async (dispatch) => {
   try {
     dispatch({ type: NEW_PRODUCT_REQUEST });
-
     const config = {
       headers: { "Content-Type": "application/json" },
+      authorization: "Bearer " + localStorage.getItem("token"),
     };
 
     const { data } = await axios.post(
@@ -201,6 +207,7 @@ export const updateProduct = (id, productData) => async (dispatch) => {
 
     const config = {
       headers: { "Content-Type": "application/json" },
+      authorization: "Bearer " + localStorage.getItem("token"),
     };
 
     const { data } = await axios.put(
@@ -225,8 +232,15 @@ export const updateProduct = (id, productData) => async (dispatch) => {
 export const deleteProduct = (id) => async (dispatch) => {
   try {
     dispatch({ type: DELETE_PRODUCT_REQUEST });
-
-    const { data } = await axios.delete(`${url}//api/v1/admin/product/${id}`);
+    let config = {
+      headers: {
+        authorization: "Bearer " + localStorage.getItem("token"),
+      },
+    };
+    const { data } = await axios.delete(
+      `${url}//api/v1/admin/product/${id}`,
+      config
+    );
 
     dispatch({
       type: DELETE_PRODUCT_SUCCESS,
