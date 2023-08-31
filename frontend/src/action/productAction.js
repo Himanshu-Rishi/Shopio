@@ -29,8 +29,8 @@ import {
   DELETE_PRODUCT_FAIL,
 } from "../constants/productConstants";
 
-const url = "";
-// const url = "https://shopio-backend.onrender.com";
+// const url = "";
+const url = "https://shopio-backend.onrender.com";
 
 export const getProduct =
   (keyword = "", currentPage = 1, price = [0, 25000], category, Ratings = 0) =>

@@ -22,8 +22,8 @@ import {
 
 import axios from "axios";
 
-const url = "";
-// const url = "https://shopio-backend.onrender.com";
+// const url = "";
+const url = "https://shopio-backend.onrender.com";
 
 // Create Order
 export const createOrder = (order) => async (dispatch) => {

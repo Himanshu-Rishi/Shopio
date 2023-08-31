@@ -38,7 +38,8 @@ import {
   ALL_USERS_REQUEST,
 } from "../constants/userConstants";
 
-const url = "";
+// const url = "";
+const url = "https://shopio-backend.onrender.com";
 
 // Login
 export const login = (email, password) => async (dispatch) => {

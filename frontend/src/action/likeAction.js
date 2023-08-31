@@ -1,7 +1,7 @@
 import axios from "axios";
 import { ADD_TO_LIKE, REMOVE_LIKED_ITEM } from "../constants/likeConstants";
-const url = "";
-// const url = "https://shopio-backend.onrender.com";
+// const url = "";
+const url = "https://shopio-backend.onrender.com";
 
 export const addItemsToLike = (id, quantity) => async (dispatch, getState) => {
   const { data } = await axios.get(`${url}/api/v1/product/${id}`);
